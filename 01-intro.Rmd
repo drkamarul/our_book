@@ -1,0 +1,47 @@
+# Introduction to R
+
+## Installing R and RStudio
+Install R base package: http://www.r-project.org/
+
+Install RStudio: http://www.rstudio.com/
+
+## Getting familiar with the interface
+Consists of 4 tabs:
+1. Source
+2. Console
+3. Environment & History
+4. Misc. Most important Plots, Packages & Help
+
+## Basic tasks in R
+### R Script
+Text here.
+
+### Setting working directory
+Text here.
+
+### Packages
+Text here.
+
+#### Installation
+```{r eval=FALSE}
+install.packages("package.name")
+```
+#### Loading
+```{r eval=FALSE}
+library("package.name")
+```
+
+### Data management
+Text here.
+
+#### Loading data
+```{r eval=FALSE}
+read.csv("file.name")
+```
+For SPSS file, need `foreign` package
+```{r eval=FALSE}
+library("foreign")
+read.spss("file.name")
+```
+#### Entering data
+#### Editing data

@@ -43,5 +43,13 @@ For SPSS file, need `foreign` package
 library("foreign")
 read.spss("file.name")
 ```
+#### Data dimension
+```{r eval=FALSE}
+dim(data)
+```
+
 #### Entering data
+text here
+
 #### Editing data
+text here

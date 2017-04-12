@@ -1,5 +1,127 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Textual
 
 ## Descriptive statistics
+We are going to use builtin datasets in R. You can view the available datasets by
+```{r}
+data()
+```
+
+```{r}
+## Data sets in package ‘datasets’:
+
+## AirPassengers                     Monthly Airline Passenger Numbers 1949-1960
+## BJsales                           Sales Data with Leading Indicator
+## BJsales.lead (BJsales)            Sales Data with Leading Indicator
+## BOD                               Biochemical Oxygen Demand
+## CO2                               Carbon Dioxide Uptake in Grass Plants
+## ...
+```
+
+View the data, for example
+```{r}
+women
+```
+View the dimension, i.e. number of subjects and variables
+```{r}
+dim(women)
+```
+
+Obtaining mean
+```{r}
+mean(women$weight)
+```
+and median
+```{r}
+median(women$weight)
+```
+and sd
+```{r}
+sd(women$weight)
+```
+and IQR
+```{r}
+IQR(women$weight)
+```
+There 9 types of IQR in R, the default one is type 7. You may change this to type 6 (Minitab and SPSS),
+```{r}
+IQR(women$weight, type = 6)
+```
+and minimum, maximum and range
+```{r}
+min(women$weight)
+max(women$weight)
+range(women$weight)
+```
+
+However, it is actually simpler to obtain most these in one single command for both weight and height
+```{r}
+summary(women)
+```
+even simpler, all of the statistics using *psych* package
+```{r eval = FALSE}
+install.packages("psych")
+```
+
+```{r}
+library(psych)
+describe(women)
+```
+
+
 
 ## Tables
+
+### Count, proportion, percentage and cross-tabulation
+Use *birthwt* dataset from MASS package.
+```{r eval=FALSE}
+install.packages("MASS")
+```
+
+```{r}
+library(MASS)
+head(birthwt)  # First six subjects
+```
+
+Count and proportion,
+```{r}
+table(birthwt$smoke)
+prop.table(table(birthwt$smoke))
+```
+
+Cross-tabulation of smoking vs low birth weight baby,
+```{r}
+table(birthwt$smoke, birthwt$low)  # without row/column labels
+table("Smoking status" = birthwt$smoke, "Low birth weight" = birthwt$low)  # with row/column labels
+```
+To add value labels to the data for a nicer table, we use *factor*
+```{r}
+birthwt$smoking = factor(birthwt$smoke, levels = 0:1, labels = c("Non-smoker", "Smoker"))
+birthwt$low.weight = factor(birthwt$low, levels = 0:1, labels = c("Low <2.5kg", "Normal >2.5kg"))
+head(birthwt)  # we added two new variables with factors
+table(birthwt$smoking)
+prop.table(table(birthwt$smoking))*100  # in percent
+cbind(n = table(birthwt$smoking), "%" = 100*prop.table(table(birthwt$smoking)))  # using cbind
+table(birthwt$smoking, birthwt$low.weight)
+```
+Save table for later view and analysis,
+```{r}
+smoke.x.weight = table(birthwt$smoking, birthwt$low.weight)
+smoke.x.weight
+```
+
+### Entering table data
+```{r}
+smoking = as.table(rbind(c(15, 5), c(7, 13)))
+smoking
+str(smoking)
+dimnames(smoking) = list(
+  Smoking = c("Yes", "No"),
+  Lung.CA = c("Yes", "No")
+)
+smoking
+```

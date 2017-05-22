@@ -4,6 +4,7 @@ output:
   html_document: default
 ---
 # Textual
+In this chapter, we will go through a number of R functions for basic statistics. We will mostly use the builtin functions (from R standard library). Extra packages will be introduced whenever necessary.
 
 ## Descriptive statistics
 We are going to use builtin datasets in R. You can view the available datasets by

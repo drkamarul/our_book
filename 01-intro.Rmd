@@ -1,55 +1,93 @@
+---
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+---
+
 # Introduction to R
+This chapter introduces readers to the basics of working with data in R. We will start with installing R in your computer and getting familiar with RStudio interface. These will be followed by the basics of handling data in R.
 
-## Installing R and RStudio
+## R and RStudio
+### Installing R and RStudio
 Install R base package: http://www.r-project.org/
-
 Install RStudio: http://www.rstudio.com/
 
-## Getting familiar with the interface
+### Getting familiar with the interface
 Consists of 4 tabs:
 1. Source
 2. Console
 3. Environment & History
 4. Misc. Most important Plots, Packages & Help
+<img>
 
-## Basic tasks in R
-### R Script
-Text here.
+### R script
+source tab
+important
+everything done here
+keep track what's going on
+not recommended to type in console
 
-### Setting working directory
-Text here.
+### Working with packages
+what is package/library
 
-### Packages
-Text here.
-
-#### Installation
+#### Installing packages
 ```{r eval=FALSE}
 install.packages("package.name")
 ```
-#### Loading
+
+#### Loading libraries
 ```{r eval=FALSE}
 library("package.name")
 ```
 
-### Data management
-Text here.
+## Working with Data
+### Setting working directory
+general steps
+-codes
+-point-and-click
+<img>
 
-#### Loading data
+### Data management
+concerns reading data from data set, dsiplaying data.
+advanced, direct input in the code, esp. useful for tables.
+
+#### Reading data set
+Easiest is to read .csv file.
 ```{r eval=FALSE}
 read.csv("file.name")
 ```
+
 For SPSS file, need `foreign` package
 ```{r eval=FALSE}
 library("foreign")
 read.spss("file.name")
 ```
-#### Data dimension
+
+Can read data in table format from text file.
+From text file
 ```{r eval=FALSE}
-dim(data)
+read.table("file.name", header = TRUE)
 ```
 
-#### Entering data
-text here
+#### Viewing data set
+Easy, just type the name,
+```{r eval=FALSE}
+data
+```
+Nicer, using `View()`
+```{r eval=FALSE}
+View(data)
+```
+Important tasks
+```{r eval=FALSE}
+dim(data)
+str(data)
+names(data)
+```
 
-#### Editing data
-text here
+### More about data management
+subsetting
+new variable
+recoding
+direct input for table

@@ -11,10 +11,12 @@ This chapter introduces readers to the basics of working with data in R. We will
 ## R and RStudio
 ### Installing R and RStudio
 Install R base package: http://www.r-project.org/
+
 Install RStudio: http://www.rstudio.com/
 
 ### Getting familiar with the interface
 Consists of 4 tabs:
+
 1. Source
 2. Console
 3. Environment & History
@@ -23,10 +25,11 @@ Consists of 4 tabs:
 
 ### R script
 source tab
-important
-everything done here
-keep track what's going on
-not recommended to type in console
+
+* important
+* everything done here
+* keep track what's going on
+* not recommended to type in console
 
 ### Working with packages
 what is package/library
@@ -44,12 +47,14 @@ library("package.name")
 ## Working with Data
 ### Setting working directory
 general steps
--codes
--point-and-click
+
+* codes
+* point-and-click
 <img>
 
 ### Data management
-concerns reading data from data set, dsiplaying data.
+concerns reading data from data set, displaying data.
+
 advanced, direct input in the code, esp. useful for tables.
 
 #### Reading data set
@@ -87,7 +92,7 @@ names(data)
 ```
 
 ### More about data management
-subsetting
-new variable
-recoding
-direct input for table
+* subsetting
+* new variable
+* recoding
+* direct input for table

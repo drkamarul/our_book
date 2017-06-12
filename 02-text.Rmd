@@ -1,12 +1,13 @@
 ---
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
+  word_document: default
 ---
 # Textual
 In this chapter, we will go through a number of R functions for basic statistics. We will mostly use the builtin functions (from R standard library). Extra packages will be introduced whenever necessary.
 
-## Descriptive statistics
+## Basic descriptive statistics
 We are going to use builtin datasets in R. You can view the available datasets by
 ```{r}
 data()
@@ -23,97 +24,111 @@ data()
 ## ...
 ```
 
-View the data, for example
+We will start by using `chickwts` data that contains both numerical (weight) and categorical (feed) variables. We can view the data,
 ```{r}
-women
+head(chickwts)
+tail(chickwts)
 ```
-View the dimension, i.e. number of subjects and variables
+View the dimension of the data (row and column).
 ```{r}
-dim(women)
+dim(chickwts)
+```
+Here we have 71 rows (71 subjects) and two columns (two variables).
+
+Next, view the names of the variables,
+```{r}
+names(chickwts)
+```
+and view the details about the data,
+```{r}
+str(chickwts)
+```
+which shows that `weight` is a numerical variable and `feed` is a factor or a categorical variable. `feed` consists of six categories or levels.
+
+We can view the levels in `feed`,
+```{r}
+levels(chickwts$feed)
 ```
 
-Obtaining mean
-```{r}
-mean(women$weight)
-```
-and median
-```{r}
-median(women$weight)
-```
-and sd
-```{r}
-sd(women$weight)
-```
-and IQR
-```{r}
-IQR(women$weight)
-```
-There 9 types of IQR in R, the default one is type 7. You may change this to type 6 (Minitab and SPSS),
-```{r}
-IQR(women$weight, type = 6)
-```
-and minimum, maximum and range
-```{r}
-min(women$weight)
-max(women$weight)
-range(women$weight)
-```
+### Describing a numerical variable
+A numberical variable is described by a number of descriptive statistics below.
 
-However, it is actually simpler to obtain most these in one single command for both weight and height
+To judge the central tendency of the `weight` variable, we obtain its mean,
 ```{r}
-summary(women)
+mean(chickwts$weight)
 ```
-even simpler, all of the statistics using *psych* package
+and median,
+```{r}
+median(chickwts$weight)
+```
+To judge its spread, we can view its minimum, maximum and range values
+```{r}
+min(chickwts$weight)
+max(chickwts$weight)
+range(chickwts$weight)
+```
+and obtain its standard deviation (SD)
+```{r}
+sd(chickwts$weight)
+```
+variance,
+```{r}
+var(chickwts$weight)
+```
+quantile,
+```{r}
+quantile(chickwts$weight)
+```
+and interquartile range (IQR)
+```{r}
+IQR(chickwts$weight)
+```
+There are nine types of quantile algorithms in R (for `quantile` and `IQR`), the default being type 7. You may change this to type 6 (Minitab and SPSS),
+```{r}
+quantile(chickwts$weight, type = 6)
+IQR(chickwts$weight, type = 6)
+```
+As an alternative to IQR, we can obtain its median absolute deviation (MAD),
+```{r}
+mad(chickwts$weight)
+```
+It is actually simpler to obtain most these in a single command,
+```{r}
+summary(chickwts$weight)
+```
+even simpler, obtain all of the statistics using `describe` in the `psych` package
 ```{r eval = FALSE}
 install.packages("psych")
 ```
-
 ```{r}
 library(psych)
-describe(women)
+describe(chickwts$weight)
 ```
 
 
+### Describing a categorical variable
+A categorical variable is described by its count, proportion and percentage by categories.
 
-## Tables
-
-### Count, proportion, percentage and cross-tabulation
-Use *birthwt* dataset from MASS package.
-```{r eval=FALSE}
-install.packages("MASS")
-```
-
+We obtain the count of the `feed` variable,
 ```{r}
-library(MASS)
-head(birthwt)  # First six subjects
+summary(chickwts$feed)
+table(chickwts$feed)
 ```
+both `summary` and `table` give the same result.
 
-Count and proportion,
+`prop.table` gives the proportion of the result from the count.
 ```{r}
-table(birthwt$smoke)
-prop.table(table(birthwt$smoke))
+prop.table(table(chickwts$feed))
 ```
-
-Cross-tabulation of smoking vs low birth weight baby,
+the result can be easily turned into percentage,
 ```{r}
-table(birthwt$smoke, birthwt$low)  # without row/column labels
-table("Smoking status" = birthwt$smoke, "Low birth weight" = birthwt$low)  # with row/column labels
+prop.table(table(chickwts$feed))*100
 ```
-To add value labels to the data for a nicer table, we use *factor*
+To view the count and the percentage together, we can use `cbind`,
 ```{r}
-birthwt$smoking = factor(birthwt$smoke, levels = 0:1, labels = c("Non-smoker", "Smoker"))
-birthwt$low.weight = factor(birthwt$low, levels = 0:1, labels = c("Low <2.5kg", "Normal >2.5kg"))
-head(birthwt)  # we added two new variables with factors
-table(birthwt$smoking)
-prop.table(table(birthwt$smoking))*100  # in percent
-cbind(n = table(birthwt$smoking), "%" = 100*prop.table(table(birthwt$smoking)))  # using cbind
-table(birthwt$smoking, birthwt$low.weight)
+cbind(n = table(chickwts$feed), "%" = prop.table(table(chickwts$feed))*100)
 ```
-Save table for later view and analysis,
-```{r}
-smoke.x.weight = table(birthwt$smoking, birthwt$low.weight)
-smoke.x.weight
-```
+We need the quotation marks " " around the percentage sign %, because % also serves a mathematical operator in R.
 
 ### Entering table data
 ```{r}

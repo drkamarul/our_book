@@ -1,14 +1,14 @@
 ---
 output:
+  word_document: default
   pdf_document: default
   html_document: default
-  word_document: default
 ---
 # Textual
 In this chapter, we will go through a number of R functions for basic statistics. The focus will be on the results that are presented in form of numbers in text or tables (textual). We will mostly use the builtin functions (from R standard library). Extra packages will be introduced whenever necessary.
 
 ## Basic descriptive statistics
-In this part, we are going to go the functions as applied to a variable. For this purpose, we are going to use builtin datasets in R. You can view the available datasets by
+In this part, we are going to use the functions as applied to a variable. For this purpose, we are going to use builtin datasets in R. You can view the available datasets by
 ```{r}
 data()
 ```
@@ -138,7 +138,7 @@ cbind(n = table(chickwts$feed), "%" = prop.table(table(chickwts$feed))*100)
 We need the quotation marks " " around the percentage sign %, because % also serves as a mathematical operator in R.
 
 ## More on descriptive statistics
-Just now, we view all the statistics as applied to a variable. In this part, we are going to view the statistics on a number of variables. This includes viewing a group of numerical variables or categorical variables, or a mixture of numerical and categorical variables. This is relevant in a sense that, most of the time, we want to view everything in one go (e.g. the statistics of all items in a questionnaire), compare the means of several groups and obtain cross-tabulation of categorical variables.
+Just now, we viewed all the statistics as applied to a variable. In this part, we are going to view the statistics on a number of variables. This includes viewing a group of numerical variables or categorical variables, or a mixture of numerical and categorical variables. This is relevant in a sense that, most of the time, we want to view everything in one go (e.g. the statistics of all items in a questionnaire), compare the means of several groups and obtain cross-tabulation of categorical variables.
 
 ### Describing numerical variables
 Let us use `women` dataset,
@@ -205,8 +205,23 @@ lapply(infert[c("education", "induced", "case", "spontaneous")], function(x) pro
 Notice here, whenever we do not need to specify extra operations on a basic function, e.g. `summary` and `table`, all we need to write after the comma in `lapply` is the basic function without `function(x)` and `(x)`.
 
 ### Describing the variables together
+In the preceeding sections, we intentionally went through the descriptive statistics of a variable, followed by a number of variables of the same type. This will give you the basics in dealing with the variables. Most commonly, the variables are described by groups or in form cross-tabulated counts/percentages.
 
 #### By groups
+To obtain all the descriptive statistics by group, we can use `by` with the relevant functions
+```{r}
+by(infert[c("age", "parity")], infert$case, summary)
+by(infert[c("age", "parity")], infert$case, describe)
+by(infert[c("education", "induced", "spontaneous")], infert$case, summary)
+by(infert[c("education", "induced", "spontaneous")], infert$case, function(x) lapply(x, table))
+```
+Please note that simply replacing `table` for `summary` as in `by(infert[c("education", "induced", "spontaneous")], infert$case, table)` will not work as intended. `education` will be nested in `induced`, which is nested in `spontaneous`, listed by `case` instead.
+
+We can also use `describeBy`, which is an the extension of `describe` in the `psych` package.
+```{r}
+describeBy(infert[c("age", "parity")], group = infert$case)
+```
+which is limited to numerical variables only.
 
 #### Simple cross-tabulation
 

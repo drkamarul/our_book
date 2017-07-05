@@ -1,0 +1,153 @@
+---
+title: "Workshop 4 - Exploratory Data Analysis : Graphs"
+author: "Kamarul Imran Musa"
+date: "14 March 2016"
+output: 
+  pdf_document:
+    toc: TRUE
+---
+
+\newpage
+
+# Prepare folder and data
+
+## Set the working directory
+
+This can be done in 2 ways:
+
+1. Using codes
+2. Using point and click
+
+```{r}
+setwd("E:/Epi_Stat_Matters/Workshop_GAM_USM/Day1/AM_Intro_R/Workshop_R_beginners_handsOn")
+
+```
+
+To use point and click, use the down arrow button next to *More* . Then click 'Set as working directory'
+
+## List the files inside the working directory
+
+All files will be displayed when you click 'Files'.
+
+Or you can use this code,
+
+```{r}
+list.files()
+```
+
+## Reading dataset from SPSS file (.sav) 
+
+Dataset in SPSS format will end with .sav. To read SPSS data into R we use 'foreign' library. 
+
+Create a object to represent the SPSS data that we will read into R.  
+
+```{r}
+library(foreign)
+dataSPSS<-read.spss('qol.sav', to.data.frame = TRUE)
+```
+
+
+# Describing data
+
+Let us examine the data
+
+```{r}
+str(dataSPSS)
+```
+
+Now, let us summarize our data
+
+```{r}
+summary(dataSPSS)
+```
+
+# Graphing or Plotting data
+
+You must ask yourselves these:
+1.  Which variable do you want to plot?
+2.  What is the type of that variable? Factor? Numerical?
+3.  Are you going to plot another variable together?
+
+## One variable: A categorical or factor variable
+
+We can create a simple barchart
+
+```{r}
+dist.sex<-table(dataSPSS$sex)
+barplot(dist.sex,
+        main='Sex distribution',
+        xlab='Sex')
+```
+
+
+## One variable: A numerical variable
+
+histogram
+
+```{r}
+hist(dataSPSS$age, main = 'Age',
+     xlab='Age in years',
+     ylab='Count')
+```
+
+## Two variables : A numerical with another numerical variable
+
+We will use *scatterplot* to plot 
+
+```{r}
+plot(dataSPSS$tahundx, dataSPSS$age,
+     main = 'Duration having DM VS age',
+     xlab = 'Duration of DM', ylab = 'Age',
+     pch = 19)
+```
+
+Let us make a fit line
+
+```{r}
+plot(dataSPSS$tahundx, dataSPSS$age,
+     main = 'Duration having DM VS age',
+     xlab = 'Duration of DM', ylab = 'Age',
+     pch = 19)
+abline(lm(dataSPSS$age~dataSPSS$tahundx), col = 'red')
+```
+
+and a lowess 
+
+```{r}
+plot(dataSPSS$tahundx, dataSPSS$age,
+     main = 'Duration having DM VS age',
+     xlab = 'Duration of DM', ylab = 'Age',
+     pch = 19)
+lines(lowess(dataSPSS$tahundx,dataSPSS$age), col = 'blue')
+```
+
+## Two variables : A categorical variable with a categorical variable
+
+Now, we will plot 2 categorical variables simultenously.
+
+First, we will use stacked barchart
+
+```{r}
+compl.sex<-table(dataSPSS$complica,dataSPSS$sex)
+compl.sex
+barplot(compl.sex,
+        main='Complications by sex',
+        xlab='Sex',
+        col=c('blue','red'),
+        legend=c('No','Yes'))
+```
+
+Next, we will use grouped barchart
+
+```{r}
+compl.sex
+barplot(compl.sex,
+        main = 'Complications according to sex',
+        xlab = 'Sex',
+        col = c('blue','red'),
+        legend = c('no','yes'),
+        beside = TRUE)
+```
+
+
+

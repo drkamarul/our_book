@@ -1,0 +1,158 @@
+---
+output:
+  html_document:
+    keep_md: yes
+---
+
+# Prepare folder and data
+
+## Set the working directory
+
+This can be done in 2 ways:
+
+1. Using codes
+2. Using point and click
+
+
+To use point and click, use the down arrow button next to *More* . Then click 'Set as working directory'
+
+# Read Data
+
+```{r}
+library(foreign)
+data_qol<-read.dta('qol.dta',convert.factors = T)
+str(data_qol)
+```
+
+# Browse data
+
+1.  First few rows
+2.  Last few rows
+
+```{r}
+head(data_qol)
+tail(data_qol)
+```
+
+# Grammar of variables 
+
+## Select columns
+
+Let us create a new dataframe with only id, sex and hba1c as the variables
+
+```{r}
+data_qol2<-subset(data_qol, select = c('sex', 'age', 'hba1c'))
+str(data_qol2)
+```
+
+alternatively, we can use other subsetting functions
+
+```{r}
+data_qol3<-data_qol[,c('sex','age','hba1c')]
+str(data_qol3)
+```
+
+## Select rows
+
+```{r}
+data_qol4<-subset(data_qol, age > 30)
+str(data_qol4)
+summary(data_qol4$age)
+```
+
+alternatively, we can use other subsetting functions
+
+```{r}
+data_qol5<-data_qol[data_qol$age>30,]
+str(data_qol5)
+summary(data_qol5$age)
+```
+
+## Select rows and columns together
+
+```{r}
+data_qol6<-subset(data_qol,age>30 & sex=='male', select = c(id, sex, age, group))
+str(data_qol6)
+table(data_qol6$sex)
+```
+
+## Generate a new variable
+
+```{r}
+data_qol$age_cat<-data_qol$age
+View(data_qol)
+```
+
+## Categorize into new variables
+
+### From a numerical variable
+
+```{r}
+data_qol$age_cat<-cut(data_qol$age_cat,
+                      breaks=c(min(data_qol$age),40,60,Inf),
+                      labels=c('min-39','40-59','60-above'))
+min(data_qol$age)
+table(data_qol$age_cat)
+str(data_qol$age_cat)
+```
+
+### From a categorical variable
+
+```{r}
+table(data_qol$tx)
+str(data_qol$tx)
+```
+
+Create a variable with 'Diet only' vs 'Diet+Drug'. This is a little bit complicated
+
+```{r}
+data_qol$tx2<-data_qol$tx
+str(data_qol$tx2)
+str(data_qol$tx)
+table(data_qol$tx2)
+
+library(plyr)
+data_qol$tx2<-revalue(data_qol$tx,c('diet only'='diet', 'OHA and diet only'='med',
+                                    'insulin and diet only'='med', 'all'='med'))
+table(data_qol$tx2)
+```
+
+
+## Dealing with missing data
+
+```{r}
+data_qol$tx3<-data_qol$tx
+str(data_qol$tx3)
+str(data_qol$tx)
+table(data_qol$tx3)
+```
+
+### Replace values with 'NA'
+
+```{r}
+data_qol$tx3<-revalue(data_qol$tx,c('diet only'=NA))
+table(data_qol$tx3)
+str(data_qol$tx3)
+```
+
+# Additional package
+
+## Package 'dplyr'
+
+'dplyr' package is a very useful package that encourage users to use proper verb when manipulating variables (columns) and observations (rows)
+
+It has 9 useful functions
+1.  filter()
+2.  arrange()
+3.  select()
+4.  distinct()
+5.  mutate() and transmute()
+6.  summarise()
+7.  sample_n() and sample_frac()
+
+Package 'dplyr' is very useful when it is combined with another function that is 'group_by'
+
+
+
+
+

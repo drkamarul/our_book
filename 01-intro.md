@@ -1,8 +1,3 @@
----
-output:
-  html_document:
-    keep_md: yes
----
 
 # Introduction to R
 This chapter introduces readers to the basics of working with data in R. We will start with installing R in your computer and getting familiar with RStudio interface. These will be followed by the basics of handling data in R.
@@ -34,12 +29,14 @@ source tab
 what is package/library
 
 #### Installing packages
-```{r eval=FALSE}
+
+```r
 install.packages("package.name")
 ```
 
 #### Loading libraries
-```{r eval=FALSE}
+
+```r
 library("package.name")
 ```
 
@@ -58,33 +55,39 @@ advanced, direct input in the code, esp. useful for tables.
 
 #### Reading data set
 Easiest is to read .csv file.
-```{r eval=FALSE}
+
+```r
 read.csv("file.name")
 ```
 
 For SPSS file, need `foreign` package
-```{r eval=FALSE}
+
+```r
 library("foreign")
 read.spss("file.name")
 ```
 
 Can read data in table format from text file.
 From text file
-```{r eval=FALSE}
+
+```r
 read.table("file.name", header = TRUE)
 ```
 
 #### Viewing data set
 Easy, just type the name,
-```{r eval=FALSE}
+
+```r
 data
 ```
 Nicer, using `View()`
-```{r eval=FALSE}
+
+```r
 View(data)
 ```
 Important tasks
-```{r eval=FALSE}
+
+```r
 dim(data)
 str(data)
 names(data)

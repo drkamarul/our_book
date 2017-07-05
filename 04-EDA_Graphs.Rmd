@@ -1,13 +1,11 @@
 ---
-title: "Workshop 4 - Exploratory Data Analysis : Graphs"
-author: "Kamarul Imran Musa"
-date: "14 March 2016"
-output: 
-  pdf_document:
-    toc: TRUE
+output:
+  html_document:
+    keep_md: yes
 ---
 
-\newpage
+
+
 
 # Prepare folder and data
 
@@ -18,10 +16,6 @@ This can be done in 2 ways:
 1. Using codes
 2. Using point and click
 
-```{r}
-setwd("E:/Epi_Stat_Matters/Workshop_GAM_USM/Day1/AM_Intro_R/Workshop_R_beginners_handsOn")
-
-```
 
 To use point and click, use the down arrow button next to *More* . Then click 'Set as working directory'
 

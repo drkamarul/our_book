@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="prepare-folder-and-data.html">
-<link rel="next" href="describing-data.html">
+<link rel="prev" href="prepare-folder-and-data-1.html">
+<link rel="next" href="graphing-or-plotting-data.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -136,57 +136,69 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="prepare-folder-and-data-1" class="section level1">
-<h1><span class="header-section-number">5</span> Prepare folder and data</h1>
-<div id="set-the-working-directory" class="section level2">
-<h2><span class="header-section-number">5.1</span> Set the working directory</h2>
-<p>This can be done in 2 ways:</p>
-<ol style="list-style-type: decimal">
-<li>Using codes</li>
-<li>Using point and click</li>
-</ol>
-<p>To use point and click, use the down arrow button next to <em>More</em> . Then click ‘Set as working directory’</p>
-</div>
-<div id="list-the-files-inside-the-working-directory" class="section level2">
-<h2><span class="header-section-number">5.2</span> List the files inside the working directory</h2>
-<p>All files will be displayed when you click ‘Files’.</p>
-<p>Or you can use this code,</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list.files</span>()</code></pre></div>
-<pre><code>##  [1] &quot;_book&quot;                     &quot;_bookdown_files&quot;          
-##  [3] &quot;_main.Rmd&quot;                 &quot;_main_files&quot;              
-##  [5] &quot;01-intro.knit.md&quot;          &quot;01-intro.md&quot;              
-##  [7] &quot;01-intro.Rmd&quot;              &quot;01-intro.utf8.md&quot;         
-##  [9] &quot;02-text.Rmd&quot;               &quot;03-Grammar_of_Var.knit.md&quot;
-## [11] &quot;03-Grammar_of_Var.md&quot;      &quot;03-Grammar_of_Var.Rmd&quot;    
-## [13] &quot;03-Grammar_of_Var.utf8.md&quot; &quot;04-EDA_Graphs.Rmd&quot;        
-## [15] &quot;04-report.Rmd&quot;             &quot;05-graphical.Rmd&quot;         
-## [17] &quot;06-references.Rmd&quot;         &quot;07-summary.Rmd&quot;           
-## [19] &quot;book chapters.Rproj&quot;       &quot;cholest.csv&quot;              
-## [21] &quot;cholest.dta&quot;               &quot;cholest.sav&quot;              
-## [23] &quot;cholest.xlsx&quot;              &quot;eye.csv&quot;                  
-## [25] &quot;eye.dta&quot;                   &quot;eye.sav&quot;                  
-## [27] &quot;eye.xlsx&quot;                  &quot;index.Rmd&quot;                
-## [29] &quot;metab1.csv&quot;                &quot;metab1.dta&quot;               
-## [31] &quot;qol.csv&quot;                   &quot;qol.dta&quot;                  
-## [33] &quot;qol.sav&quot;                   &quot;qol.xlsx&quot;                 
-## [35] &quot;site&quot;                      &quot;Template_R_bookdown&quot;</code></pre>
-</div>
-<div id="reading-dataset-from-spss-file-.sav" class="section level2">
-<h2><span class="header-section-number">5.3</span> Reading dataset from SPSS file (.sav)</h2>
-<p>Dataset in SPSS format will end with .sav. To read SPSS data into R we use ‘foreign’ library.</p>
-<p>Create a object to represent the SPSS data that we will read into R.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(foreign)
-dataSPSS&lt;-<span class="kw">read.spss</span>(<span class="st">&#39;qol.sav&#39;</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>## re-encoding from UTF-8</code></pre>
-</div>
+<div id="describing-data" class="section level1">
+<h1><span class="header-section-number">6</span> Describing data</h1>
+<p>Let us examine the data</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(dataSPSS)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    365 obs. of  13 variables:
+##  $ id       : num  308 335 94 329 350 22 171 274 332 147 ...
+##  $ sex      : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 1 2 1 1 1 2 1 1 2 2 ...
+##  $ age      : num  55 41 50 47 67 57 60 54 60 45 ...
+##  $ tahundx  : num  14 4 5 10 13 4 4 15 13 3 ...
+##  $ tx       : Factor w/ 4 levels &quot;diet only&quot;,&quot;OHA and diet only&quot;,..: 3 4 2 4 4 2 2 2 4 2 ...
+##  $ group    : Factor w/ 2 levels &quot;\&quot;group A\&quot;&quot;,..: 2 2 1 2 2 1 1 1 2 1 ...
+##  $ complica : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 2 1 1 2 1 2 1 1 2 1 ...
+##  $ hba1c    : num  8.1 8 7.5 9.4 11.7 8.1 7.5 9.2 NA NA ...
+##  $ fbs      : num  6.9 4.8 8 3.6 12.5 8.5 NA NA NA NA ...
+##  $ rbs      : num  16.7 7.4 13.2 7.4 NA 7.8 9.4 7.8 NA 12.4 ...
+##  $ tg_total : num  0.92 1.66 0.74 0.94 3.01 1.3 NA 1.9 NA NA ...
+##  $ choleste : num  7.09 2.91 5.94 3.27 7.1 3.54 NA 5.7 NA NA ...
+##  $ ADDQSCORE: num  0 -0.222 -0.333 -0.36 -0.44 ...
+##  - attr(*, &quot;variable.labels&quot;)= Named chr  &quot;id_no&quot; &quot;sex&quot; &quot;&quot; &quot;&quot; ...
+##   ..- attr(*, &quot;names&quot;)= chr  &quot;id&quot; &quot;sex&quot; &quot;age&quot; &quot;tahundx&quot; ...
+##  - attr(*, &quot;codepage&quot;)= int 65001</code></pre>
+<p>Now, let us summarize our data</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(dataSPSS)</code></pre></div>
+<pre><code>##        id            sex           age           tahundx      
+##  Min.   :  1.0   female:153   Min.   :21.00   Min.   : 1.000  
+##  1st Qu.:126.0   male  :212   1st Qu.:47.00   1st Qu.: 4.000  
+##  Median :227.0                Median :53.00   Median : 7.000  
+##  Mean   :221.5                Mean   :52.75   Mean   : 8.795  
+##  3rd Qu.:325.0                3rd Qu.:59.00   3rd Qu.:12.000  
+##  Max.   :416.0                Max.   :80.00   Max.   :38.000  
+##                                                               
+##                      tx            group     complica      hba1c       
+##  diet only            : 10   &quot;group A&quot;:248   no :225   Min.   : 4.100  
+##  OHA and diet only    :238   &quot;group B&quot;:117   yes:140   1st Qu.: 7.500  
+##  insulin and diet only: 26                             Median : 9.050  
+##  all                  : 91                             Mean   : 9.301  
+##                                                        3rd Qu.:10.775  
+##                                                        Max.   :19.900  
+##                                                        NA&#39;s   :111     
+##       fbs              rbs            tg_total        choleste     
+##  Min.   : 2.700   Min.   : 3.900   Min.   :0.380   Min.   : 2.020  
+##  1st Qu.: 5.700   1st Qu.: 7.925   1st Qu.:1.125   1st Qu.: 4.308  
+##  Median : 8.000   Median :11.300   Median :1.570   Median : 5.210  
+##  Mean   : 9.003   Mean   :12.045   Mean   :2.002   Mean   : 5.437  
+##  3rd Qu.:11.900   3rd Qu.:15.000   3rd Qu.:2.385   3rd Qu.: 6.423  
+##  Max.   :29.200   Max.   :31.500   Max.   :8.020   Max.   :13.100  
+##  NA&#39;s   :178      NA&#39;s   :83       NA&#39;s   :191     NA&#39;s   :181     
+##    ADDQSCORE     
+##  Min.   :-9.000  
+##  1st Qu.:-5.590  
+##  Median :-3.944  
+##  Mean   :-4.179  
+##  3rd Qu.:-2.556  
+##  Max.   : 0.000  
+## </code></pre>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="prepare-folder-and-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="describing-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="prepare-folder-and-data-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="graphing-or-plotting-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

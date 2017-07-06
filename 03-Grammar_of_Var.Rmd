@@ -2,6 +2,7 @@
 output:
   html_document:
     keep_md: yes
+   
 ---
 
 # Prepare folder and data
@@ -152,7 +153,7 @@ It has 9 useful functions
 
 Package 'dplyr' is very useful when it is combined with another function that is 'group_by'
 
-
+`
 
 
 

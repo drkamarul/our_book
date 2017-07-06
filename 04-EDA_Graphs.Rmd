@@ -7,7 +7,7 @@ output:
 
 
 
-# Prepare folder and data
+## Prepare folder and data
 
 ## Set the working directory
 
@@ -41,7 +41,7 @@ dataSPSS<-read.spss('qol.sav', to.data.frame = TRUE)
 ```
 
 
-# Describing data
+## Describing data
 
 Let us examine the data
 
@@ -55,7 +55,7 @@ Now, let us summarize our data
 summary(dataSPSS)
 ```
 
-# Graphing or Plotting data
+## Graphing or Plotting data
 
 You must ask yourselves these:
 1.  Which variable do you want to plot?

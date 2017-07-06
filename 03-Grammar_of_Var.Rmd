@@ -5,7 +5,9 @@ output:
    
 ---
 
-# Prepare folder and data
+# Grammar of variables 
+
+## Prepare folder and data
 
 ## Set the working directory
 
@@ -17,7 +19,7 @@ This can be done in 2 ways:
 
 To use point and click, use the down arrow button next to *More* . Then click 'Set as working directory'
 
-# Read Data
+## Read Data
 
 ```{r}
 library(foreign)
@@ -25,7 +27,7 @@ data_qol<-read.dta('qol.dta',convert.factors = T)
 str(data_qol)
 ```
 
-# Browse data
+## Browse data
 
 1.  First few rows
 2.  Last few rows
@@ -34,8 +36,6 @@ str(data_qol)
 head(data_qol)
 tail(data_qol)
 ```
-
-# Grammar of variables 
 
 ## Select columns
 
@@ -136,7 +136,7 @@ table(data_qol$tx3)
 str(data_qol$tx3)
 ```
 
-# Additional package
+## Additional package
 
 ## Package 'dplyr'
 

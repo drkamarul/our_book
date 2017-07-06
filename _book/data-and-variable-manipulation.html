@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R Book</title>
+  <meta name="description" content="R book by KIM and Arifin">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R Book" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="R book by KIM and Arifin" />
+  <meta name="github-repo" content="drkamarul/our_book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R Book" />
+  
+  <meta name="twitter:description" content="R book by KIM and Arifin" />
+  
+
+<meta name="author" content="Ariffin + KIM">
+
+
+<meta name="date" content="2017-07-06">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="textual.html">
+<link rel="next" href="exploratory-data-analysis.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> First</a></li>
+<li class="chapter" data-level="2" data-path="arifin-to-fill.html"><a href="arifin-to-fill.html"><i class="fa fa-check"></i><b>2</b> Arifin to fill</a></li>
+<li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> Literature</a></li>
+<li class="chapter" data-level="4" data-path="textual.html"><a href="textual.html"><i class="fa fa-check"></i><b>4</b> Textual</a><ul>
+<li class="chapter" data-level="4.1" data-path="textual.html"><a href="textual.html#basic-descriptive-statistics"><i class="fa fa-check"></i><b>4.1</b> Basic descriptive statistics</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="textual.html"><a href="textual.html#describing-a-numerical-variable"><i class="fa fa-check"></i><b>4.1.1</b> Describing a numerical variable</a></li>
+<li class="chapter" data-level="4.1.2" data-path="textual.html"><a href="textual.html#describing-a-categorical-variable"><i class="fa fa-check"></i><b>4.1.2</b> Describing a categorical variable</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="textual.html"><a href="textual.html#more-on-descriptive-statistics"><i class="fa fa-check"></i><b>4.2</b> More on descriptive statistics</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="textual.html"><a href="textual.html#describing-numerical-variables"><i class="fa fa-check"></i><b>4.2.1</b> Describing numerical variables</a></li>
+<li class="chapter" data-level="4.2.2" data-path="textual.html"><a href="textual.html#describing-categorical-variables"><i class="fa fa-check"></i><b>4.2.2</b> Describing categorical variables</a></li>
+<li class="chapter" data-level="4.2.3" data-path="textual.html"><a href="textual.html#describing-the-variables-together"><i class="fa fa-check"></i><b>4.2.3</b> Describing the variables together</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="textual.html"><a href="textual.html#more-on-tables"><i class="fa fa-check"></i><b>4.3</b> More on tables</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html"><i class="fa fa-check"></i><b>5</b> Data and variable manipulation</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#prepare-folder-and-data"><i class="fa fa-check"></i><b>5.1</b> Prepare folder and data</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#set-the-working-directory"><i class="fa fa-check"></i><b>5.1.1</b> Set the working directory</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#read-data"><i class="fa fa-check"></i><b>5.2</b> Read Data</a></li>
+<li class="chapter" data-level="5.3" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#browse-data"><i class="fa fa-check"></i><b>5.3</b> Browse data</a></li>
+<li class="chapter" data-level="5.4" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#grammar-of-variables"><i class="fa fa-check"></i><b>5.4</b> Grammar of variables</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#select-columns"><i class="fa fa-check"></i><b>5.4.1</b> Select columns</a></li>
+<li class="chapter" data-level="5.4.2" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#select-rows"><i class="fa fa-check"></i><b>5.4.2</b> Select rows</a></li>
+<li class="chapter" data-level="5.4.3" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#select-rows-and-columns-together"><i class="fa fa-check"></i><b>5.4.3</b> Select rows and columns together</a></li>
+<li class="chapter" data-level="5.4.4" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#generate-a-new-variable"><i class="fa fa-check"></i><b>5.4.4</b> Generate a new variable</a></li>
+<li class="chapter" data-level="5.4.5" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#categorize-into-new-variables"><i class="fa fa-check"></i><b>5.4.5</b> Categorize into new variables</a></li>
+<li class="chapter" data-level="5.4.6" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#dealing-with-missing-data"><i class="fa fa-check"></i><b>5.4.6</b> Dealing with missing data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#additional-packages"><i class="fa fa-check"></i><b>5.5</b> Additional packages</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#package-dplyr"><i class="fa fa-check"></i><b>5.5.1</b> Package ‘dplyr’</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Exploratory data analysis</a><ul>
+<li class="chapter" data-level="6.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#prepare-folder-and-data-1"><i class="fa fa-check"></i><b>6.1</b> Prepare folder and data</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#set-the-working-directory-1"><i class="fa fa-check"></i><b>6.1.1</b> Set the working directory</a></li>
+<li class="chapter" data-level="6.1.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#list-the-files-inside-the-working-directory"><i class="fa fa-check"></i><b>6.1.2</b> List the files inside the working directory</a></li>
+<li class="chapter" data-level="6.1.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#reading-dataset-from-spss-file-.sav"><i class="fa fa-check"></i><b>6.1.3</b> Reading dataset from SPSS file (.sav)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#describing-data"><i class="fa fa-check"></i><b>6.2</b> Describing data</a></li>
+<li class="chapter" data-level="6.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#graphing-or-plotting-data"><i class="fa fa-check"></i><b>6.3</b> Graphing or Plotting data</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#one-variable-a-categorical-or-factor-variable"><i class="fa fa-check"></i><b>6.3.1</b> One variable: A categorical or factor variable</a></li>
+<li class="chapter" data-level="6.3.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#one-variable-a-numerical-variable"><i class="fa fa-check"></i><b>6.3.2</b> One variable: A numerical variable</a></li>
+<li class="chapter" data-level="6.3.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#two-variables-a-numerical-with-another-numerical-variable"><i class="fa fa-check"></i><b>6.3.3</b> Two variables : A numerical with another numerical variable</a></li>
+<li class="chapter" data-level="6.3.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#two-variables-a-categorical-variable-with-a-categorical-variable"><i class="fa fa-check"></i><b>6.3.4</b> Two variables : A categorical variable with a categorical variable</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="graphical.html"><a href="graphical.html"><i class="fa fa-check"></i><b>7</b> Graphical</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="8" data-path="reporting-results.html"><a href="reporting-results.html"><i class="fa fa-check"></i><b>8</b> Reporting results</a></li>
+<li class="chapter" data-level="9" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>9</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-and-variable-manipulation" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Data and variable manipulation</h1>
+<div id="prepare-folder-and-data" class="section level2">
+<h2><span class="header-section-number">5.1</span> Prepare folder and data</h2>
+<div id="set-the-working-directory" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Set the working directory</h3>
+<p>This can be done in 2 ways:</p>
+<ol style="list-style-type: decimal">
+<li>Using codes</li>
+<li>Using point and click</li>
+</ol>
+<p>To use point and click, use the down arrow button next to <em>More</em> . Then click ‘Set as working directory’</p>
+</div>
+</div>
+<div id="read-data" class="section level2">
+<h2><span class="header-section-number">5.2</span> Read Data</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(foreign)
+data_qol&lt;-<span class="kw">read.dta</span>(<span class="st">&#39;qol.dta&#39;</span>,<span class="dt">convert.factors =</span> T)
+<span class="kw">str</span>(data_qol)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    365 obs. of  13 variables:
+##  $ id       : num  308 335 94 329 350 22 171 274 332 147 ...
+##  $ sex      : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 1 2 1 1 1 2 1 1 2 2 ...
+##  $ age      : num  55 41 50 47 67 57 60 54 60 45 ...
+##  $ tahundx  : num  14 4 5 10 13 4 4 15 13 3 ...
+##  $ tx       : Factor w/ 4 levels &quot;diet only&quot;,&quot;OHA and diet only&quot;,..: 3 4 2 4 4 2 2 2 4 2 ...
+##  $ group    : Factor w/ 2 levels &quot;\&quot;group A\&quot;&quot;,..: 2 2 1 2 2 1 1 1 2 1 ...
+##  $ complica : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 2 1 1 2 1 2 1 1 2 1 ...
+##  $ hba1c    : num  8.1 8 7.5 9.4 11.7 8.1 7.5 9.2 NA NA ...
+##  $ fbs      : num  6.9 4.8 8 3.6 12.5 8.5 NA NA NA NA ...
+##  $ rbs      : num  16.7 7.4 13.2 7.4 NA 7.8 9.4 7.8 NA 12.4 ...
+##  $ tg_total : num  0.92 1.66 0.74 0.94 3.01 1.3 NA 1.9 NA NA ...
+##  $ choleste : num  7.09 2.91 5.94 3.27 7.1 3.54 NA 5.7 NA NA ...
+##  $ ADDQSCORE: num  0 -0.222 -0.333 -0.36 -0.44 ...
+##  - attr(*, &quot;datalabel&quot;)= chr &quot;&quot;
+##  - attr(*, &quot;time.stamp&quot;)= chr &quot;&quot;
+##  - attr(*, &quot;formats&quot;)= chr  &quot;%10.0g&quot; &quot;%10.0g&quot; &quot;%10.0g&quot; &quot;%10.0g&quot; ...
+##  - attr(*, &quot;types&quot;)= int  255 255 255 255 255 255 255 255 255 255 ...
+##  - attr(*, &quot;val.labels&quot;)= chr  &quot;&quot; &quot;sex&quot; &quot;&quot; &quot;&quot; ...
+##  - attr(*, &quot;var.labels&quot;)= chr  &quot;id_no&quot; &quot;sex&quot; &quot;&quot; &quot;&quot; ...
+##  - attr(*, &quot;version&quot;)= int 8
+##  - attr(*, &quot;label.table&quot;)=List of 4
+##   ..$ sex     : Named int  0 1
+##   .. ..- attr(*, &quot;names&quot;)= chr  &quot;female&quot; &quot;male&quot;
+##   ..$ tx      : Named int  1 2 3 4
+##   .. ..- attr(*, &quot;names&quot;)= chr  &quot;diet only&quot; &quot;OHA and diet only&quot; &quot;insulin and diet only&quot; &quot;all&quot;
+##   ..$ group   : Named int  1 2
+##   .. ..- attr(*, &quot;names&quot;)= chr  &quot;\&quot;group A\&quot;&quot; &quot;\&quot;group B\&quot;&quot;
+##   ..$ complica: Named int  0 1
+##   .. ..- attr(*, &quot;names&quot;)= chr  &quot;no&quot; &quot;yes&quot;</code></pre>
+</div>
+<div id="browse-data" class="section level2">
+<h2><span class="header-section-number">5.3</span> Browse data</h2>
+<ol style="list-style-type: decimal">
+<li>First few rows</li>
+<li>Last few rows</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(data_qol)</code></pre></div>
+<pre><code>##    id    sex age tahundx                    tx     group complica hba1c
+## 1 308 female  55      14 insulin and diet only &quot;group B&quot;      yes   8.1
+## 2 335   male  41       4                   all &quot;group B&quot;       no   8.0
+## 3  94 female  50       5     OHA and diet only &quot;group A&quot;       no   7.5
+## 4 329 female  47      10                   all &quot;group B&quot;      yes   9.4
+## 5 350 female  67      13                   all &quot;group B&quot;       no  11.7
+## 6  22   male  57       4     OHA and diet only &quot;group A&quot;      yes   8.1
+##    fbs  rbs tg_total choleste  ADDQSCORE
+## 1  6.9 16.7     0.92     7.09  0.0000000
+## 2  4.8  7.4     1.66     2.91 -0.2222222
+## 3  8.0 13.2     0.74     5.94 -0.3333333
+## 4  3.6  7.4     0.94     3.27 -0.3600000
+## 5 12.5   NA     3.01     7.10 -0.4400000
+## 6  8.5  7.8     1.30     3.54 -0.5000000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(data_qol)</code></pre></div>
+<pre><code>##      id  sex age tahundx                tx     group complica hba1c  fbs
+## 360  14 male  45      10 OHA and diet only &quot;group A&quot;       no   9.6 12.6
+## 361 170 male  57       4 OHA and diet only &quot;group A&quot;       no    NA   NA
+## 362 214 male  48       5 OHA and diet only &quot;group A&quot;       no    NA   NA
+## 363 174 male  45       2 OHA and diet only &quot;group A&quot;       no   8.5   NA
+## 364 130 male  64      16 OHA and diet only &quot;group A&quot;       no   6.1  3.8
+## 365 219 male  46       2         diet only &quot;group A&quot;       no   5.9   NA
+##      rbs tg_total choleste ADDQSCORE
+## 360   NA       NA       NA -8.833333
+## 361  9.4       NA       NA -8.833333
+## 362 10.7       NA       NA -9.000000
+## 363  9.6       NA       NA -9.000000
+## 364  7.9       NA       NA -9.000000
+## 365  6.3       NA       NA -9.000000</code></pre>
+</div>
+<div id="grammar-of-variables" class="section level2">
+<h2><span class="header-section-number">5.4</span> Grammar of variables</h2>
+<div id="select-columns" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> Select columns</h3>
+<p>Let us create a new dataframe with only id, sex and hba1c as the variables</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_qol2&lt;-<span class="kw">subset</span>(data_qol, <span class="dt">select =</span> <span class="kw">c</span>(<span class="st">&#39;sex&#39;</span>, <span class="st">&#39;age&#39;</span>, <span class="st">&#39;hba1c&#39;</span>))
+<span class="kw">str</span>(data_qol2)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    365 obs. of  3 variables:
+##  $ sex  : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 1 2 1 1 1 2 1 1 2 2 ...
+##  $ age  : num  55 41 50 47 67 57 60 54 60 45 ...
+##  $ hba1c: num  8.1 8 7.5 9.4 11.7 8.1 7.5 9.2 NA NA ...</code></pre>
+<p>alternatively, we can use other subsetting functions</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_qol3&lt;-data_qol[,<span class="kw">c</span>(<span class="st">&#39;sex&#39;</span>,<span class="st">&#39;age&#39;</span>,<span class="st">&#39;hba1c&#39;</span>)]
+<span class="kw">str</span>(data_qol3)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    365 obs. of  3 variables:
+##  $ sex  : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 1 2 1 1 1 2 1 1 2 2 ...
+##  $ age  : num  55 41 50 47 67 57 60 54 60 45 ...
+##  $ hba1c: num  8.1 8 7.5 9.4 11.7 8.1 7.5 9.2 NA NA ...</code></pre>
+</div>
+<div id="select-rows" class="section level3">
+<h3><span class="header-section-number">5.4.2</span> Select rows</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_qol4&lt;-<span class="kw">subset</span>(data_qol, age <span class="op">&gt;</span><span class="st"> </span><span class="dv">30</span>)
+<span class="kw">str</span>(data_qol4)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    363 obs. of  13 variables:
+##  $ id       : num  308 335 94 329 350 22 171 274 332 147 ...
+##  $ sex      : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 1 2 1 1 1 2 1 1 2 2 ...
+##  $ age      : num  55 41 50 47 67 57 60 54 60 45 ...
+##  $ tahundx  : num  14 4 5 10 13 4 4 15 13 3 ...
+##  $ tx       : Factor w/ 4 levels &quot;diet only&quot;,&quot;OHA and diet only&quot;,..: 3 4 2 4 4 2 2 2 4 2 ...
+##  $ group    : Factor w/ 2 levels &quot;\&quot;group A\&quot;&quot;,..: 2 2 1 2 2 1 1 1 2 1 ...
+##  $ complica : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 2 1 1 2 1 2 1 1 2 1 ...
+##  $ hba1c    : num  8.1 8 7.5 9.4 11.7 8.1 7.5 9.2 NA NA ...
+##  $ fbs      : num  6.9 4.8 8 3.6 12.5 8.5 NA NA NA NA ...
+##  $ rbs      : num  16.7 7.4 13.2 7.4 NA 7.8 9.4 7.8 NA 12.4 ...
+##  $ tg_total : num  0.92 1.66 0.74 0.94 3.01 1.3 NA 1.9 NA NA ...
+##  $ choleste : num  7.09 2.91 5.94 3.27 7.1 3.54 NA 5.7 NA NA ...
+##  $ ADDQSCORE: num  0 -0.222 -0.333 -0.36 -0.44 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(data_qol4<span class="op">$</span>age)</code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   32.00   47.00   53.00   52.91   59.00   80.00</code></pre>
+<p>alternatively, we can use other subsetting functions</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_qol5&lt;-data_qol[data_qol<span class="op">$</span>age<span class="op">&gt;</span><span class="dv">30</span>,]
+<span class="kw">str</span>(data_qol5)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    363 obs. of  13 variables:
+##  $ id       : num  308 335 94 329 350 22 171 274 332 147 ...
+##  $ sex      : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 1 2 1 1 1 2 1 1 2 2 ...
+##  $ age      : num  55 41 50 47 67 57 60 54 60 45 ...
+##  $ tahundx  : num  14 4 5 10 13 4 4 15 13 3 ...
+##  $ tx       : Factor w/ 4 levels &quot;diet only&quot;,&quot;OHA and diet only&quot;,..: 3 4 2 4 4 2 2 2 4 2 ...
+##  $ group    : Factor w/ 2 levels &quot;\&quot;group A\&quot;&quot;,..: 2 2 1 2 2 1 1 1 2 1 ...
+##  $ complica : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 2 1 1 2 1 2 1 1 2 1 ...
+##  $ hba1c    : num  8.1 8 7.5 9.4 11.7 8.1 7.5 9.2 NA NA ...
+##  $ fbs      : num  6.9 4.8 8 3.6 12.5 8.5 NA NA NA NA ...
+##  $ rbs      : num  16.7 7.4 13.2 7.4 NA 7.8 9.4 7.8 NA 12.4 ...
+##  $ tg_total : num  0.92 1.66 0.74 0.94 3.01 1.3 NA 1.9 NA NA ...
+##  $ choleste : num  7.09 2.91 5.94 3.27 7.1 3.54 NA 5.7 NA NA ...
+##  $ ADDQSCORE: num  0 -0.222 -0.333 -0.36 -0.44 ...
+##  - attr(*, &quot;datalabel&quot;)= chr &quot;&quot;
+##  - attr(*, &quot;time.stamp&quot;)= chr &quot;&quot;
+##  - attr(*, &quot;formats&quot;)= chr  &quot;%10.0g&quot; &quot;%10.0g&quot; &quot;%10.0g&quot; &quot;%10.0g&quot; ...
+##  - attr(*, &quot;types&quot;)= int  255 255 255 255 255 255 255 255 255 255 ...
+##  - attr(*, &quot;val.labels&quot;)= chr  &quot;&quot; &quot;sex&quot; &quot;&quot; &quot;&quot; ...
+##  - attr(*, &quot;var.labels&quot;)= chr  &quot;id_no&quot; &quot;sex&quot; &quot;&quot; &quot;&quot; ...
+##  - attr(*, &quot;version&quot;)= int 8
+##  - attr(*, &quot;label.table&quot;)=List of 4
+##   ..$ sex     : Named int  0 1
+##   .. ..- attr(*, &quot;names&quot;)= chr  &quot;female&quot; &quot;male&quot;
+##   ..$ tx      : Named int  1 2 3 4
+##   .. ..- attr(*, &quot;names&quot;)= chr  &quot;diet only&quot; &quot;OHA and diet only&quot; &quot;insulin and diet only&quot; &quot;all&quot;
+##   ..$ group   : Named int  1 2
+##   .. ..- attr(*, &quot;names&quot;)= chr  &quot;\&quot;group A\&quot;&quot; &quot;\&quot;group B\&quot;&quot;
+##   ..$ complica: Named int  0 1
+##   .. ..- attr(*, &quot;names&quot;)= chr  &quot;no&quot; &quot;yes&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(data_qol5<span class="op">$</span>age)</code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   32.00   47.00   53.00   52.91   59.00   80.00</code></pre>
+</div>
+<div id="select-rows-and-columns-together" class="section level3">
+<h3><span class="header-section-number">5.4.3</span> Select rows and columns together</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_qol6&lt;-<span class="kw">subset</span>(data_qol,age<span class="op">&gt;</span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>sex<span class="op">==</span><span class="st">&#39;male&#39;</span>, <span class="dt">select =</span> <span class="kw">c</span>(id, sex, age, group))
+<span class="kw">str</span>(data_qol6)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    211 obs. of  4 variables:
+##  $ id   : num  335 22 332 147 247 185 331 323 314 305 ...
+##  $ sex  : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 2 2 2 2 2 2 2 2 2 ...
+##  $ age  : num  41 57 60 45 59 48 58 69 65 73 ...
+##  $ group: Factor w/ 2 levels &quot;\&quot;group A\&quot;&quot;,..: 2 1 2 1 1 1 2 2 2 2 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(data_qol6<span class="op">$</span>sex)</code></pre></div>
+<pre><code>## 
+## female   male 
+##      0    211</code></pre>
+</div>
+<div id="generate-a-new-variable" class="section level3">
+<h3><span class="header-section-number">5.4.4</span> Generate a new variable</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_qol<span class="op">$</span>age_cat&lt;-data_qol<span class="op">$</span>age
+<span class="kw">View</span>(data_qol)</code></pre></div>
+</div>
+<div id="categorize-into-new-variables" class="section level3">
+<h3><span class="header-section-number">5.4.5</span> Categorize into new variables</h3>
+<div id="from-a-numerical-variable" class="section level4">
+<h4><span class="header-section-number">5.4.5.1</span> From a numerical variable</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_qol<span class="op">$</span>age_cat&lt;-<span class="kw">cut</span>(data_qol<span class="op">$</span>age_cat,
+                      <span class="dt">breaks=</span><span class="kw">c</span>(<span class="kw">min</span>(data_qol<span class="op">$</span>age),<span class="dv">40</span>,<span class="dv">60</span>,<span class="ot">Inf</span>),
+                      <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&#39;min-39&#39;</span>,<span class="st">&#39;40-59&#39;</span>,<span class="st">&#39;60-above&#39;</span>))
+<span class="kw">min</span>(data_qol<span class="op">$</span>age)</code></pre></div>
+<pre><code>## [1] 21</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(data_qol<span class="op">$</span>age_cat)</code></pre></div>
+<pre><code>## 
+##   min-39    40-59 60-above 
+##       32      259       73</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(data_qol<span class="op">$</span>age_cat)</code></pre></div>
+<pre><code>##  Factor w/ 3 levels &quot;min-39&quot;,&quot;40-59&quot;,..: 2 2 2 2 3 2 2 2 2 2 ...</code></pre>
+</div>
+<div id="from-a-categorical-variable" class="section level4">
+<h4><span class="header-section-number">5.4.5.2</span> From a categorical variable</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(data_qol<span class="op">$</span>tx)</code></pre></div>
+<pre><code>## 
+##             diet only     OHA and diet only insulin and diet only 
+##                    10                   238                    26 
+##                   all 
+##                    91</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(data_qol<span class="op">$</span>tx)</code></pre></div>
+<pre><code>##  Factor w/ 4 levels &quot;diet only&quot;,&quot;OHA and diet only&quot;,..: 3 4 2 4 4 2 2 2 4 2 ...</code></pre>
+<p>Create a variable with ‘Diet only’ vs ‘Diet+Drug’. This is a little bit complicated</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_qol<span class="op">$</span>tx2&lt;-data_qol<span class="op">$</span>tx
+<span class="kw">str</span>(data_qol<span class="op">$</span>tx2)</code></pre></div>
+<pre><code>##  Factor w/ 4 levels &quot;diet only&quot;,&quot;OHA and diet only&quot;,..: 3 4 2 4 4 2 2 2 4 2 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(data_qol<span class="op">$</span>tx)</code></pre></div>
+<pre><code>##  Factor w/ 4 levels &quot;diet only&quot;,&quot;OHA and diet only&quot;,..: 3 4 2 4 4 2 2 2 4 2 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(data_qol<span class="op">$</span>tx2)</code></pre></div>
+<pre><code>## 
+##             diet only     OHA and diet only insulin and diet only 
+##                    10                   238                    26 
+##                   all 
+##                    91</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(plyr)
+data_qol<span class="op">$</span>tx2&lt;-<span class="kw">revalue</span>(data_qol<span class="op">$</span>tx,<span class="kw">c</span>(<span class="st">&#39;diet only&#39;</span>=<span class="st">&#39;diet&#39;</span>, <span class="st">&#39;OHA and diet only&#39;</span>=<span class="st">&#39;med&#39;</span>,
+                                    <span class="st">&#39;insulin and diet only&#39;</span>=<span class="st">&#39;med&#39;</span>, <span class="st">&#39;all&#39;</span>=<span class="st">&#39;med&#39;</span>))
+<span class="kw">table</span>(data_qol<span class="op">$</span>tx2)</code></pre></div>
+<pre><code>## 
+## diet  med 
+##   10  355</code></pre>
+</div>
+</div>
+<div id="dealing-with-missing-data" class="section level3">
+<h3><span class="header-section-number">5.4.6</span> Dealing with missing data</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_qol<span class="op">$</span>tx3&lt;-data_qol<span class="op">$</span>tx
+<span class="kw">str</span>(data_qol<span class="op">$</span>tx3)</code></pre></div>
+<pre><code>##  Factor w/ 4 levels &quot;diet only&quot;,&quot;OHA and diet only&quot;,..: 3 4 2 4 4 2 2 2 4 2 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(data_qol<span class="op">$</span>tx)</code></pre></div>
+<pre><code>##  Factor w/ 4 levels &quot;diet only&quot;,&quot;OHA and diet only&quot;,..: 3 4 2 4 4 2 2 2 4 2 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(data_qol<span class="op">$</span>tx3)</code></pre></div>
+<pre><code>## 
+##             diet only     OHA and diet only insulin and diet only 
+##                    10                   238                    26 
+##                   all 
+##                    91</code></pre>
+<div id="replace-values-with-na" class="section level4">
+<h4><span class="header-section-number">5.4.6.1</span> Replace values with ‘NA’</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_qol<span class="op">$</span>tx3&lt;-<span class="kw">revalue</span>(data_qol<span class="op">$</span>tx,<span class="kw">c</span>(<span class="st">&#39;diet only&#39;</span>=<span class="ot">NA</span>))
+<span class="kw">table</span>(data_qol<span class="op">$</span>tx3)</code></pre></div>
+<pre><code>## 
+##     OHA and diet only insulin and diet only                   all 
+##                   238                    26                    91</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(data_qol<span class="op">$</span>tx3)</code></pre></div>
+<pre><code>##  Factor w/ 3 levels &quot;OHA and diet only&quot;,..: 2 3 1 3 3 1 1 1 3 1 ...</code></pre>
+</div>
+</div>
+</div>
+<div id="additional-packages" class="section level2">
+<h2><span class="header-section-number">5.5</span> Additional packages</h2>
+<div id="package-dplyr" class="section level3">
+<h3><span class="header-section-number">5.5.1</span> Package ‘dplyr’</h3>
+<p>‘dplyr’ package is a very useful package that encourage users to use proper verb when manipulating variables (columns) and observations (rows)</p>
+<p>It has 9 useful functions 1. filter() 2. arrange() 3. select() 4. distinct() 5. mutate() and transmute() 6. summarise() 7. sample_n() and sample_frac()</p>
+<p>Package ‘dplyr’ is very useful when it is combined with another function that is ‘group_by’</p>
+<p>`</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="textual.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exploratory-data-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-Grammar_of_Var.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

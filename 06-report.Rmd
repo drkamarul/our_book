@@ -1,7 +1,1 @@
----
-output:
-  html_document:
-  md_document:
-    variant: markdown_github
----
 # Reporting results

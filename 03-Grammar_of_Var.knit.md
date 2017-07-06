@@ -1,9 +1,3 @@
----
-output:
-  html_document:
-    keep_md: yes
----
-
 # Prepare folder and data
 
 ## Set the working directory

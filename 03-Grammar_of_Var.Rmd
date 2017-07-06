@@ -1,13 +1,8 @@
----
-output:
-  html_document:
-    keep_md: yes
-   
----
+# Data and variable manipulation 
 
-# Prepare folder and data
+## Prepare folder and data
 
-## Set the working directory
+### Set the working directory
 
 This can be done in 2 ways:
 
@@ -17,7 +12,7 @@ This can be done in 2 ways:
 
 To use point and click, use the down arrow button next to *More* . Then click 'Set as working directory'
 
-# Read Data
+## Read Data
 
 ```{r}
 library(foreign)
@@ -25,7 +20,7 @@ data_qol<-read.dta('qol.dta',convert.factors = T)
 str(data_qol)
 ```
 
-# Browse data
+## Browse data
 
 1.  First few rows
 2.  Last few rows
@@ -35,9 +30,9 @@ head(data_qol)
 tail(data_qol)
 ```
 
-# Grammar of variables 
+## Grammar of variables 
 
-## Select columns
+### Select columns
 
 Let us create a new dataframe with only id, sex and hba1c as the variables
 
@@ -53,7 +48,7 @@ data_qol3<-data_qol[,c('sex','age','hba1c')]
 str(data_qol3)
 ```
 
-## Select rows
+### Select rows
 
 ```{r}
 data_qol4<-subset(data_qol, age > 30)
@@ -69,7 +64,7 @@ str(data_qol5)
 summary(data_qol5$age)
 ```
 
-## Select rows and columns together
+### Select rows and columns together
 
 ```{r}
 data_qol6<-subset(data_qol,age>30 & sex=='male', select = c(id, sex, age, group))
@@ -77,16 +72,16 @@ str(data_qol6)
 table(data_qol6$sex)
 ```
 
-## Generate a new variable
+### Generate a new variable
 
 ```{r}
 data_qol$age_cat<-data_qol$age
 View(data_qol)
 ```
 
-## Categorize into new variables
+### Categorize into new variables
 
-### From a numerical variable
+#### From a numerical variable
 
 ```{r}
 data_qol$age_cat<-cut(data_qol$age_cat,
@@ -97,7 +92,7 @@ table(data_qol$age_cat)
 str(data_qol$age_cat)
 ```
 
-### From a categorical variable
+#### From a categorical variable
 
 ```{r}
 table(data_qol$tx)
@@ -119,7 +114,7 @@ table(data_qol$tx2)
 ```
 
 
-## Dealing with missing data
+### Dealing with missing data
 
 ```{r}
 data_qol$tx3<-data_qol$tx
@@ -128,7 +123,7 @@ str(data_qol$tx)
 table(data_qol$tx3)
 ```
 
-### Replace values with 'NA'
+#### Replace values with 'NA'
 
 ```{r}
 data_qol$tx3<-revalue(data_qol$tx,c('diet only'=NA))
@@ -136,9 +131,9 @@ table(data_qol$tx3)
 str(data_qol$tx3)
 ```
 
-# Additional package
+## Additional packages
 
-## Package 'dplyr'
+### Package 'dplyr'
 
 'dplyr' package is a very useful package that encourage users to use proper verb when manipulating variables (columns) and observations (rows)
 

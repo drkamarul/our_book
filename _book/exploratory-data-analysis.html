@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R Book</title>
+  <meta name="description" content="R book by KIM and Arifin">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R Book" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="R book by KIM and Arifin" />
+  <meta name="github-repo" content="drkamarul/our_book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R Book" />
+  
+  <meta name="twitter:description" content="R book by KIM and Arifin" />
+  
+
+<meta name="author" content="Ariffin + KIM">
+
+
+<meta name="date" content="2017-07-06">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="data-and-variable-manipulation.html">
+<link rel="next" href="graphical.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> First</a></li>
+<li class="chapter" data-level="2" data-path="arifin-to-fill.html"><a href="arifin-to-fill.html"><i class="fa fa-check"></i><b>2</b> Arifin to fill</a></li>
+<li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> Literature</a></li>
+<li class="chapter" data-level="4" data-path="textual.html"><a href="textual.html"><i class="fa fa-check"></i><b>4</b> Textual</a><ul>
+<li class="chapter" data-level="4.1" data-path="textual.html"><a href="textual.html#basic-descriptive-statistics"><i class="fa fa-check"></i><b>4.1</b> Basic descriptive statistics</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="textual.html"><a href="textual.html#describing-a-numerical-variable"><i class="fa fa-check"></i><b>4.1.1</b> Describing a numerical variable</a></li>
+<li class="chapter" data-level="4.1.2" data-path="textual.html"><a href="textual.html#describing-a-categorical-variable"><i class="fa fa-check"></i><b>4.1.2</b> Describing a categorical variable</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="textual.html"><a href="textual.html#more-on-descriptive-statistics"><i class="fa fa-check"></i><b>4.2</b> More on descriptive statistics</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="textual.html"><a href="textual.html#describing-numerical-variables"><i class="fa fa-check"></i><b>4.2.1</b> Describing numerical variables</a></li>
+<li class="chapter" data-level="4.2.2" data-path="textual.html"><a href="textual.html#describing-categorical-variables"><i class="fa fa-check"></i><b>4.2.2</b> Describing categorical variables</a></li>
+<li class="chapter" data-level="4.2.3" data-path="textual.html"><a href="textual.html#describing-the-variables-together"><i class="fa fa-check"></i><b>4.2.3</b> Describing the variables together</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="textual.html"><a href="textual.html#more-on-tables"><i class="fa fa-check"></i><b>4.3</b> More on tables</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html"><i class="fa fa-check"></i><b>5</b> Data and variable manipulation</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#prepare-folder-and-data"><i class="fa fa-check"></i><b>5.1</b> Prepare folder and data</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#set-the-working-directory"><i class="fa fa-check"></i><b>5.1.1</b> Set the working directory</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#read-data"><i class="fa fa-check"></i><b>5.2</b> Read Data</a></li>
+<li class="chapter" data-level="5.3" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#browse-data"><i class="fa fa-check"></i><b>5.3</b> Browse data</a></li>
+<li class="chapter" data-level="5.4" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#grammar-of-variables"><i class="fa fa-check"></i><b>5.4</b> Grammar of variables</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#select-columns"><i class="fa fa-check"></i><b>5.4.1</b> Select columns</a></li>
+<li class="chapter" data-level="5.4.2" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#select-rows"><i class="fa fa-check"></i><b>5.4.2</b> Select rows</a></li>
+<li class="chapter" data-level="5.4.3" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#select-rows-and-columns-together"><i class="fa fa-check"></i><b>5.4.3</b> Select rows and columns together</a></li>
+<li class="chapter" data-level="5.4.4" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#generate-a-new-variable"><i class="fa fa-check"></i><b>5.4.4</b> Generate a new variable</a></li>
+<li class="chapter" data-level="5.4.5" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#categorize-into-new-variables"><i class="fa fa-check"></i><b>5.4.5</b> Categorize into new variables</a></li>
+<li class="chapter" data-level="5.4.6" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#dealing-with-missing-data"><i class="fa fa-check"></i><b>5.4.6</b> Dealing with missing data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#additional-packages"><i class="fa fa-check"></i><b>5.5</b> Additional packages</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#package-dplyr"><i class="fa fa-check"></i><b>5.5.1</b> Package ‘dplyr’</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Exploratory data analysis</a><ul>
+<li class="chapter" data-level="6.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#prepare-folder-and-data-1"><i class="fa fa-check"></i><b>6.1</b> Prepare folder and data</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#set-the-working-directory-1"><i class="fa fa-check"></i><b>6.1.1</b> Set the working directory</a></li>
+<li class="chapter" data-level="6.1.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#list-the-files-inside-the-working-directory"><i class="fa fa-check"></i><b>6.1.2</b> List the files inside the working directory</a></li>
+<li class="chapter" data-level="6.1.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#reading-dataset-from-spss-file-.sav"><i class="fa fa-check"></i><b>6.1.3</b> Reading dataset from SPSS file (.sav)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#describing-data"><i class="fa fa-check"></i><b>6.2</b> Describing data</a></li>
+<li class="chapter" data-level="6.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#graphing-or-plotting-data"><i class="fa fa-check"></i><b>6.3</b> Graphing or Plotting data</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#one-variable-a-categorical-or-factor-variable"><i class="fa fa-check"></i><b>6.3.1</b> One variable: A categorical or factor variable</a></li>
+<li class="chapter" data-level="6.3.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#one-variable-a-numerical-variable"><i class="fa fa-check"></i><b>6.3.2</b> One variable: A numerical variable</a></li>
+<li class="chapter" data-level="6.3.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#two-variables-a-numerical-with-another-numerical-variable"><i class="fa fa-check"></i><b>6.3.3</b> Two variables : A numerical with another numerical variable</a></li>
+<li class="chapter" data-level="6.3.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#two-variables-a-categorical-variable-with-a-categorical-variable"><i class="fa fa-check"></i><b>6.3.4</b> Two variables : A categorical variable with a categorical variable</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="graphical.html"><a href="graphical.html"><i class="fa fa-check"></i><b>7</b> Graphical</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="8" data-path="reporting-results.html"><a href="reporting-results.html"><i class="fa fa-check"></i><b>8</b> Reporting results</a></li>
+<li class="chapter" data-level="9" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>9</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exploratory-data-analysis" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Exploratory data analysis</h1>
+<div id="prepare-folder-and-data-1" class="section level2">
+<h2><span class="header-section-number">6.1</span> Prepare folder and data</h2>
+<div id="set-the-working-directory-1" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Set the working directory</h3>
+<p>This can be done in 2 ways:</p>
+<ol style="list-style-type: decimal">
+<li>Using codes</li>
+<li>Using point and click</li>
+</ol>
+<p>To use point and click, use the down arrow button next to <em>More</em> . Then click ‘Set as working directory’</p>
+</div>
+<div id="list-the-files-inside-the-working-directory" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> List the files inside the working directory</h3>
+<p>All files will be displayed when you click ‘Files’.</p>
+<p>Or you can use this code,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list.files</span>()</code></pre></div>
+<pre><code>##  [1] &quot;_book&quot;                     &quot;_bookdown.yml&quot;            
+##  [3] &quot;_bookdown_files&quot;           &quot;_build.sh&quot;                
+##  [5] &quot;_deploy.sh&quot;                &quot;_output.yml&quot;              
+##  [7] &quot;01-intro.knit.md&quot;          &quot;01-intro.md&quot;              
+##  [9] &quot;01-intro.Rmd&quot;              &quot;01-intro.utf8.md&quot;         
+## [11] &quot;02-literature.Rmd&quot;         &quot;02-text.Rmd&quot;              
+## [13] &quot;03-Grammar_of_Var.knit.md&quot; &quot;03-Grammar_of_Var.Rmd&quot;    
+## [15] &quot;04-EDA_Graphs.knit.md&quot;     &quot;04-EDA_Graphs.md&quot;         
+## [17] &quot;04-EDA_Graphs.Rmd&quot;         &quot;04-EDA_Graphs.utf8.md&quot;    
+## [19] &quot;05-graphical.Rmd&quot;          &quot;06-references.Rmd&quot;        
+## [21] &quot;06-report.Rmd&quot;             &quot;07-summary.Rmd&quot;           
+## [23] &quot;08-references.Rmd&quot;         &quot;book chapters.Rproj&quot;      
+## [25] &quot;book.bib&quot;                  &quot;bookdown-demo.log&quot;        
+## [27] &quot;bookdown-demo.Rmd&quot;         &quot;bookdown-demo.Rproj&quot;      
+## [29] &quot;cholest.csv&quot;               &quot;cholest.dta&quot;              
+## [31] &quot;cholest.sav&quot;               &quot;cholest.xlsx&quot;             
+## [33] &quot;DESCRIPTION&quot;               &quot;eye.csv&quot;                  
+## [35] &quot;eye.dta&quot;                   &quot;eye.sav&quot;                  
+## [37] &quot;eye.xlsx&quot;                  &quot;index.Rmd&quot;                
+## [39] &quot;LICENSE&quot;                   &quot;metab1.csv&quot;               
+## [41] &quot;metab1.dta&quot;                &quot;packages.bib&quot;             
+## [43] &quot;preamble.log&quot;              &quot;preamble.tex&quot;             
+## [45] &quot;qol.csv&quot;                   &quot;qol.dta&quot;                  
+## [47] &quot;qol.sav&quot;                   &quot;qol.xlsx&quot;                 
+## [49] &quot;README.md&quot;                 &quot;site&quot;                     
+## [51] &quot;style.css&quot;                 &quot;Template_R_bookdown&quot;      
+## [53] &quot;toc.css&quot;</code></pre>
+</div>
+<div id="reading-dataset-from-spss-file-.sav" class="section level3">
+<h3><span class="header-section-number">6.1.3</span> Reading dataset from SPSS file (.sav)</h3>
+<p>Dataset in SPSS format will end with .sav. To read SPSS data into R we use ‘foreign’ library.</p>
+<p>Create a object to represent the SPSS data that we will read into R.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(foreign)
+dataSPSS&lt;-<span class="kw">read.spss</span>(<span class="st">&#39;qol.sav&#39;</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## re-encoding from UTF-8</code></pre>
+</div>
+</div>
+<div id="describing-data" class="section level2">
+<h2><span class="header-section-number">6.2</span> Describing data</h2>
+<p>Let us examine the data</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(dataSPSS)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    365 obs. of  13 variables:
+##  $ id       : num  308 335 94 329 350 22 171 274 332 147 ...
+##  $ sex      : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 1 2 1 1 1 2 1 1 2 2 ...
+##  $ age      : num  55 41 50 47 67 57 60 54 60 45 ...
+##  $ tahundx  : num  14 4 5 10 13 4 4 15 13 3 ...
+##  $ tx       : Factor w/ 4 levels &quot;diet only&quot;,&quot;OHA and diet only&quot;,..: 3 4 2 4 4 2 2 2 4 2 ...
+##  $ group    : Factor w/ 2 levels &quot;\&quot;group A\&quot;&quot;,..: 2 2 1 2 2 1 1 1 2 1 ...
+##  $ complica : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 2 1 1 2 1 2 1 1 2 1 ...
+##  $ hba1c    : num  8.1 8 7.5 9.4 11.7 8.1 7.5 9.2 NA NA ...
+##  $ fbs      : num  6.9 4.8 8 3.6 12.5 8.5 NA NA NA NA ...
+##  $ rbs      : num  16.7 7.4 13.2 7.4 NA 7.8 9.4 7.8 NA 12.4 ...
+##  $ tg_total : num  0.92 1.66 0.74 0.94 3.01 1.3 NA 1.9 NA NA ...
+##  $ choleste : num  7.09 2.91 5.94 3.27 7.1 3.54 NA 5.7 NA NA ...
+##  $ ADDQSCORE: num  0 -0.222 -0.333 -0.36 -0.44 ...
+##  - attr(*, &quot;variable.labels&quot;)= Named chr  &quot;id_no&quot; &quot;sex&quot; &quot;&quot; &quot;&quot; ...
+##   ..- attr(*, &quot;names&quot;)= chr  &quot;id&quot; &quot;sex&quot; &quot;age&quot; &quot;tahundx&quot; ...
+##  - attr(*, &quot;codepage&quot;)= int 65001</code></pre>
+<p>Now, let us summarize our data</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(dataSPSS)</code></pre></div>
+<pre><code>##        id            sex           age           tahundx      
+##  Min.   :  1.0   female:153   Min.   :21.00   Min.   : 1.000  
+##  1st Qu.:126.0   male  :212   1st Qu.:47.00   1st Qu.: 4.000  
+##  Median :227.0                Median :53.00   Median : 7.000  
+##  Mean   :221.5                Mean   :52.75   Mean   : 8.795  
+##  3rd Qu.:325.0                3rd Qu.:59.00   3rd Qu.:12.000  
+##  Max.   :416.0                Max.   :80.00   Max.   :38.000  
+##                                                               
+##                      tx            group     complica      hba1c       
+##  diet only            : 10   &quot;group A&quot;:248   no :225   Min.   : 4.100  
+##  OHA and diet only    :238   &quot;group B&quot;:117   yes:140   1st Qu.: 7.500  
+##  insulin and diet only: 26                             Median : 9.050  
+##  all                  : 91                             Mean   : 9.301  
+##                                                        3rd Qu.:10.775  
+##                                                        Max.   :19.900  
+##                                                        NA&#39;s   :111     
+##       fbs              rbs            tg_total        choleste     
+##  Min.   : 2.700   Min.   : 3.900   Min.   :0.380   Min.   : 2.020  
+##  1st Qu.: 5.700   1st Qu.: 7.925   1st Qu.:1.125   1st Qu.: 4.308  
+##  Median : 8.000   Median :11.300   Median :1.570   Median : 5.210  
+##  Mean   : 9.003   Mean   :12.045   Mean   :2.002   Mean   : 5.437  
+##  3rd Qu.:11.900   3rd Qu.:15.000   3rd Qu.:2.385   3rd Qu.: 6.423  
+##  Max.   :29.200   Max.   :31.500   Max.   :8.020   Max.   :13.100  
+##  NA&#39;s   :178      NA&#39;s   :83       NA&#39;s   :191     NA&#39;s   :181     
+##    ADDQSCORE     
+##  Min.   :-9.000  
+##  1st Qu.:-5.590  
+##  Median :-3.944  
+##  Mean   :-4.179  
+##  3rd Qu.:-2.556  
+##  Max.   : 0.000  
+## </code></pre>
+</div>
+<div id="graphing-or-plotting-data" class="section level2">
+<h2><span class="header-section-number">6.3</span> Graphing or Plotting data</h2>
+<p>You must ask yourselves these: 1. Which variable do you want to plot? 2. What is the type of that variable? Factor? Numerical? 3. Are you going to plot another variable together?</p>
+<div id="one-variable-a-categorical-or-factor-variable" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> One variable: A categorical or factor variable</h3>
+<p>We can create a simple barchart</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dist.sex&lt;-<span class="kw">table</span>(dataSPSS<span class="op">$</span>sex)
+<span class="kw">barplot</span>(dist.sex,
+        <span class="dt">main=</span><span class="st">&#39;Sex distribution&#39;</span>,
+        <span class="dt">xlab=</span><span class="st">&#39;Sex&#39;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+</div>
+<div id="one-variable-a-numerical-variable" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> One variable: A numerical variable</h3>
+<p>histogram</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(dataSPSS<span class="op">$</span>age, <span class="dt">main =</span> <span class="st">&#39;Age&#39;</span>,
+     <span class="dt">xlab=</span><span class="st">&#39;Age in years&#39;</span>,
+     <span class="dt">ylab=</span><span class="st">&#39;Count&#39;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
+</div>
+<div id="two-variables-a-numerical-with-another-numerical-variable" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> Two variables : A numerical with another numerical variable</h3>
+<p>We will use <em>scatterplot</em> to plot</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(dataSPSS<span class="op">$</span>tahundx, dataSPSS<span class="op">$</span>age,
+     <span class="dt">main =</span> <span class="st">&#39;Duration having DM VS age&#39;</span>,
+     <span class="dt">xlab =</span> <span class="st">&#39;Duration of DM&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;Age&#39;</span>,
+     <span class="dt">pch =</span> <span class="dv">19</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
+<p>Let us make a fit line</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(dataSPSS<span class="op">$</span>tahundx, dataSPSS<span class="op">$</span>age,
+     <span class="dt">main =</span> <span class="st">&#39;Duration having DM VS age&#39;</span>,
+     <span class="dt">xlab =</span> <span class="st">&#39;Duration of DM&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;Age&#39;</span>,
+     <span class="dt">pch =</span> <span class="dv">19</span>)
+<span class="kw">abline</span>(<span class="kw">lm</span>(dataSPSS<span class="op">$</span>age<span class="op">~</span>dataSPSS<span class="op">$</span>tahundx), <span class="dt">col =</span> <span class="st">&#39;red&#39;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
+<p>and a lowess</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(dataSPSS<span class="op">$</span>tahundx, dataSPSS<span class="op">$</span>age,
+     <span class="dt">main =</span> <span class="st">&#39;Duration having DM VS age&#39;</span>,
+     <span class="dt">xlab =</span> <span class="st">&#39;Duration of DM&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;Age&#39;</span>,
+     <span class="dt">pch =</span> <span class="dv">19</span>)
+<span class="kw">lines</span>(<span class="kw">lowess</span>(dataSPSS<span class="op">$</span>tahundx,dataSPSS<span class="op">$</span>age), <span class="dt">col =</span> <span class="st">&#39;blue&#39;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+</div>
+<div id="two-variables-a-categorical-variable-with-a-categorical-variable" class="section level3">
+<h3><span class="header-section-number">6.3.4</span> Two variables : A categorical variable with a categorical variable</h3>
+<p>Now, we will plot 2 categorical variables simultenously.</p>
+<p>First, we will use stacked barchart</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">compl.sex&lt;-<span class="kw">table</span>(dataSPSS<span class="op">$</span>complica,dataSPSS<span class="op">$</span>sex)
+compl.sex</code></pre></div>
+<pre><code>##      
+##       female male
+##   no     105  120
+##   yes     48   92</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(compl.sex,
+        <span class="dt">main=</span><span class="st">&#39;Complications by sex&#39;</span>,
+        <span class="dt">xlab=</span><span class="st">&#39;Sex&#39;</span>,
+        <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;blue&#39;</span>,<span class="st">&#39;red&#39;</span>),
+        <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&#39;No&#39;</span>,<span class="st">&#39;Yes&#39;</span>))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+<p>Next, we will use grouped barchart</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">compl.sex</code></pre></div>
+<pre><code>##      
+##       female male
+##   no     105  120
+##   yes     48   92</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(compl.sex,
+        <span class="dt">main =</span> <span class="st">&#39;Complications according to sex&#39;</span>,
+        <span class="dt">xlab =</span> <span class="st">&#39;Sex&#39;</span>,
+        <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&#39;blue&#39;</span>,<span class="st">&#39;red&#39;</span>),
+        <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&#39;no&#39;</span>,<span class="st">&#39;yes&#39;</span>),
+        <span class="dt">beside =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-and-variable-manipulation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="graphical.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-EDA_Graphs.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

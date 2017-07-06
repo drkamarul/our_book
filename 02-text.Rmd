@@ -1,9 +1,3 @@
----
-output:
-  word_document: default
-  pdf_document: default
-  html_document: default
----
 # Textual
 In this chapter, we will go through a number of R functions for basic statistics. The focus will be on the results that are presented in form of numbers in text or tables (textual). We will mostly use the builtin functions (from R standard library). Extra packages will be introduced whenever necessary.
 

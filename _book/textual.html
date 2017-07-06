@@ -32,8 +32,13 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
+<<<<<<< HEAD
 <link rel="prev" href="literature.html">
 <link rel="next" href="data-and-variable-manipulation.html">
+=======
+<link rel="prev" href="introduction-to-r.html">
+<link rel="next" href="grammar-of-variables.html">
+>>>>>>> b1e7fe217da24c9c49c585f8cb7b29c3a03e88ce
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -135,6 +140,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.5" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#additional-packages"><i class="fa fa-check"></i><b>5.5</b> Additional packages</a><ul>
 <li class="chapter" data-level="5.5.1" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html#package-dplyr"><i class="fa fa-check"></i><b>5.5.1</b> Package ‘dplyr’</a></li>
 </ul></li>
+<<<<<<< HEAD
 </ul></li>
 <li class="chapter" data-level="6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Exploratory data analysis</a><ul>
 <li class="chapter" data-level="6.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#prepare-folder-and-data-1"><i class="fa fa-check"></i><b>6.1</b> Prepare folder and data</a><ul>
@@ -158,6 +164,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
+=======
+<li class="chapter" data-level="3.3" data-path="textual.html"><a href="textual.html#summary"><i class="fa fa-check"></i><b>3.3</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html"><i class="fa fa-check"></i><b>4</b> Grammar of variables</a></li>
+<li class="chapter" data-level="5" data-path="placeholder-1.html"><a href="placeholder-1.html"><i class="fa fa-check"></i><b>5</b> Placeholder</a></li>
+<li class="chapter" data-level="6" data-path="graphical.html"><a href="graphical.html"><i class="fa fa-check"></i><b>6</b> Graphical</a></li>
+<li class="chapter" data-level="7" data-path="reporting-results.html"><a href="reporting-results.html"><i class="fa fa-check"></i><b>7</b> Reporting results</a></li>
+<li class="chapter" data-level="8" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>8</b> Final Words</a></li>
+<li class="chapter" data-level="9" data-path="placeholder-2.html"><a href="placeholder-2.html"><i class="fa fa-check"></i><b>9</b> Placeholder</a></li>
+>>>>>>> b1e7fe217da24c9c49c585f8cb7b29c3a03e88ce
 </ul>
 
       </nav>
@@ -399,7 +415,12 @@ infert<span class="op">$</span>spontaneous =<span class="st"> </span><span class
 ##  12+ yrs:116   2 or more: 37                 2 or more: 36</code></pre>
 <p>We do not use <code>table</code> here in form of <code>table(infert[c(&quot;education&quot;, &quot;induced&quot;, &quot;case&quot;, &quot;spontaneous&quot;)])</code> because <code>table</code> used in this form will give us 3-way cross-tabulation instead of count per categories. Cross-tabulation of categorical variables will be covered later.</p>
 <p>To obtain the proportion and percentage results, we have to use <code>lapply</code>,</p>
+<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(infert[<span class="kw">c</span>(<span class="st">&quot;education&quot;</span>, <span class="st">&quot;induced&quot;</span>, <span class="st">&quot;case&quot;</span>, <span class="st">&quot;spontaneous&quot;</span>)], <span class="cf">function</span>(x) <span class="kw">summary</span>(x)<span class="op">/</span><span class="kw">length</span>(x))</code></pre></div>
+=======
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(infert[<span class="kw">c</span>(<span class="st">&quot;education&quot;</span>, <span class="st">&quot;induced&quot;</span>, <span class="st">&quot;case&quot;</span>, <span class="st">&quot;spontaneous&quot;</span>)], 
+       function(x) <span class="kw">summary</span>(x)/<span class="kw">length</span>(x))</code></pre></div>
+>>>>>>> b1e7fe217da24c9c49c585f8cb7b29c3a03e88ce
 <pre><code>## $education
 ##    0-5yrs   6-11yrs   12+ yrs 
 ## 0.0483871 0.4838710 0.4677419 
@@ -415,7 +436,12 @@ infert<span class="op">$</span>spontaneous =<span class="st"> </span><span class
 ## $spontaneous
 ##         0         1 2 or more 
 ## 0.5685484 0.2862903 0.1451613</code></pre>
+<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(infert[<span class="kw">c</span>(<span class="st">&quot;education&quot;</span>, <span class="st">&quot;induced&quot;</span>, <span class="st">&quot;case&quot;</span>, <span class="st">&quot;spontaneous&quot;</span>)], <span class="cf">function</span>(x) <span class="kw">summary</span>(x)<span class="op">/</span><span class="kw">length</span>(x)<span class="op">*</span><span class="dv">100</span>)</code></pre></div>
+=======
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(infert[<span class="kw">c</span>(<span class="st">&quot;education&quot;</span>, <span class="st">&quot;induced&quot;</span>, <span class="st">&quot;case&quot;</span>, <span class="st">&quot;spontaneous&quot;</span>)], 
+       function(x) <span class="kw">summary</span>(x)/<span class="kw">length</span>(x)*<span class="dv">100</span>)</code></pre></div>
+>>>>>>> b1e7fe217da24c9c49c585f8cb7b29c3a03e88ce
 <pre><code>## $education
 ##   0-5yrs  6-11yrs  12+ yrs 
 ##  4.83871 48.38710 46.77419 
@@ -471,7 +497,12 @@ infert<span class="op">$</span>spontaneous =<span class="st"> </span><span class
 ## 
 ##         0         1 2 or more 
 ##       141        71        36</code></pre>
+<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(infert[<span class="kw">c</span>(<span class="st">&quot;education&quot;</span>, <span class="st">&quot;induced&quot;</span>, <span class="st">&quot;case&quot;</span>, <span class="st">&quot;spontaneous&quot;</span>)], <span class="cf">function</span>(x) <span class="kw">prop.table</span>(<span class="kw">table</span>(x)))</code></pre></div>
+=======
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(infert[<span class="kw">c</span>(<span class="st">&quot;education&quot;</span>, <span class="st">&quot;induced&quot;</span>, <span class="st">&quot;case&quot;</span>, <span class="st">&quot;spontaneous&quot;</span>)], 
+       function(x) <span class="kw">prop.table</span>(<span class="kw">table</span>(x)))</code></pre></div>
+>>>>>>> b1e7fe217da24c9c49c585f8cb7b29c3a03e88ce
 <pre><code>## $education
 ## x
 ##    0-5yrs   6-11yrs   12+ yrs 
@@ -491,7 +522,12 @@ infert<span class="op">$</span>spontaneous =<span class="st"> </span><span class
 ## x
 ##         0         1 2 or more 
 ## 0.5685484 0.2862903 0.1451613</code></pre>
+<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(infert[<span class="kw">c</span>(<span class="st">&quot;education&quot;</span>, <span class="st">&quot;induced&quot;</span>, <span class="st">&quot;case&quot;</span>, <span class="st">&quot;spontaneous&quot;</span>)], <span class="cf">function</span>(x) <span class="kw">prop.table</span>(<span class="kw">table</span>(x))<span class="op">*</span><span class="dv">100</span>)</code></pre></div>
+=======
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(infert[<span class="kw">c</span>(<span class="st">&quot;education&quot;</span>, <span class="st">&quot;induced&quot;</span>, <span class="st">&quot;case&quot;</span>, <span class="st">&quot;spontaneous&quot;</span>)], 
+       function(x) <span class="kw">prop.table</span>(<span class="kw">table</span>(x))*<span class="dv">100</span>)</code></pre></div>
+>>>>>>> b1e7fe217da24c9c49c585f8cb7b29c3a03e88ce
 <pre><code>## $education
 ## x
 ##   0-5yrs  6-11yrs  12+ yrs 
@@ -514,12 +550,21 @@ infert<span class="op">$</span>spontaneous =<span class="st"> </span><span class
 <p>Notice here, whenever we do not need to specify extra operations on a basic function, e.g. <code>summary</code> and <code>table</code>, all we need to write after the comma in <code>lapply</code> is the basic function without <code>function(x)</code> and <code>(x)</code>.</p>
 </div>
 <div id="describing-the-variables-together" class="section level3">
+<<<<<<< HEAD
 <h3><span class="header-section-number">4.2.3</span> Describing the variables together</h3>
 <p>In the preceeding sections, we intentionally went through the descriptive statistics of a variable, followed by a number of variables of the same type. This will give you the basics in dealing with the variables. Most commonly, the variables are described by groups or in form cross-tabulated counts/percentages.</p>
 <div id="by-groups" class="section level4">
 <h4><span class="header-section-number">4.2.3.1</span> By groups</h4>
 <p>To obtain all the descriptive statistics by group, we can use <code>by</code> with the relevant functions</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">by</span>(infert[<span class="kw">c</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;parity&quot;</span>)], infert<span class="op">$</span>case, summary)</code></pre></div>
+=======
+<h3><span class="header-section-number">3.2.3</span> Describing the variables together</h3>
+<p>We intentionally went through the descriptive statistics of a variable, followed by a number of variables of the same type. This will give you the basics in dealing with the variables. Most commonly, the variables are described by groups or in form cross-tabulated counts/percentages.</p>
+<div id="by-groups" class="section level4">
+<h4><span class="header-section-number">3.2.3.1</span> By groups</h4>
+<p>To obtain all the descriptive statistics by group, we can use <code>by</code> with the relevant functions. Let say we want to obtain the statistics by case and control (<code>case</code>). We start with numerical variables</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">by</span>(infert[<span class="kw">c</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;parity&quot;</span>)], infert$case, summary)</code></pre></div>
+>>>>>>> b1e7fe217da24c9c49c585f8cb7b29c3a03e88ce
 <pre><code>## infert$case: control
 ##       age            parity     
 ##  Min.   :21.00   Min.   :1.000  
@@ -553,7 +598,32 @@ infert<span class="op">$</span>spontaneous =<span class="st"> </span><span class
 ##          se
 ## age    0.58
 ## parity 0.14</code></pre>
+<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">by</span>(infert[<span class="kw">c</span>(<span class="st">&quot;education&quot;</span>, <span class="st">&quot;induced&quot;</span>, <span class="st">&quot;spontaneous&quot;</span>)], infert<span class="op">$</span>case, summary)</code></pre></div>
+=======
+<p>We can also use <code>describeBy</code>, which is an the extension of <code>describe</code> in the <code>psych</code> package.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">describeBy</span>(infert[<span class="kw">c</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;parity&quot;</span>)], <span class="dt">group =</span> infert$case)</code></pre></div>
+<pre><code>## 
+##  Descriptive statistics by group 
+## group: control
+##        vars   n  mean   sd median trimmed  mad min max range skew kurtosis
+## age       1 165 31.49 5.25     31   31.34 5.93  21  44    23 0.23    -0.72
+## parity    2 165  2.08 1.24      2    1.88 1.48   1   6     5 1.32     1.42
+##          se
+## age    0.41
+## parity 0.10
+## -------------------------------------------------------- 
+## group: case
+##        vars  n  mean   sd median trimmed  mad min max range skew kurtosis
+## age       1 83 31.53 5.28     31   31.39 5.93  21  44    23 0.21    -0.77
+## parity    2 83  2.11 1.28      2    1.90 1.48   1   6     5 1.32     1.34
+##          se
+## age    0.58
+## parity 0.14</code></pre>
+<p>which gives us an identical result.</p>
+<p>For categorical variables, using <code>summary</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">by</span>(infert[<span class="kw">c</span>(<span class="st">&quot;education&quot;</span>, <span class="st">&quot;induced&quot;</span>, <span class="st">&quot;spontaneous&quot;</span>)], infert$case, summary)</code></pre></div>
+>>>>>>> b1e7fe217da24c9c49c585f8cb7b29c3a03e88ce
 <pre><code>## infert$case: control
 ##    education       induced      spontaneous 
 ##  0-5yrs : 8   0        :96   0        :113  
@@ -565,7 +635,69 @@ infert<span class="op">$</span>spontaneous =<span class="st"> </span><span class
 ##  0-5yrs : 4   0        :47   0        :28  
 ##  6-11yrs:40   1        :23   1        :31  
 ##  12+ yrs:39   2 or more:13   2 or more:24</code></pre>
+<<<<<<< HEAD
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">by</span>(infert[<span class="kw">c</span>(<span class="st">&quot;education&quot;</span>, <span class="st">&quot;induced&quot;</span>, <span class="st">&quot;spontaneous&quot;</span>)], infert<span class="op">$</span>case, <span class="cf">function</span>(x) <span class="kw">lapply</span>(x, table))</code></pre></div>
+=======
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">by</span>(infert[<span class="kw">c</span>(<span class="st">&quot;education&quot;</span>, <span class="st">&quot;induced&quot;</span>, <span class="st">&quot;spontaneous&quot;</span>)], infert$case, 
+   function(x) <span class="kw">lapply</span>(x, function(x) <span class="kw">summary</span>(x)/<span class="kw">length</span>(x)))</code></pre></div>
+<pre><code>## infert$case: control
+## $education
+##     0-5yrs    6-11yrs    12+ yrs 
+## 0.04848485 0.48484848 0.46666667 
+## 
+## $induced
+##         0         1 2 or more 
+## 0.5818182 0.2727273 0.1454545 
+## 
+## $spontaneous
+##          0          1  2 or more 
+## 0.68484848 0.24242424 0.07272727 
+## 
+## -------------------------------------------------------- 
+## infert$case: case
+## $education
+##     0-5yrs    6-11yrs    12+ yrs 
+## 0.04819277 0.48192771 0.46987952 
+## 
+## $induced
+##         0         1 2 or more 
+## 0.5662651 0.2771084 0.1566265 
+## 
+## $spontaneous
+##         0         1 2 or more 
+## 0.3373494 0.3734940 0.2891566</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">by</span>(infert[<span class="kw">c</span>(<span class="st">&quot;education&quot;</span>, <span class="st">&quot;induced&quot;</span>, <span class="st">&quot;spontaneous&quot;</span>)], infert$case, 
+   function(x) <span class="kw">lapply</span>(x, function(x) <span class="kw">summary</span>(x)/<span class="kw">length</span>(x)*<span class="dv">100</span>))</code></pre></div>
+<pre><code>## infert$case: control
+## $education
+##    0-5yrs   6-11yrs   12+ yrs 
+##  4.848485 48.484848 46.666667 
+## 
+## $induced
+##         0         1 2 or more 
+##  58.18182  27.27273  14.54545 
+## 
+## $spontaneous
+##         0         1 2 or more 
+## 68.484848 24.242424  7.272727 
+## 
+## -------------------------------------------------------- 
+## infert$case: case
+## $education
+##    0-5yrs   6-11yrs   12+ yrs 
+##  4.819277 48.192771 46.987952 
+## 
+## $induced
+##         0         1 2 or more 
+##  56.62651  27.71084  15.66265 
+## 
+## $spontaneous
+##         0         1 2 or more 
+##  33.73494  37.34940  28.91566</code></pre>
+<p>or by using <code>table</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">by</span>(infert[<span class="kw">c</span>(<span class="st">&quot;education&quot;</span>, <span class="st">&quot;induced&quot;</span>, <span class="st">&quot;spontaneous&quot;</span>)], infert$case, 
+   function(x) <span class="kw">lapply</span>(x, table))</code></pre></div>
+>>>>>>> b1e7fe217da24c9c49c585f8cb7b29c3a03e88ce
 <pre><code>## infert$case: control
 ## $education
 ## 
@@ -598,6 +730,7 @@ infert<span class="op">$</span>spontaneous =<span class="st"> </span><span class
 ## 
 ##         0         1 2 or more 
 ##        28        31        24</code></pre>
+<<<<<<< HEAD
 <p>Please note that simply replacing <code>table</code> for <code>summary</code> as in <code>by(infert[c(&quot;education&quot;, &quot;induced&quot;, &quot;spontaneous&quot;)], infert$case, table)</code> will not work as intended. <code>education</code> will be nested in <code>induced</code>, which is nested in <code>spontaneous</code>, listed by <code>case</code> instead.</p>
 <p>We can also use <code>describeBy</code>, which is an the extension of <code>describe</code> in the <code>psych</code> package.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">describeBy</span>(infert[<span class="kw">c</span>(<span class="st">&quot;age&quot;</span>, <span class="st">&quot;parity&quot;</span>)], <span class="dt">group =</span> infert<span class="op">$</span>case)</code></pre></div>
@@ -610,17 +743,80 @@ infert<span class="op">$</span>spontaneous =<span class="st"> </span><span class
 ##          se
 ## age    0.41
 ## parity 0.10
+=======
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">by</span>(infert[<span class="kw">c</span>(<span class="st">&quot;education&quot;</span>, <span class="st">&quot;induced&quot;</span>, <span class="st">&quot;spontaneous&quot;</span>)], infert$case, 
+   function(x) <span class="kw">lapply</span>(x, function(x) <span class="kw">prop.table</span>(<span class="kw">table</span>(x))))</code></pre></div>
+<pre><code>## infert$case: control
+## $education
+## x
+##     0-5yrs    6-11yrs    12+ yrs 
+## 0.04848485 0.48484848 0.46666667 
+## 
+## $induced
+## x
+##         0         1 2 or more 
+## 0.5818182 0.2727273 0.1454545 
+## 
+## $spontaneous
+## x
+##          0          1  2 or more 
+## 0.68484848 0.24242424 0.07272727 
+## 
+>>>>>>> b1e7fe217da24c9c49c585f8cb7b29c3a03e88ce
 ## -------------------------------------------------------- 
-## group: case
-##        vars  n  mean   sd median trimmed  mad min max range skew kurtosis
-## age       1 83 31.53 5.28     31   31.39 5.93  21  44    23 0.21    -0.77
-## parity    2 83  2.11 1.28      2    1.90 1.48   1   6     5 1.32     1.34
-##          se
-## age    0.58
-## parity 0.14</code></pre>
-<p>which is limited to numerical variables only.</p>
+## infert$case: case
+## $education
+## x
+##     0-5yrs    6-11yrs    12+ yrs 
+## 0.04819277 0.48192771 0.46987952 
+## 
+## $induced
+## x
+##         0         1 2 or more 
+## 0.5662651 0.2771084 0.1566265 
+## 
+## $spontaneous
+## x
+##         0         1 2 or more 
+## 0.3373494 0.3734940 0.2891566</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">by</span>(infert[<span class="kw">c</span>(<span class="st">&quot;education&quot;</span>, <span class="st">&quot;induced&quot;</span>, <span class="st">&quot;spontaneous&quot;</span>)], infert$case, 
+   function(x) <span class="kw">lapply</span>(x, function(x) <span class="kw">prop.table</span>(<span class="kw">table</span>(x))*<span class="dv">100</span>))</code></pre></div>
+<pre><code>## infert$case: control
+## $education
+## x
+##    0-5yrs   6-11yrs   12+ yrs 
+##  4.848485 48.484848 46.666667 
+## 
+## $induced
+## x
+##         0         1 2 or more 
+##  58.18182  27.27273  14.54545 
+## 
+## $spontaneous
+## x
+##         0         1 2 or more 
+## 68.484848 24.242424  7.272727 
+## 
+## -------------------------------------------------------- 
+## infert$case: case
+## $education
+## x
+##    0-5yrs   6-11yrs   12+ yrs 
+##  4.819277 48.192771 46.987952 
+## 
+## $induced
+## x
+##         0         1 2 or more 
+##  56.62651  27.71084  15.66265 
+## 
+## $spontaneous
+## x
+##         0         1 2 or more 
+##  33.73494  37.34940  28.91566</code></pre>
+<p>Please note that simply replacing <code>table</code> for <code>summary</code> as in <code>by(infert[c(&quot;education&quot;, &quot;induced&quot;, &quot;spontaneous&quot;)], infert$case, table)</code> will not work as intended. <code>education</code> will be nested in <code>induced</code>, which is nested in <code>spontaneous</code>, listed by <code>case</code> instead. And yes, to obtain the proportions and percentages, it gets slightly more complicated as we have to specify <code>function</code> twice in <code>by</code>.</p>
 </div>
 <div id="simple-cross-tabulation" class="section level4">
+<<<<<<< HEAD
 <h4><span class="header-section-number">4.2.3.2</span> Simple cross-tabulation</h4>
 </div>
 </div>
@@ -628,6 +824,98 @@ infert<span class="op">$</span>spontaneous =<span class="st"> </span><span class
 <div id="more-on-tables" class="section level2">
 <h2><span class="header-section-number">4.3</span> More on tables</h2>
 <p>This requires special attention.</p>
+=======
+<h4><span class="header-section-number">3.2.3.2</span> Simple cross-tabulation</h4>
+<p>As long as the categorical variables are already <code>factor</code>ed properly, there should not be a problem to obtain the cross-tabulation tables. For example between <code>education</code> and <code>case</code>,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(infert$education, infert$case)</code></pre></div>
+<pre><code>##          
+##           control case
+##   0-5yrs        8    4
+##   6-11yrs      80   40
+##   12+ yrs      77   39</code></pre>
+<p>We may also include row and column headers, just like <code>cbind</code>,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(<span class="dt">education =</span> infert$education, <span class="dt">case =</span> infert$case)</code></pre></div>
+<pre><code>##          case
+## education control case
+##   0-5yrs        8    4
+##   6-11yrs      80   40
+##   12+ yrs      77   39</code></pre>
+<p>Since we are familiar with the powerful <code>lappy</code>, we can use it to get cross-tabulation of all of the factors with <code>case</code> status,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(infert[<span class="kw">c</span>(<span class="st">&quot;education&quot;</span>, <span class="st">&quot;induced&quot;</span>, <span class="st">&quot;spontaneous&quot;</span>)], function(x) <span class="kw">table</span>(x, infert$case))</code></pre></div>
+<pre><code>## $education
+##          
+## x         control case
+##   0-5yrs        8    4
+##   6-11yrs      80   40
+##   12+ yrs      77   39
+## 
+## $induced
+##            
+## x           control case
+##   0              96   47
+##   1              45   23
+##   2 or more      24   13
+## 
+## $spontaneous
+##            
+## x           control case
+##   0             113   28
+##   1              40   31
+##   2 or more      12   24</code></pre>
+<p>We may also view subgroup counts (nesting). Here, the cross-tabulation of <code>education</code> and <code>case</code> is nested within <code>induced</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(infert$education, infert$case, infert$induced)</code></pre></div>
+<pre><code>## , ,  = 0
+## 
+##          
+##           control case
+##   0-5yrs        4    0
+##   6-11yrs      57   21
+##   12+ yrs      35   26
+## 
+## , ,  = 1
+## 
+##          
+##           control case
+##   0-5yrs        0    2
+##   6-11yrs      16   11
+##   12+ yrs      29   10
+## 
+## , ,  = 2 or more
+## 
+##          
+##           control case
+##   0-5yrs        4    2
+##   6-11yrs       7    8
+##   12+ yrs      13    3</code></pre>
+<p>which will look nicer if we apply <code>by</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">by</span>(infert[<span class="kw">c</span>(<span class="st">&quot;education&quot;</span>, <span class="st">&quot;case&quot;</span>)], infert$induced, table)</code></pre></div>
+<pre><code>## infert$induced: 0
+##          case
+## education control case
+##   0-5yrs        4    0
+##   6-11yrs      57   21
+##   12+ yrs      35   26
+## -------------------------------------------------------- 
+## infert$induced: 1
+##          case
+## education control case
+##   0-5yrs        0    2
+##   6-11yrs      16   11
+##   12+ yrs      29   10
+## -------------------------------------------------------- 
+## infert$induced: 2 or more
+##          case
+## education control case
+##   0-5yrs        4    2
+##   6-11yrs       7    8
+##   12+ yrs      13    3</code></pre>
+</div>
+</div>
+</div>
+<div id="summary" class="section level2">
+<h2><span class="header-section-number">3.3</span> Summary</h2>
+<p>In this chapter, we learned about how to handle numerical and categorical variables and obtain the basic and relevant statistics. In the next chapter, we are going to learn about how to explore the variables in visually in form of the relevant graphs and plots.</p>
+>>>>>>> b1e7fe217da24c9c49c585f8cb7b29c3a03e88ce
 
 </div>
 </div>
@@ -636,8 +924,13 @@ infert<span class="op">$</span>spontaneous =<span class="st"> </span><span class
           </div>
         </div>
       </div>
+<<<<<<< HEAD
 <a href="literature.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="data-and-variable-manipulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+=======
+<a href="introduction-to-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="grammar-of-variables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+>>>>>>> b1e7fe217da24c9c49c585f8cb7b29c3a03e88ce
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

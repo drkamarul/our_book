@@ -1,5 +1,10 @@
 # Data and variable manipulation 
 
+<<<<<<< HEAD
+=======
+# Grammar of variables 
+
+>>>>>>> b1e7fe217da24c9c49c585f8cb7b29c3a03e88ce
 ## Prepare folder and data
 
 ### Set the working directory
@@ -30,9 +35,13 @@ head(data_qol)
 tail(data_qol)
 ```
 
+<<<<<<< HEAD
 ## Grammar of variables 
 
 ### Select columns
+=======
+## Select columns
+>>>>>>> b1e7fe217da24c9c49c585f8cb7b29c3a03e88ce
 
 Let us create a new dataframe with only id, sex and hba1c as the variables
 
@@ -131,7 +140,11 @@ table(data_qol$tx3)
 str(data_qol$tx3)
 ```
 
+<<<<<<< HEAD
 ## Additional packages
+=======
+## Additional package
+>>>>>>> b1e7fe217da24c9c49c585f8cb7b29c3a03e88ce
 
 ### Package 'dplyr'
 

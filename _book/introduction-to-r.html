@@ -1,0 +1,324 @@
+<<<<<<< HEAD
+=======
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Exploring data using R</title>
+  <meta name="description" content="Exploring data using R">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Exploring data using R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Exploring data using R" />
+  
+  
+  
+
+<meta name="author" content="Kamarul Imran Musa, Wan Nor Arifin">
+
+
+<meta name="date" content="2017-07-06">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="textual.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> R and RStudio</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.1.1</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#getting-familiar-with-the-interface"><i class="fa fa-check"></i><b>1.1.2</b> Getting familiar with the interface</a></li>
+<li class="chapter" data-level="1.1.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-script"><i class="fa fa-check"></i><b>1.1.3</b> R script</a></li>
+<li class="chapter" data-level="1.1.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#working-with-packages"><i class="fa fa-check"></i><b>1.1.4</b> Working with packages</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#working-with-data"><i class="fa fa-check"></i><b>1.2</b> Working with Data</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#setting-working-directory"><i class="fa fa-check"></i><b>1.2.1</b> Setting working directory</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-management"><i class="fa fa-check"></i><b>1.2.2</b> Data management</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#more-about-data-management"><i class="fa fa-check"></i><b>1.2.3</b> More about data management</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="textual.html"><a href="textual.html"><i class="fa fa-check"></i><b>2</b> Textual</a><ul>
+<li class="chapter" data-level="2.1" data-path="textual.html"><a href="textual.html#basic-descriptive-statistics"><i class="fa fa-check"></i><b>2.1</b> Basic descriptive statistics</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="textual.html"><a href="textual.html#describing-a-numerical-variable"><i class="fa fa-check"></i><b>2.1.1</b> Describing a numerical variable</a></li>
+<li class="chapter" data-level="2.1.2" data-path="textual.html"><a href="textual.html#describing-a-categorical-variable"><i class="fa fa-check"></i><b>2.1.2</b> Describing a categorical variable</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="textual.html"><a href="textual.html#more-on-descriptive-statistics"><i class="fa fa-check"></i><b>2.2</b> More on descriptive statistics</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="textual.html"><a href="textual.html#describing-numerical-variables"><i class="fa fa-check"></i><b>2.2.1</b> Describing numerical variables</a></li>
+<li class="chapter" data-level="2.2.2" data-path="textual.html"><a href="textual.html#describing-categorical-variables"><i class="fa fa-check"></i><b>2.2.2</b> Describing categorical variables</a></li>
+<li class="chapter" data-level="2.2.3" data-path="textual.html"><a href="textual.html#describing-the-variables-together"><i class="fa fa-check"></i><b>2.2.3</b> Describing the variables together</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="textual.html"><a href="textual.html#more-on-tables"><i class="fa fa-check"></i><b>2.3</b> More on tables</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html"><i class="fa fa-check"></i><b>3</b> Grammar of variables</a><ul>
+<li class="chapter" data-level="3.1" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#prepare-folder-and-data"><i class="fa fa-check"></i><b>3.1</b> Prepare folder and data</a></li>
+<li class="chapter" data-level="3.2" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#set-the-working-directory"><i class="fa fa-check"></i><b>3.2</b> Set the working directory</a></li>
+<li class="chapter" data-level="3.3" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#read-data"><i class="fa fa-check"></i><b>3.3</b> Read Data</a></li>
+<li class="chapter" data-level="3.4" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#browse-data"><i class="fa fa-check"></i><b>3.4</b> Browse data</a></li>
+<li class="chapter" data-level="3.5" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#select-columns"><i class="fa fa-check"></i><b>3.5</b> Select columns</a></li>
+<li class="chapter" data-level="3.6" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#select-rows"><i class="fa fa-check"></i><b>3.6</b> Select rows</a></li>
+<li class="chapter" data-level="3.7" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#select-rows-and-columns-together"><i class="fa fa-check"></i><b>3.7</b> Select rows and columns together</a></li>
+<li class="chapter" data-level="3.8" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#generate-a-new-variable"><i class="fa fa-check"></i><b>3.8</b> Generate a new variable</a></li>
+<li class="chapter" data-level="3.9" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#categorize-into-new-variables"><i class="fa fa-check"></i><b>3.9</b> Categorize into new variables</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#from-a-numerical-variable"><i class="fa fa-check"></i><b>3.9.1</b> From a numerical variable</a></li>
+<li class="chapter" data-level="3.9.2" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#from-a-categorical-variable"><i class="fa fa-check"></i><b>3.9.2</b> From a categorical variable</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#dealing-with-missing-data"><i class="fa fa-check"></i><b>3.10</b> Dealing with missing data</a><ul>
+<li class="chapter" data-level="3.10.1" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#replace-values-with-na"><i class="fa fa-check"></i><b>3.10.1</b> Replace values with ‘NA’</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#additional-package"><i class="fa fa-check"></i><b>3.11</b> Additional package</a></li>
+<li class="chapter" data-level="3.12" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#package-dplyr"><i class="fa fa-check"></i><b>3.12</b> Package ‘dplyr’</a></li>
+<li class="chapter" data-level="3.13" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#prepare-folder-and-data-1"><i class="fa fa-check"></i><b>3.13</b> Prepare folder and data</a></li>
+<li class="chapter" data-level="3.14" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#set-the-working-directory-1"><i class="fa fa-check"></i><b>3.14</b> Set the working directory</a></li>
+<li class="chapter" data-level="3.15" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#list-the-files-inside-the-working-directory"><i class="fa fa-check"></i><b>3.15</b> List the files inside the working directory</a></li>
+<li class="chapter" data-level="3.16" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#reading-dataset-from-spss-file-.sav"><i class="fa fa-check"></i><b>3.16</b> Reading dataset from SPSS file (.sav)</a></li>
+<li class="chapter" data-level="3.17" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#describing-data"><i class="fa fa-check"></i><b>3.17</b> Describing data</a></li>
+<li class="chapter" data-level="3.18" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#graphing-or-plotting-data"><i class="fa fa-check"></i><b>3.18</b> Graphing or Plotting data</a></li>
+<li class="chapter" data-level="3.19" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#one-variable-a-categorical-or-factor-variable"><i class="fa fa-check"></i><b>3.19</b> One variable: A categorical or factor variable</a></li>
+<li class="chapter" data-level="3.20" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#one-variable-a-numerical-variable"><i class="fa fa-check"></i><b>3.20</b> One variable: A numerical variable</a></li>
+<li class="chapter" data-level="3.21" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#two-variables-a-numerical-with-another-numerical-variable"><i class="fa fa-check"></i><b>3.21</b> Two variables : A numerical with another numerical variable</a></li>
+<li class="chapter" data-level="3.22" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#two-variables-a-categorical-variable-with-a-categorical-variable"><i class="fa fa-check"></i><b>3.22</b> Two variables : A categorical variable with a categorical variable</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="graphical.html"><a href="graphical.html"><i class="fa fa-check"></i><b>4</b> Graphical</a></li>
+<li class="chapter" data-level="5" data-path="reporting-results.html"><a href="reporting-results.html"><i class="fa fa-check"></i><b>5</b> Reporting results</a></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploring data using R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Exploring data using R</h1>
+<h4 class="author"><em>Kamarul Imran Musa, Wan Nor Arifin</em></h4>
+<h4 class="date"><em>2017-07-06</em></h4>
+</div>
+<div id="introduction-to-r" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction to R</h1>
+<p>This chapter introduces readers to the basics of working with data in R. We will start with installing R in your computer and getting familiar with RStudio interface. These will be followed by the basics of handling data in R.</p>
+<div id="r-and-rstudio" class="section level2">
+<h2><span class="header-section-number">1.1</span> R and RStudio</h2>
+<div id="installing-r-and-rstudio" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Installing R and RStudio</h3>
+<p>Install R base package: <a href="http://www.r-project.org/" class="uri">http://www.r-project.org/</a></p>
+<p>Install RStudio: <a href="http://www.rstudio.com/" class="uri">http://www.rstudio.com/</a></p>
+</div>
+<div id="getting-familiar-with-the-interface" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Getting familiar with the interface</h3>
+<p>Consists of 4 tabs:</p>
+<ol style="list-style-type: decimal">
+<li>Source</li>
+<li>Console</li>
+<li>Environment &amp; History</li>
+<li>Misc. Most important Plots, Packages &amp; Help <img></li>
+</ol>
+</div>
+<div id="r-script" class="section level3">
+<h3><span class="header-section-number">1.1.3</span> R script</h3>
+<p>source tab</p>
+<ul>
+<li>important</li>
+<li>everything done here</li>
+<li>keep track what’s going on</li>
+<li>not recommended to type in console</li>
+</ul>
+</div>
+<div id="working-with-packages" class="section level3">
+<h3><span class="header-section-number">1.1.4</span> Working with packages</h3>
+<p>what is package/library</p>
+<div id="installing-packages" class="section level4">
+<h4><span class="header-section-number">1.1.4.1</span> Installing packages</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;package.name&quot;</span>)</code></pre></div>
+</div>
+<div id="loading-libraries" class="section level4">
+<h4><span class="header-section-number">1.1.4.2</span> Loading libraries</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;package.name&quot;</span>)</code></pre></div>
+</div>
+</div>
+</div>
+<div id="working-with-data" class="section level2">
+<h2><span class="header-section-number">1.2</span> Working with Data</h2>
+<div id="setting-working-directory" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Setting working directory</h3>
+<p>general steps</p>
+<ul>
+<li>codes</li>
+<li>point-and-click <img></li>
+</ul>
+</div>
+<div id="data-management" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Data management</h3>
+<p>concerns reading data from data set, displaying data.</p>
+<p>advanced, direct input in the code, esp. useful for tables.</p>
+<div id="reading-data-set" class="section level4">
+<h4><span class="header-section-number">1.2.2.1</span> Reading data set</h4>
+<p>Easiest is to read .csv file.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read.csv</span>(<span class="st">&quot;file.name&quot;</span>)</code></pre></div>
+<p>For SPSS file, need <code>foreign</code> package</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;foreign&quot;</span>)
+<span class="kw">read.spss</span>(<span class="st">&quot;file.name&quot;</span>)</code></pre></div>
+<p>Can read data in table format from text file. From text file</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read.table</span>(<span class="st">&quot;file.name&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</code></pre></div>
+</div>
+<div id="viewing-data-set" class="section level4">
+<h4><span class="header-section-number">1.2.2.2</span> Viewing data set</h4>
+<p>Easy, just type the name,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data</code></pre></div>
+<p>Nicer, using <code>View()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">View</span>(data)</code></pre></div>
+<p>Important tasks</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(data)
+<span class="kw">str</span>(data)
+<span class="kw">names</span>(data)</code></pre></div>
+</div>
+</div>
+<div id="more-about-data-management" class="section level3">
+<h3><span class="header-section-number">1.2.3</span> More about data management</h3>
+<ul>
+<li>subsetting</li>
+<li>new variable</li>
+<li>recoding</li>
+<li>direct input for table</li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="textual.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
+>>>>>>> b1e7fe217da24c9c49c585f8cb7b29c3a03e88ce

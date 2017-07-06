@@ -95,6 +95,5 @@ names(data)
 * new variable
 * recoding
 * direct input for table
-
-
-
+-> how to get aggregate data into R
+=> two ways

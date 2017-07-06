@@ -456,7 +456,8 @@ We do not use `table` here in form of `table(infert[c("education", "induced", "c
 To obtain the proportion and percentage results, we have to use `lapply`,
 
 ```r
-lapply(infert[c("education", "induced", "case", "spontaneous")], function(x) summary(x)/length(x))
+lapply(infert[c("education", "induced", "case", "spontaneous")], 
+       function(x) summary(x)/length(x))
 ```
 
 ```
@@ -478,7 +479,8 @@ lapply(infert[c("education", "induced", "case", "spontaneous")], function(x) sum
 ```
 
 ```r
-lapply(infert[c("education", "induced", "case", "spontaneous")], function(x) summary(x)/length(x)*100)
+lapply(infert[c("education", "induced", "case", "spontaneous")], 
+       function(x) summary(x)/length(x)*100)
 ```
 
 ```
@@ -556,7 +558,8 @@ lapply(infert[c("education", "induced", "case", "spontaneous")], table)
 ```
 
 ```r
-lapply(infert[c("education", "induced", "case", "spontaneous")], function(x) prop.table(table(x)))
+lapply(infert[c("education", "induced", "case", "spontaneous")], 
+       function(x) prop.table(table(x)))
 ```
 
 ```
@@ -582,7 +585,8 @@ lapply(infert[c("education", "induced", "case", "spontaneous")], function(x) pro
 ```
 
 ```r
-lapply(infert[c("education", "induced", "case", "spontaneous")], function(x) prop.table(table(x))*100)
+lapply(infert[c("education", "induced", "case", "spontaneous")], 
+       function(x) prop.table(table(x))*100)
 ```
 
 ```
@@ -612,7 +616,7 @@ Notice here, whenever we do not need to specify extra operations on a basic func
 In the preceeding sections, we intentionally went through the descriptive statistics of a variable, followed by a number of variables of the same type. This will give you the basics in dealing with the variables. Most commonly, the variables are described by groups or in form cross-tabulated counts/percentages.
 
 #### By groups
-To obtain all the descriptive statistics by group, we can use `by` with the relevant functions
+To obtain all the descriptive statistics by group, we can use `by` with the relevant functions. We start with numerical variables
 
 ```r
 by(infert[c("age", "parity")], infert$case, summary)
@@ -659,6 +663,32 @@ by(infert[c("age", "parity")], infert$case, describe)
 ## age    0.58
 ## parity 0.14
 ```
+We can also use `describeBy`, which is an the extension of `describe` in the `psych` package.
+
+```r
+describeBy(infert[c("age", "parity")], group = infert$case)
+```
+
+```
+## 
+##  Descriptive statistics by group 
+## group: control
+##        vars   n  mean   sd median trimmed  mad min max range skew kurtosis
+## age       1 165 31.49 5.25     31   31.34 5.93  21  44    23 0.23    -0.72
+## parity    2 165  2.08 1.24      2    1.88 1.48   1   6     5 1.32     1.42
+##          se
+## age    0.41
+## parity 0.10
+## -------------------------------------------------------- 
+## group: case
+##        vars  n  mean   sd median trimmed  mad min max range skew kurtosis
+## age       1 83 31.53 5.28     31   31.39 5.93  21  44    23 0.21    -0.77
+## parity    2 83  2.11 1.28      2    1.90 1.48   1   6     5 1.32     1.34
+##          se
+## age    0.58
+## parity 0.14
+```
+For categorical variables, using `summary`
 
 ```r
 by(infert[c("education", "induced", "spontaneous")], infert$case, summary)
@@ -679,7 +709,77 @@ by(infert[c("education", "induced", "spontaneous")], infert$case, summary)
 ```
 
 ```r
-by(infert[c("education", "induced", "spontaneous")], infert$case, function(x) lapply(x, table))
+by(infert[c("education", "induced", "spontaneous")], infert$case, 
+   function(x) lapply(x, function(x) summary(x)/length(x)))
+```
+
+```
+## infert$case: control
+## $education
+##     0-5yrs    6-11yrs    12+ yrs 
+## 0.04848485 0.48484848 0.46666667 
+## 
+## $induced
+##         0         1 2 or more 
+## 0.5818182 0.2727273 0.1454545 
+## 
+## $spontaneous
+##          0          1  2 or more 
+## 0.68484848 0.24242424 0.07272727 
+## 
+## -------------------------------------------------------- 
+## infert$case: case
+## $education
+##     0-5yrs    6-11yrs    12+ yrs 
+## 0.04819277 0.48192771 0.46987952 
+## 
+## $induced
+##         0         1 2 or more 
+## 0.5662651 0.2771084 0.1566265 
+## 
+## $spontaneous
+##         0         1 2 or more 
+## 0.3373494 0.3734940 0.2891566
+```
+
+```r
+by(infert[c("education", "induced", "spontaneous")], infert$case, 
+   function(x) lapply(x, function(x) summary(x)/length(x)*100))
+```
+
+```
+## infert$case: control
+## $education
+##    0-5yrs   6-11yrs   12+ yrs 
+##  4.848485 48.484848 46.666667 
+## 
+## $induced
+##         0         1 2 or more 
+##  58.18182  27.27273  14.54545 
+## 
+## $spontaneous
+##         0         1 2 or more 
+## 68.484848 24.242424  7.272727 
+## 
+## -------------------------------------------------------- 
+## infert$case: case
+## $education
+##    0-5yrs   6-11yrs   12+ yrs 
+##  4.819277 48.192771 46.987952 
+## 
+## $induced
+##         0         1 2 or more 
+##  56.62651  27.71084  15.66265 
+## 
+## $spontaneous
+##         0         1 2 or more 
+##  33.73494  37.34940  28.91566
+```
+or by using `table`
+
+```r
+by(infert[c("education", "induced", "spontaneous")], infert$case, 
+   function(x) lapply(x, table))
 ```
 
 ```
@@ -716,36 +816,199 @@ by(infert[c("education", "induced", "spontaneous")], infert$case, function(x) la
 ##         0         1 2 or more 
 ##        28        31        24
 ```
-Please note that simply replacing `table` for `summary` as in `by(infert[c("education", "induced", "spontaneous")], infert$case, table)` will not work as intended. `education` will be nested in `induced`, which is nested in `spontaneous`, listed by `case` instead.
-
-We can also use `describeBy`, which is an the extension of `describe` in the `psych` package.
 
 ```r
-describeBy(infert[c("age", "parity")], group = infert$case)
+by(infert[c("education", "induced", "spontaneous")], infert$case, 
+   function(x) lapply(x, function(x) prop.table(table(x))))
 ```
 
 ```
+## infert$case: control
+## $education
+## x
+##     0-5yrs    6-11yrs    12+ yrs 
+## 0.04848485 0.48484848 0.46666667 
 ## 
-##  Descriptive statistics by group 
-## group: control
-##        vars   n  mean   sd median trimmed  mad min max range skew kurtosis
-## age       1 165 31.49 5.25     31   31.34 5.93  21  44    23 0.23    -0.72
-## parity    2 165  2.08 1.24      2    1.88 1.48   1   6     5 1.32     1.42
-##          se
-## age    0.41
-## parity 0.10
+## $induced
+## x
+##         0         1 2 or more 
+## 0.5818182 0.2727273 0.1454545 
+## 
+## $spontaneous
+## x
+##          0          1  2 or more 
+## 0.68484848 0.24242424 0.07272727 
+## 
 ## -------------------------------------------------------- 
-## group: case
-##        vars  n  mean   sd median trimmed  mad min max range skew kurtosis
-## age       1 83 31.53 5.28     31   31.39 5.93  21  44    23 0.21    -0.77
-## parity    2 83  2.11 1.28      2    1.90 1.48   1   6     5 1.32     1.34
-##          se
-## age    0.58
-## parity 0.14
+## infert$case: case
+## $education
+## x
+##     0-5yrs    6-11yrs    12+ yrs 
+## 0.04819277 0.48192771 0.46987952 
+## 
+## $induced
+## x
+##         0         1 2 or more 
+## 0.5662651 0.2771084 0.1566265 
+## 
+## $spontaneous
+## x
+##         0         1 2 or more 
+## 0.3373494 0.3734940 0.2891566
 ```
-which is limited to numerical variables only.
+
+```r
+by(infert[c("education", "induced", "spontaneous")], infert$case, 
+   function(x) lapply(x, function(x) prop.table(table(x))*100))
+```
+
+```
+## infert$case: control
+## $education
+## x
+##    0-5yrs   6-11yrs   12+ yrs 
+##  4.848485 48.484848 46.666667 
+## 
+## $induced
+## x
+##         0         1 2 or more 
+##  58.18182  27.27273  14.54545 
+## 
+## $spontaneous
+## x
+##         0         1 2 or more 
+## 68.484848 24.242424  7.272727 
+## 
+## -------------------------------------------------------- 
+## infert$case: case
+## $education
+## x
+##    0-5yrs   6-11yrs   12+ yrs 
+##  4.819277 48.192771 46.987952 
+## 
+## $induced
+## x
+##         0         1 2 or more 
+##  56.62651  27.71084  15.66265 
+## 
+## $spontaneous
+## x
+##         0         1 2 or more 
+##  33.73494  37.34940  28.91566
+```
+Please note that simply replacing `table` for `summary` as in `by(infert[c("education", "induced", "spontaneous")], infert$case, table)` will not work as intended. `education` will be nested in `induced`, which is nested in `spontaneous`, listed by `case` instead. And yes, to obtain the proportion and %, it gets slightly more complicated as we have to specify `function` twice in `by`.
 
 #### Simple cross-tabulation
+As long as the categorical variables are already `factor`ed properly, there should not be a problem to obtain the cross-tabulation tables. For example between `education` and `case`,
 
-## More on tables
-This requires special attention.
+```r
+table(infert$education, infert$case)
+```
+
+```
+##          
+##           control case
+##   0-5yrs        8    4
+##   6-11yrs      80   40
+##   12+ yrs      77   39
+```
+We may also include row and column headers, just like `cbind`,
+
+```r
+table(education = infert$education, case = infert$case)
+```
+
+```
+##          case
+## education control case
+##   0-5yrs        8    4
+##   6-11yrs      80   40
+##   12+ yrs      77   39
+```
+Since we are familiar with the powerful `lappy`, we can use it to get cross-tabulation of all of the factors with `case` status,
+
+```r
+lapply(infert[c("education", "induced", "spontaneous")], function(x) table(x, infert$case))
+```
+
+```
+## $education
+##          
+## x         control case
+##   0-5yrs        8    4
+##   6-11yrs      80   40
+##   12+ yrs      77   39
+## 
+## $induced
+##            
+## x           control case
+##   0              96   47
+##   1              45   23
+##   2 or more      24   13
+## 
+## $spontaneous
+##            
+## x           control case
+##   0             113   28
+##   1              40   31
+##   2 or more      12   24
+```
+We may also view subgroup counts (nesting). Here, the cross-tabulation of `education` and `case` is nested within `induced`
+
+```r
+table(infert$education, infert$case, infert$induced)
+```
+
+```
+## , ,  = 0
+## 
+##          
+##           control case
+##   0-5yrs        4    0
+##   6-11yrs      57   21
+##   12+ yrs      35   26
+## 
+## , ,  = 1
+## 
+##          
+##           control case
+##   0-5yrs        0    2
+##   6-11yrs      16   11
+##   12+ yrs      29   10
+## 
+## , ,  = 2 or more
+## 
+##          
+##           control case
+##   0-5yrs        4    2
+##   6-11yrs       7    8
+##   12+ yrs      13    3
+```
+which will look nicer if we apply `by`
+
+```r
+by(infert[c("education", "case")], infert$induced, table)
+```
+
+```
+## infert$induced: 0
+##          case
+## education control case
+##   0-5yrs        4    0
+##   6-11yrs      57   21
+##   12+ yrs      35   26
+## -------------------------------------------------------- 
+## infert$induced: 1
+##          case
+## education control case
+##   0-5yrs        0    2
+##   6-11yrs      16   11
+##   12+ yrs      29   10
+## -------------------------------------------------------- 
+## infert$induced: 2 or more
+##          case
+## education control case
+##   0-5yrs        4    2
+##   6-11yrs       7    8
+##   12+ yrs      13    3
+```

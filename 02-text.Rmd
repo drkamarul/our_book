@@ -1,5 +1,6 @@
 ---
 output:
+  pdf_document: default
   html_document:
     keep_md: yes
 ---
@@ -186,8 +187,10 @@ We do not use `table` here in form of `table(infert[c("education", "induced", "c
 
 To obtain the proportion and percentage results, we have to use `lapply`,
 ```{r}
-lapply(infert[c("education", "induced", "case", "spontaneous")], function(x) summary(x)/length(x))
-lapply(infert[c("education", "induced", "case", "spontaneous")], function(x) summary(x)/length(x)*100)
+lapply(infert[c("education", "induced", "case", "spontaneous")], 
+       function(x) summary(x)/length(x))
+lapply(infert[c("education", "induced", "case", "spontaneous")], 
+       function(x) summary(x)/length(x)*100)
 ```
 because we need `lappy` to obtain the values for each of the variables. `lappy` goes through each variable and performs this particular part,
 ```{r eval = FALSE}
@@ -199,8 +202,10 @@ Now, since we already learned about `lapply`, we may also obtain the same result
 ```{r}
 lapply(infert[c("education", "induced", "case", "spontaneous")], summary)
 lapply(infert[c("education", "induced", "case", "spontaneous")], table)
-lapply(infert[c("education", "induced", "case", "spontaneous")], function(x) prop.table(table(x)))
-lapply(infert[c("education", "induced", "case", "spontaneous")], function(x) prop.table(table(x))*100)
+lapply(infert[c("education", "induced", "case", "spontaneous")], 
+       function(x) prop.table(table(x)))
+lapply(infert[c("education", "induced", "case", "spontaneous")], 
+       function(x) prop.table(table(x))*100)
 ```
 Notice here, whenever we do not need to specify extra operations on a basic function, e.g. `summary` and `table`, all we need to write after the comma in `lapply` is the basic function without `function(x)` and `(x)`.
 
@@ -208,22 +213,57 @@ Notice here, whenever we do not need to specify extra operations on a basic func
 In the preceeding sections, we intentionally went through the descriptive statistics of a variable, followed by a number of variables of the same type. This will give you the basics in dealing with the variables. Most commonly, the variables are described by groups or in form cross-tabulated counts/percentages.
 
 #### By groups
-To obtain all the descriptive statistics by group, we can use `by` with the relevant functions
+To obtain all the descriptive statistics by group, we can use `by` with the relevant functions. We start with numerical variables
 ```{r}
 by(infert[c("age", "parity")], infert$case, summary)
 by(infert[c("age", "parity")], infert$case, describe)
-by(infert[c("education", "induced", "spontaneous")], infert$case, summary)
-by(infert[c("education", "induced", "spontaneous")], infert$case, function(x) lapply(x, table))
 ```
-Please note that simply replacing `table` for `summary` as in `by(infert[c("education", "induced", "spontaneous")], infert$case, table)` will not work as intended. `education` will be nested in `induced`, which is nested in `spontaneous`, listed by `case` instead.
-
 We can also use `describeBy`, which is an the extension of `describe` in the `psych` package.
 ```{r}
 describeBy(infert[c("age", "parity")], group = infert$case)
 ```
-which is limited to numerical variables only.
+which gives us an identical result.
+
+For categorical variables, using `summary`
+```{r}
+by(infert[c("education", "induced", "spontaneous")], infert$case, summary)
+by(infert[c("education", "induced", "spontaneous")], infert$case, 
+   function(x) lapply(x, function(x) summary(x)/length(x)))
+by(infert[c("education", "induced", "spontaneous")], infert$case, 
+   function(x) lapply(x, function(x) summary(x)/length(x)*100))
+```
+or by using `table`
+```{r}
+by(infert[c("education", "induced", "spontaneous")], infert$case, 
+   function(x) lapply(x, table))
+by(infert[c("education", "induced", "spontaneous")], infert$case, 
+   function(x) lapply(x, function(x) prop.table(table(x))))
+by(infert[c("education", "induced", "spontaneous")], infert$case, 
+   function(x) lapply(x, function(x) prop.table(table(x))*100))
+```
+Please note that simply replacing `table` for `summary` as in `by(infert[c("education", "induced", "spontaneous")], infert$case, table)` will not work as intended. `education` will be nested in `induced`, which is nested in `spontaneous`, listed by `case` instead. And yes, to obtain the proportions and percentages, it gets slightly more complicated as we have to specify `function` twice in `by`.
 
 #### Simple cross-tabulation
+As long as the categorical variables are already `factor`ed properly, there should not be a problem to obtain the cross-tabulation tables. For example between `education` and `case`,
+```{r}
+table(infert$education, infert$case)
+```
+We may also include row and column headers, just like `cbind`,
+```{r}
+table(education = infert$education, case = infert$case)
+```
+Since we are familiar with the powerful `lappy`, we can use it to get cross-tabulation of all of the factors with `case` status,
+```{r}
+lapply(infert[c("education", "induced", "spontaneous")], function(x) table(x, infert$case))
+```
+We may also view subgroup counts (nesting). Here, the cross-tabulation of `education` and `case` is nested within `induced`
+```{r}
+table(infert$education, infert$case, infert$induced)
+```
+which will look nicer if we apply `by`
+```{r}
+by(infert[c("education", "case")], infert$induced, table)
+```
 
-## More on tables
-This requires special attention.
+## Summary
+In this chapter, we learned about how to handle numerical and categorical variables and obtain the basic and relevant statistics. In the next chapter, we are going to learn about how to explore the variables in visually in form of the relevant graphs and plots.

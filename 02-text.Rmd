@@ -210,10 +210,10 @@ lapply(infert[c("education", "induced", "case", "spontaneous")],
 Notice here, whenever we do not need to specify extra operations on a basic function, e.g. `summary` and `table`, all we need to write after the comma in `lapply` is the basic function without `function(x)` and `(x)`.
 
 ### Describing the variables together
-In the preceeding sections, we intentionally went through the descriptive statistics of a variable, followed by a number of variables of the same type. This will give you the basics in dealing with the variables. Most commonly, the variables are described by groups or in form cross-tabulated counts/percentages.
+We intentionally went through the descriptive statistics of a variable, followed by a number of variables of the same type. This will give you the basics in dealing with the variables. Most commonly, the variables are described by groups or in form cross-tabulated counts/percentages.
 
 #### By groups
-To obtain all the descriptive statistics by group, we can use `by` with the relevant functions. We start with numerical variables
+To obtain all the descriptive statistics by group, we can use `by` with the relevant functions. Let say we want to obtain the statistics by case and control (`case`). We start with numerical variables
 ```{r}
 by(infert[c("age", "parity")], infert$case, summary)
 by(infert[c("age", "parity")], infert$case, describe)

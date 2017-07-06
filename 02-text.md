@@ -613,10 +613,10 @@ lapply(infert[c("education", "induced", "case", "spontaneous")],
 Notice here, whenever we do not need to specify extra operations on a basic function, e.g. `summary` and `table`, all we need to write after the comma in `lapply` is the basic function without `function(x)` and `(x)`.
 
 ### Describing the variables together
-In the preceeding sections, we intentionally went through the descriptive statistics of a variable, followed by a number of variables of the same type. This will give you the basics in dealing with the variables. Most commonly, the variables are described by groups or in form cross-tabulated counts/percentages.
+We intentionally went through the descriptive statistics of a variable, followed by a number of variables of the same type. This will give you the basics in dealing with the variables. Most commonly, the variables are described by groups or in form cross-tabulated counts/percentages.
 
 #### By groups
-To obtain all the descriptive statistics by group, we can use `by` with the relevant functions. We start with numerical variables
+To obtain all the descriptive statistics by group, we can use `by` with the relevant functions. Let say we want to obtain the statistics by case and control (`case`). We start with numerical variables
 
 ```r
 by(infert[c("age", "parity")], infert$case, summary)
@@ -688,6 +688,8 @@ describeBy(infert[c("age", "parity")], group = infert$case)
 ## age    0.58
 ## parity 0.14
 ```
+which gives us an identical result.
+
 For categorical variables, using `summary`
 
 ```r
@@ -896,7 +898,7 @@ by(infert[c("education", "induced", "spontaneous")], infert$case,
 ##         0         1 2 or more 
 ##  33.73494  37.34940  28.91566
 ```
-Please note that simply replacing `table` for `summary` as in `by(infert[c("education", "induced", "spontaneous")], infert$case, table)` will not work as intended. `education` will be nested in `induced`, which is nested in `spontaneous`, listed by `case` instead. And yes, to obtain the proportion and %, it gets slightly more complicated as we have to specify `function` twice in `by`.
+Please note that simply replacing `table` for `summary` as in `by(infert[c("education", "induced", "spontaneous")], infert$case, table)` will not work as intended. `education` will be nested in `induced`, which is nested in `spontaneous`, listed by `case` instead. And yes, to obtain the proportions and percentages, it gets slightly more complicated as we have to specify `function` twice in `by`.
 
 #### Simple cross-tabulation
 As long as the categorical variables are already `factor`ed properly, there should not be a problem to obtain the cross-tabulation tables. For example between `education` and `case`,
@@ -1012,3 +1014,6 @@ by(infert[c("education", "case")], infert$induced, table)
 ##   6-11yrs       7    8
 ##   12+ yrs      13    3
 ```
+
+## Summary
+In this chapter, we learned about how to handle numerical and categorical variables and obtain the basic and relevant statistics. In the next chapter, we are going to learn about how to explore the variables in visually in form of the relevant graphs and plots.

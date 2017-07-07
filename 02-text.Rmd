@@ -1,18 +1,13 @@
-<<<<<<< HEAD
-=======
 ---
 output:
   pdf_document: default
-  html_document:
-    keep_md: yes
+  html_document: default
 ---
-
->>>>>>> b1e7fe217da24c9c49c585f8cb7b29c3a03e88ce
 # Textual
-In this chapter, we will go through a number of R functions for basic statistics. The focus will be on the results that are presented in form of numbers in text or tables (textual). We will mostly use the builtin functions (from R standard library). Extra packages will be introduced whenever necessary.
+In this chapter, we will go through a number of R functions for basic statistics. We will mostly use the builtin functions (from R standard library). Extra packages will be introduced whenever necessary.
 
-## Basic descriptive statistics
-In this part, we are going to use the functions as applied to a variable. For this purpose, we are going to use builtin datasets in R. You can view the available datasets by
+## Descriptive statistics
+We are going to use builtin datasets in R. You can view the available datasets by
 ```{r}
 data()
 ```
@@ -27,246 +22,107 @@ data()
 ## CO2                               Carbon Dioxide Uptake in Grass Plants
 ## ...
 ```
-We can view any dataset description by appending "?" to the dataset name. For example,
+
+View the data, for example
 ```{r}
-?chickwts
+women
+```
+View the dimension, i.e. number of subjects and variables
+```{r}
+dim(women)
 ```
 
-We will start by using `chickwts` dataset that contains both numerical (`weight`) and categorical (`feed`) variables. We can view the first six observations,
+Obtaining mean
 ```{r}
-head(chickwts)
+mean(women$weight)
 ```
-the last six observations,
+and median
 ```{r}
-tail(chickwts)
+median(women$weight)
 ```
-and the dimension of the data (row and column).
+and sd
 ```{r}
-dim(chickwts)
+sd(women$weight)
 ```
-Here we have 71 rows (71 subjects) and two columns (two variables).
-
-Next, view the names of the variables,
+and IQR
 ```{r}
-names(chickwts)
+IQR(women$weight)
 ```
-and view the details of the data,
+There 9 types of IQR in R, the default one is type 7. You may change this to type 6 (Minitab and SPSS),
 ```{r}
-str(chickwts)
+IQR(women$weight, type = 6)
 ```
-which shows that `weight` is a numerical variable and `feed` is a factor, i.e. a categorical variable. `feed` consists of six categories or levels.
-
-We can view the levels in `feed`,
+and minimum, maximum and range
 ```{r}
-levels(chickwts$feed)
+min(women$weight)
+max(women$weight)
+range(women$weight)
 ```
 
-### Describing a numerical variable
-A numberical variable is described by a number of descriptive statistics below.
-
-To judge the central tendency of the `weight` variable, we obtain its mean,
-```{r}
-mean(chickwts$weight)
-```
-and median,
-```{r}
-median(chickwts$weight)
-```
-To judge its spread and variability, we can view its minimum, maximum and range
-```{r}
-min(chickwts$weight)
-max(chickwts$weight)
-range(chickwts$weight)
-```
-and obtain its standard deviation (SD)
-```{r}
-sd(chickwts$weight)
-```
-variance,
-```{r}
-var(chickwts$weight)
-```
-quantile,
-```{r}
-quantile(chickwts$weight)
-```
-and interquartile range (IQR)
-```{r}
-IQR(chickwts$weight)
-```
-There are nine types of quantile algorithms in R (for `quantile` and `IQR`), the default being type 7. You may change this to type 6 (Minitab and SPSS),
-```{r}
-quantile(chickwts$weight, type = 6)
-IQR(chickwts$weight, type = 6)
-```
-In addition to SD and IQR, we can obtain its median absolute deviation (MAD),
-```{r}
-mad(chickwts$weight)
-```
-It is actually simpler to obtain most these in a single command,
-```{r}
-summary(chickwts$weight)
-```
-even simpler, obtain all of the statistics using `describe` in the `psych` package
-```{r eval = FALSE}
-install.packages("psych")
-```
-```{r}
-library(psych)
-describe(chickwts$weight)
-```
-
-
-### Describing a categorical variable
-A categorical variable is described by its count, proportion and percentage by categories.
-
-We obtain the count of the `feed` variable,
-```{r}
-summary(chickwts$feed)
-table(chickwts$feed)
-```
-both `summary` and `table` give the same result.
-
-`prop.table` gives the proportion of the result from the count.
-```{r}
-prop.table(table(chickwts$feed))
-```
-the result can be easily turned into percentage,
-```{r}
-prop.table(table(chickwts$feed))*100
-```
-To view the count and the percentage together, we can use `cbind`,
-```{r}
-cbind(n = table(chickwts$feed), "%" = prop.table(table(chickwts$feed))*100)
-```
-We need the quotation marks " " around the percentage sign %, because % also serves as a mathematical operator in R.
-
-## More on descriptive statistics
-Just now, we viewed all the statistics as applied to a variable. In this part, we are going to view the statistics on a number of variables. This includes viewing a group of numerical variables or categorical variables, or a mixture of numerical and categorical variables. This is relevant in a sense that, most of the time, we want to view everything in one go (e.g. the statistics of all items in a questionnaire), compare the means of several groups and obtain cross-tabulation of categorical variables.
-
-### Describing numerical variables
-Let us use `women` dataset,
-```{r}
-head(women)
-names(women)
-str(women)
-```
-which consists of `weight` and `height` numerical variables.
-
-The variables can be easily viewed together by `summary`,
+However, it is actually simpler to obtain most these in one single command for both weight and height
 ```{r}
 summary(women)
 ```
-even better using `describe` (`psych`),
+even simpler, all of the statistics using *psych* package
+```{r eval = FALSE}
+install.packages("psych")
+```
+
 ```{r}
+library(psych)
 describe(women)
 ```
 
-### Describing categorical variables
-Let us use `infert` dataset,
-```{r}
-head(infert)
-names(infert)
-str(infert)
-```
-We notice that `induced`, `case` and `spontaneous` are not yet set as categorical variables, thus we need to `factor` the variables. We view the value labels in the dataset description,
-```{r}
-?infert
-```
-We label the values in the variables according to the description as
-```{r}
-infert$induced = factor(infert$induced, levels = 0:2, labels = c("0", "1", "2 or more"))
-infert$case = factor(infert$case, levels = 0:1, labels = c("control", "case"))
-infert$spontaneous = factor(infert$spontaneous, levels = 0:2, labels = c("0", "1", "2 or more"))
-str(infert)
-```
-and we now all these variables are turned into factors.
 
-Again, the variables can be easily viewed together by `summary`,
-```{r}
-summary(infert[c("education", "induced", "case", "spontaneous")])
-```
-We do not use `table` here in form of `table(infert[c("education", "induced", "case", "spontaneous")])` because `table` used in this form will give us 3-way cross-tabulation instead of count per categories. Cross-tabulation of categorical variables will be covered later.
 
-To obtain the proportion and percentage results, we have to use `lapply`,
-```{r}
-lapply(infert[c("education", "induced", "case", "spontaneous")], 
-       function(x) summary(x)/length(x))
-lapply(infert[c("education", "induced", "case", "spontaneous")], 
-       function(x) summary(x)/length(x)*100)
-```
-because we need `lappy` to obtain the values for each of the variables. `lappy` goes through each variable and performs this particular part,
-```{r eval = FALSE}
-function(x) summary(x)/length(x)
-```
-`function(x)` is needed to specify some extra operations to any basic function in R, in our case `summary(x)` divided by `length(x)`, in which the summary results (the counts) are divided by the number of subjects (`length(x)` gives us the "length" of our dataset).
+## Tables
 
-Now, since we already learned about `lapply`, we may also obtain the same results by using `summary` (within `lapply`), `table` and `prop.table`.
-```{r}
-lapply(infert[c("education", "induced", "case", "spontaneous")], summary)
-lapply(infert[c("education", "induced", "case", "spontaneous")], table)
-lapply(infert[c("education", "induced", "case", "spontaneous")], 
-       function(x) prop.table(table(x)))
-lapply(infert[c("education", "induced", "case", "spontaneous")], 
-       function(x) prop.table(table(x))*100)
-```
-Notice here, whenever we do not need to specify extra operations on a basic function, e.g. `summary` and `table`, all we need to write after the comma in `lapply` is the basic function without `function(x)` and `(x)`.
-
-### Describing the variables together
-We intentionally went through the descriptive statistics of a variable, followed by a number of variables of the same type. This will give you the basics in dealing with the variables. Most commonly, the variables are described by groups or in form cross-tabulated counts/percentages.
-
-#### By groups
-To obtain all the descriptive statistics by group, we can use `by` with the relevant functions. Let say we want to obtain the statistics by case and control (`case`). We start with numerical variables
-```{r}
-by(infert[c("age", "parity")], infert$case, summary)
-by(infert[c("age", "parity")], infert$case, describe)
-```
-We can also use `describeBy`, which is an the extension of `describe` in the `psych` package.
-```{r}
-describeBy(infert[c("age", "parity")], group = infert$case)
-```
-which gives us an identical result.
-
-For categorical variables, using `summary`
-```{r}
-by(infert[c("education", "induced", "spontaneous")], infert$case, summary)
-by(infert[c("education", "induced", "spontaneous")], infert$case, 
-   function(x) lapply(x, function(x) summary(x)/length(x)))
-by(infert[c("education", "induced", "spontaneous")], infert$case, 
-   function(x) lapply(x, function(x) summary(x)/length(x)*100))
-```
-or by using `table`
-```{r}
-by(infert[c("education", "induced", "spontaneous")], infert$case, 
-   function(x) lapply(x, table))
-by(infert[c("education", "induced", "spontaneous")], infert$case, 
-   function(x) lapply(x, function(x) prop.table(table(x))))
-by(infert[c("education", "induced", "spontaneous")], infert$case, 
-   function(x) lapply(x, function(x) prop.table(table(x))*100))
-```
-Please note that simply replacing `table` for `summary` as in `by(infert[c("education", "induced", "spontaneous")], infert$case, table)` will not work as intended. `education` will be nested in `induced`, which is nested in `spontaneous`, listed by `case` instead. And yes, to obtain the proportions and percentages, it gets slightly more complicated as we have to specify `function` twice in `by`.
-
-#### Simple cross-tabulation
-As long as the categorical variables are already `factor`ed properly, there should not be a problem to obtain the cross-tabulation tables. For example between `education` and `case`,
-```{r}
-table(infert$education, infert$case)
-```
-We may also include row and column headers, just like `cbind`,
-```{r}
-table(education = infert$education, case = infert$case)
-```
-Since we are familiar with the powerful `lappy`, we can use it to get cross-tabulation of all of the factors with `case` status,
-```{r}
-lapply(infert[c("education", "induced", "spontaneous")], function(x) table(x, infert$case))
-```
-We may also view subgroup counts (nesting). Here, the cross-tabulation of `education` and `case` is nested within `induced`
-```{r}
-table(infert$education, infert$case, infert$induced)
-```
-which will look nicer if we apply `by`
-```{r}
-by(infert[c("education", "case")], infert$induced, table)
+### Count, proportion, percentage and cross-tabulation
+Use *birthwt* dataset from MASS package.
+```{r eval=FALSE}
+install.packages("MASS")
 ```
 
-## Summary
-In this chapter, we learned about how to handle numerical and categorical variables and obtain the basic and relevant statistics. In the next chapter, we are going to learn about how to explore the variables in visually in form of the relevant graphs and plots.
+```{r}
+library(MASS)
+head(birthwt)  # First six subjects
+```
+
+Count and proportion,
+```{r}
+table(birthwt$smoke)
+prop.table(table(birthwt$smoke))
+```
+
+Cross-tabulation of smoking vs low birth weight baby,
+```{r}
+table(birthwt$smoke, birthwt$low)  # without row/column labels
+table("Smoking status" = birthwt$smoke, "Low birth weight" = birthwt$low)  # with row/column labels
+```
+To add value labels to the data for a nicer table, we use *factor*
+```{r}
+birthwt$smoking = factor(birthwt$smoke, levels = 0:1, labels = c("Non-smoker", "Smoker"))
+birthwt$low.weight = factor(birthwt$low, levels = 0:1, labels = c("Low <2.5kg", "Normal >2.5kg"))
+head(birthwt)  # we added two new variables with factors
+table(birthwt$smoking)
+prop.table(table(birthwt$smoking))*100  # in percent
+cbind(n = table(birthwt$smoking), "%" = 100*prop.table(table(birthwt$smoking)))  # using cbind
+table(birthwt$smoking, birthwt$low.weight)
+```
+Save table for later view and analysis,
+```{r}
+smoke.x.weight = table(birthwt$smoking, birthwt$low.weight)
+smoke.x.weight
+```
+
+### Entering table data
+```{r}
+smoking = as.table(rbind(c(15, 5), c(7, 13)))
+smoking
+str(smoking)
+dimnames(smoking) = list(
+  Smoking = c("Yes", "No"),
+  Lung.CA = c("Yes", "No")
+)
+smoking
+```

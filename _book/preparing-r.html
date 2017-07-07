@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="reporting-results.html">
-<link rel="next" href="grammar-of-variables.html">
+<link rel="prev" href="exploratory-data-analysis.html">
+<link rel="next" href="reading-statistical-data.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -228,16 +228,190 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-and-variable-manipulation" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> Data and variable manipulation</h1>
+<div id="preparing-r" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Preparing R</h1>
+<div id="objectives" class="section level2">
+<h2><span class="header-section-number">8.1</span> Objectives</h2>
+<p>The objectives of this lecture are:</p>
+<ol style="list-style-type: decimal">
+<li>To ensure that the installation of R is correct</li>
+<li>To ensure that the installation of RStudio is correct</li>
+<li>To be able to install R packages</li>
+<li>To be able to create a working directory</li>
+</ol>
+<div id="installation-of-r" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> Installation of R</h3>
+<ul>
+<li>The latest version of R is R version 3.4.1 (2017-06-30), Single Candle.</li>
+<li>R can be installed inside Linux, Mac OS and Windows (of course)</li>
+<li>The installation files (tar.gz, binaries) can be downloaded from <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></li>
+<li>Users can install different versions of R in a same machine or computer</li>
+<li>There is no need to uninstall if you want to upgrade currently installed R</li>
+</ul>
+<div class="figure">
+<img src="R.png" alt="Succesful R installation" />
+<p class="caption">Succesful R installation</p>
+</div>
+<div id="starting-r" class="section level4">
+<h4><span class="header-section-number">8.1.1.1</span> Starting R</h4>
+<p>Double click on R icon and you should get this</p>
+<div class="figure">
+<img src="openr.png" alt="R in action" />
+<p class="caption">R in action</p>
+</div>
+</div>
+</div>
+<div id="installation-of-rstudio" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> Installation of RStudio</h3>
+<p>First, make sure you have RStudio successfully installed.</p>
+<div class="figure">
+<img src="R.png" alt="Succesful RStudio installation" />
+<p class="caption">Succesful RStudio installation</p>
+</div>
+<div id="starting-rstudio" class="section level4">
+<h4><span class="header-section-number">8.1.2.1</span> Starting RStudio</h4>
+<p>You can double click on RStudio icon and you will see this:</p>
+<div class="figure">
+<img src="rstudio.png" alt="RStudio sucessfully open" />
+<p class="caption">RStudio sucessfully open</p>
+</div>
+</div>
+<div id="why-rstudio" class="section level4">
+<h4><span class="header-section-number">8.1.2.2</span> Why RStudio?</h4>
+<ul>
+<li>Working with R GNU is alright.</li>
+<li>But for many people, they prefer to communicate with R using a GUI</li>
+<li>RStudio is a popular GUI</li>
+<li>But RStudio is not only a GUI</li>
+<li>RStudio is the popular IDE for R</li>
+<li>Other R IDE includes Microsoft R</li>
+</ul>
+<p>Check this links for more info:</p>
+<ol style="list-style-type: decimal">
+<li>RStudio <a href="https://www.rstudio.com/" class="uri">https://www.rstudio.com/</a></li>
+<li>Microsoft R <a href="http://blog.revolutionanalytics.com/2016/01/microsoft-r-open.html" class="uri">http://blog.revolutionanalytics.com/2016/01/microsoft-r-open.html</a></li>
+</ol>
+</div>
+<div id="rstudio-interface" class="section level4">
+<h4><span class="header-section-number">8.1.2.3</span> RStudio interface</h4>
+<ul>
+<li>Depending on your OS, you may start RStudio differently.</li>
+<li>Here we assume you are working with Windows OS</li>
+<li>You should be able to see 4 panes in the layout.</li>
+</ul>
+</div>
+<div id="rstudio-panes" class="section level4">
+<h4><span class="header-section-number">8.1.2.4</span> RStudio panes</h4>
+<p>You should see that - the lower left pane tells you about your R information (the console pane) - the upper left pane is to show files that are open - the upper right for the ‘Environment, History and Presentation’ pane - the lower right pane is for to list file names, show plots, show packages, display help document and view outputs (such as html file)</p>
+<div class="figure">
+<img src="rstudio.png" alt="RStudio sucessfully open" />
+<p class="caption">RStudio sucessfully open</p>
+</div>
+</div>
+</div>
+</div>
+<div id="installing-packages" class="section level2">
+<h2><span class="header-section-number">8.2</span> Installing packages</h2>
+<p>R uses packages to perform its tasks.</p>
+<p>There are two common packages:</p>
+<ol style="list-style-type: decimal">
+<li><code>base</code> packages</li>
+<li><code>user-contributed</code> packages</li>
+</ol>
+<ul>
+<li>The base packages come with the installation of R</li>
+<li>The base package provides basic but adequate functions to perform many standard data management, visualization and analysis.</li>
+<li>However, user needs to install user-contributed packages if they need to perform functions (tasks) not available in the base package</li>
+<li>User-contributed packages allow users to perform more advanced and more complicated functions</li>
+<li>There are more than 10200 packages as of March 2017</li>
+</ul>
+<p>For a complete list of packages, see <a href="https://cran.r-project.org/web/packages/" class="uri">https://cran.r-project.org/web/packages/</a></p>
+<div id="package-installation" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> Package installation</h3>
+<p>You can install user-contributed packages through:</p>
+<ol style="list-style-type: decimal">
+<li>internet (to cran)</li>
+<li>Github packages</li>
+<li>local zip files</li>
+</ol>
+<p>In this session, we will learn to install a few small packages. I have installed them. For those who have not,</p>
+<ol style="list-style-type: decimal">
+<li>put your cursor in the CONSOLE pane</li>
+<li>type the codes below</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(foreign)
+<span class="kw">install.packages</span>(haven)</code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>click ENTER</li>
+</ol>
+</div>
+</div>
+<div id="workflow" class="section level2">
+<h2><span class="header-section-number">8.3</span> Workflow</h2>
+<p>We propose that you always have these steps as your workflow when working with R:</p>
+<ol style="list-style-type: decimal">
+<li>Set working directory</li>
+<li>Read data</li>
+<li>Explore + Clean data</li>
+<li>Build Model</li>
+<li>Check Model</li>
+</ol>
+</div>
+<div id="working-directory" class="section level2">
+<h2><span class="header-section-number">8.4</span> Working directory</h2>
+<p>This is a good practice.</p>
+<p>User must create or specify the working directory to work with R.</p>
+<p>The working directory:</p>
+<ol style="list-style-type: decimal">
+<li>stores all the outputs such as the plots, html files, pdf files</li>
+<li>contains your data</li>
+</ol>
+<p>Creating a working directory is a simple BUT an important step.</p>
+<p>Unfortunately, many users do not pay attention to this and forget to set it. So, pay attention so you will not get lost.</p>
+<div id="creating-your-working-directory" class="section level3">
+<h3><span class="header-section-number">8.4.1</span> Creating your working directory</h3>
+<p>Follow this steps:</p>
+<ol style="list-style-type: decimal">
+<li>Make a folder in D directory D:<br />
+</li>
+<li>Name it as <em>myfolder</em></li>
+</ol>
+<p>You will see this:</p>
+<div class="figure">
+<img src="myfolder.png" alt="myfolder" />
+<p class="caption">myfolder</p>
+</div>
+</div>
+<div id="setting-your-working-directory" class="section level3">
+<h3><span class="header-section-number">8.4.2</span> Setting your working directory</h3>
+<p>To set your working directory:</p>
+<ol style="list-style-type: decimal">
+<li>Go back to RStudio pane</li>
+<li>In the FILE pane, click the <em>three small dots</em></li>
+<li>Navigate to <em>myfolder</em></li>
+<li>Click <em>More</em></li>
+<li>Click <em>Set as working directory</em></li>
+</ol>
+<ul>
+<li>or simply use <em>setwd</em> to do so.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setwd</span>(<span class="st">&#39;D:/myfolder&#39;</span>)</code></pre></div>
+<ul>
+<li>type <em>getwd</em> to confirm</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()</code></pre></div>
+<pre><code>## [1] &quot;E:/R_book&quot;</code></pre>
+
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="reporting-results.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="grammar-of-variables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="exploratory-data-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reading-statistical-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -266,7 +440,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-Grammar_of_Var.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/07-preparing-R.Rmd",
 "text": "Edit"
 },
 "download": null,

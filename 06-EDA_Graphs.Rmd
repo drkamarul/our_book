@@ -3,14 +3,11 @@
 
 ## Prepare folder and data
 
-<<<<<<< HEAD
 ### Set the working directory
-=======
 
 ## Prepare folder and data
 
 ## Set the working directory
->>>>>>> b1e7fe217da24c9c49c585f8cb7b29c3a03e88ce
 
 This can be done in 2 ways:
 

@@ -1,0 +1,141 @@
+# Reading statistical data
+
+## Objectives
+
+At the end of the lecture, participants are:
+
+1.  able to read various data formats into R
+2.	able to export data from R into various data format
+3.	able to create R-markdown document 
+
+
+## Data formats 
+
+R can read datasets from different formats.
+
+The `base` package enables us to read `.txt` and `.csv` files. 
+
+You can also use the point and click method to read data. Go to File -> Import Dataset -> From ...
+
+To read datasets from SPSS (`.sav`), Stata (`.dta`), Excel (`xlsx`) and SAS, we need to load special packages. 
+
+There are more than 1 packages you can use to read and write data from/to different spreadsheet or statistical software.
+
+The packages include:
+
+1.  `haven` 
+2.  `foreign`
+3.  `readxl`
+4.  `readr`
+
+## Reading data into R
+
+### Reading csv file
+
+Let us read a `.csv` files names as `metab.csv`.
+
+We would like to create an object named as `met_data` to represent the read `metab.csv`. We can do this: 
+
+```{r}
+met_data <- read.csv('metab1.csv', header = TRUE)
+```
+
+header = TRUE means that you will read the first row as the variable names. 
+
+After you have done this, you will see a new object named as `met_data` inside the *environment* pane. 
+
+
+### Reading dataset from MS Excel file 
+
+You can read dataset from Excel using 2 methods
+
+1. point and click method. File - Import Dataset - from Excel
+2. `readxl` package
+
+To read data using specific packages such as `readxl` package:
+
+1.  you need to install the library first using `install.packages()`
+2.  After that, load the library using `library(readxl)`
+3.  Type `read_excel()` with relevant arguments to read the data into RStudio
+
+```{r , eval=TRUE, echo=FALSE}
+#install.packages('readxl')
+
+```
+
+
+```{r}
+library(readxl)
+dataexcel <- read_excel('eye.xlsx', sheet = 1)
+```
+
+The example above means that we read an MS Excel file named as  `eye.xlsx` and named it as `dataexcel`.
+
+
+### Reading dataset from SPSS file (.sav) 
+
+Dataset in SPSS format will end with `.sav`. 
+
+To read SPSS data into R we may use `foreign` or `haven` packages. 
+
+After reading the `.sav` file, an object will be created based on what we named it. 
+
+The example below shows that an object named as `dataSPSS`represents the SPSS data `cholest.sav`that we just read into RStudio.  
+
+```{r}
+library(foreign)
+dataSPSS <- read.spss('cholest.sav', to.data.frame = TRUE)
+```
+
+### Reading dataset from Stata (.dta)
+
+Dataset in Stata format will end with `.dta`. 
+
+To read Stata data into R we may use `foreign` or `haven` packages. 
+
+After reading the `.dta` file, similarly an object will be created - in this case, we named it as `dataSTATA`. 
+
+`dataSTATA` is an object that represents the Stata data (now in the memory) that we just read `metab1.dta`into RStudio.
+
+
+```{r}
+datastata <- read.dta('metab1.dta', convert.factors = TRUE)
+```
+
+### Alternative methods or package
+
+1.  You can go to File - Read Datasets
+2.  You may use **haven** package to read SAS, SPSS and Stata file.
+
+```{r}
+library(haven)
+dataSPSS2 <- read_sav('cholest.sav')
+dataSTATA2 <- read_dta('cholest.dta')
+```
+
+### Other data format
+
+Other important data formats that might be useful in epidemiology and statistics are:
+
+1.  shapefile `.shp` 
+2.  text file `.txt`
+3.  text file `.dat`
+4.  `XML` file
+5.  images file `DICOM`
+
+We will not cover these today. 
+
+## Exporting data from R
+
+You can also export data into various formats using similar packages.
+
+For example, 
+
+1.  to export data into a *comma separated version* (.csv) file, we can use `write.csv` function. 
+2.  to export data into stata format, we can use `write.dta` function
+
+```{r}
+export_csv <- write.csv(dataSPSS, 'export_csv.csv')
+export_stata <- write.dta(dataexcel, 'export_stata.dta') 
+```
+

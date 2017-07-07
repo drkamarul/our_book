@@ -2,9 +2,11 @@
 title: "Exploring data using R"
 author: "Kamarul Imran Musa, Wan Nor Arifin"
 date: '`r Sys.Date()`'
-output:
-  bookdown::gitbook: default
-  bookdown::pdf_book: default
 site: bookdown::bookdown_site
+output: bookdown::gitbook
 documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
 ---

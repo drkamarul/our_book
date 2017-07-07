@@ -1,0 +1,235 @@
+# GLM
+
+
+### Objectives
+
+At the end of the lecture, participants are
+
+1.  able to perform linear regression
+2.  able to perform logistic regression
+3.  able to perform Cox proportional hazard regression
+
+## Set working directory
+
+Set your working directory. 
+
+This is a folder that contains your dataset and objects created by R.
+
+
+## Read data
+
+We will read a stata data into R. This file will read using **foreign** package.
+
+We will name the object as **data1** as an object that represent the dataset.
+
+This object is a `data.frame` object
+
+The **data1** object will remain in the memory unless you close your RStudio. 
+
+```{r}
+library(foreign)
+data1 <- read.dta('metab1.dta', convert.factors = TRUE) 
+head(data1)
+```
+
+We use `head()` function to list the first 6 observations in the dataset.
+
+
+## Explore and clean data
+
+Next we will describe the data and visualize 
+
+1.  Descriptive
+2.  Visualization
+
+### Descriptive analysis
+
+We will check basic descriptive statistics from our data
+
+```{r}
+library(psych)
+describe(data1)
+```
+
+
+### Visualization
+
+We do not have time to cover for data vizualition. 
+
+But for here we would do
+
+1.  histogram
+2.  bar charts
+3.  box-plots
+4.  scatterplots
+
+To examine the distribution of our data. 
+
+Briefly:
+
+```{r}
+hist(data1$age)
+```
+
+```{r}
+cts_sex <- table(data1$sex)
+barplot(cts_sex, names.arg = c('male','female'))
+```
+
+```{r}
+cor(data1[,c(2,7:14 )], use = 'complete.obs')
+```
+
+
+## Linear regression
+
+We perform linear regression when we assume that distribution of the outcome variables is normally distributed as a function of certain covariates (independent variables)
+
+### Estimation
+
+To perform the estimation for linear regression, we can use `lm()` function. 
+
+Let us model body mass index *bmi* as a function of hip circumference, mean systolic blood pressure *msbp*, mean diastolic blood pressure *mdbp* and *gender*
+
+```{r}
+modl <- lm(bmi2 ~ hip + msbp + mdbp 
+           + gender, data = data1)
+summary(modl)
+```
+
+From the results, we can see that:
+
+1.  71.5% of variation in the expected *bmi* is explained by the covariates
+2.  all covariates are siginificantly (p < 0.05) predictive of *bmi*
+
+### Inference
+
+Now, let us calculate the 95% of the expected mean of bmi
+
+```{r}
+confint(modl)
+```
+
+### Prediction
+
+
+## Logistic regression
+
+In logistic regression, we model an outcome variables which is assumed to follow binomial distribution as a function of a set of covariates (independent variables).
+
+In R, we use `glm()` function to perform **Generalized Linear Regression** analysis. 
+
+But there are other R packages that can do similar analysis. Based on our experience, the `glm()` in the **base** package is good enough.
+
+### Estimation
+
+Let us estimate the expected log odds for having diabetes mellitus *dm* as a function os these covariates: body mass index *bmi2* , age , total cholesterol *totchol *and mean systolic blood pressure *msbp*. 
+
+We specify the family of *binomial* and use the *logit* link.
+
+```{r}
+modlog <- glm(dm ~ bmi2 + age + totchol + msbp, family = binomial(link = logit), data = data1)
+summary(modlog)
+```
+
+From the results, we estimate that the log odds for diabetes mellitus:
+
+1.  increase by 0.049 for each increase in bmi, adjusted for other covariates (p-value 0.072)
+2.  increase by 0.048 for each increase in age, controlled for other covariates (p-value < 0.001) 
+3.  are not significantly predicted by either the total cholesterol and mean systolic blood pressure (p-value 0.717 and 0.572, respectively) 
+
+Odds ratio
+
+To obtain the odds ratios, we use the `exp()` function
+
+We then exponential the coefficients of the model estimated from `glm()` function
+
+```{r}
+exp(modlog$coefficients)
+```
+
+### Inference
+
+To estimate the 95% confidence intervals for the log odds (CI for log odds), we use the `confint()` function to all the regression parameters or the $\beta_p$
+
+```{r}
+confint(modlog)
+```
+
+And to estimate the CI for odds ratios, we exponentiate the lower bound and upper bound of the regression parameters $\beta_p$
+
+```{r}
+exp(confint(modlog))
+```
+
+
+## Cox proportional hazard regression
+
+In a cohort study, a time-to-event data is common. Such data has a time from the start of study until one point of time. 
+
+This point of time can be either:
+
+1.  participant develop an outcome of interest
+2.  participant do not develop the outcome of interest after the maximum time of follow up
+
+In R, the most common packacge for typical time-to-event data is **survival** package
+
+To perform time-to-event data analysis, we need to load the **survival** library.
+
+We will use a data frame using the built-in lung cancer dataset that ships with the survival package. :
+
+1.  inst: Institution code
+2.  time: Survival time in days
+3.  status: censoring status 1=censored, 2=dead
+4.  age: Age in years
+5.  sex: Male=1 Female=2
+6.  ph.ecog: ECOG performance score (0=good 5=dead)
+7.  ph.karno: Karnofsky performance score as rated by physician
+8.  pat.karno: Karnofsky performance score as rated by patient
+9.  meal.cal: Calories consumed at meals
+10. wt.loss: Weight loss in last six months
+
+
+Load the library  
+
+```{r}
+library(survival)
+
+```
+
+Describe data
+
+```{r}
+library(psych)
+lung <- lung
+describe(lung)
+```
+
+and declare the time to event
+
+```{r}
+tte <- Surv(time = lung$time, event = lung$status==2)
+tte
+```
+
+### Estimation and inference
+
+perform Cox PH model to estime the log hazard and the hazard ratios.
+
+1.  constant only model
+
+```{r}
+cox_mod <- coxph(tte ~ 1, data = lung)
+summary(cox_mod)
+```
+
+2.  multivariable model
+
+```{r}
+cox_mod2 <- coxph(tte ~ 1 + ph.ecog + factor(sex) + ph.karno, data = lung)
+summary(cox_mod2)
+
+```
+
+
+

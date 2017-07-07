@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Exploring data using R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Exploring data using R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Exploring data using R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Kamarul Imran Musa, Wan Nor Arifin">
+
+
+<meta name="date" content="2017-07-07">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="reading-statistical-data.html">
+<link rel="next" href="final-words.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#getting-familiar-with-the-interface"><i class="fa fa-check"></i><b>1.2</b> Getting familiar with the interface</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#basic-tasks-in-r"><i class="fa fa-check"></i><b>1.3</b> Basic tasks in R</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-script"><i class="fa fa-check"></i><b>1.3.1</b> R Script</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#setting-working-directory"><i class="fa fa-check"></i><b>1.3.2</b> Setting working directory</a></li>
+<li class="chapter" data-level="1.3.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#packages"><i class="fa fa-check"></i><b>1.3.3</b> Packages</a></li>
+<li class="chapter" data-level="1.3.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-management"><i class="fa fa-check"></i><b>1.3.4</b> Data management</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="textual.html"><a href="textual.html"><i class="fa fa-check"></i><b>2</b> Textual</a><ul>
+<li class="chapter" data-level="2.1" data-path="textual.html"><a href="textual.html#descriptive-statistics"><i class="fa fa-check"></i><b>2.1</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="2.2" data-path="textual.html"><a href="textual.html#tables"><i class="fa fa-check"></i><b>2.2</b> Tables</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="textual.html"><a href="textual.html#count-proportion-percentage-and-cross-tabulation"><i class="fa fa-check"></i><b>2.2.1</b> Count, proportion, percentage and cross-tabulation</a></li>
+<li class="chapter" data-level="2.2.2" data-path="textual.html"><a href="textual.html#entering-table-data"><i class="fa fa-check"></i><b>2.2.2</b> Entering table data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="graphical.html"><a href="graphical.html"><i class="fa fa-check"></i><b>3</b> Graphical</a></li>
+<li class="chapter" data-level="4" data-path="reporting-results.html"><a href="reporting-results.html"><i class="fa fa-check"></i><b>4</b> Reporting results</a></li>
+<li class="chapter" data-level="5" data-path="data-and-variable-manipulation.html"><a href="data-and-variable-manipulation.html"><i class="fa fa-check"></i><b>5</b> Data and variable manipulation</a></li>
+<li class="chapter" data-level="6" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html"><i class="fa fa-check"></i><b>6</b> Grammar of variables</a><ul>
+<li class="chapter" data-level="6.1" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#prepare-folder-and-data"><i class="fa fa-check"></i><b>6.1</b> Prepare folder and data</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#set-the-working-directory"><i class="fa fa-check"></i><b>6.1.1</b> Set the working directory</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#read-data"><i class="fa fa-check"></i><b>6.2</b> Read Data</a></li>
+<li class="chapter" data-level="6.3" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#browse-data"><i class="fa fa-check"></i><b>6.3</b> Browse data</a></li>
+<li class="chapter" data-level="6.4" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#grammar-of-variables-1"><i class="fa fa-check"></i><b>6.4</b> Grammar of variables</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#select-columns"><i class="fa fa-check"></i><b>6.4.1</b> Select columns</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#select-columns-1"><i class="fa fa-check"></i><b>6.5</b> Select columns</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#select-rows"><i class="fa fa-check"></i><b>6.5.1</b> Select rows</a></li>
+<li class="chapter" data-level="6.5.2" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#select-rows-and-columns-together"><i class="fa fa-check"></i><b>6.5.2</b> Select rows and columns together</a></li>
+<li class="chapter" data-level="6.5.3" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#generate-a-new-variable"><i class="fa fa-check"></i><b>6.5.3</b> Generate a new variable</a></li>
+<li class="chapter" data-level="6.5.4" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#categorize-into-new-variables"><i class="fa fa-check"></i><b>6.5.4</b> Categorize into new variables</a></li>
+<li class="chapter" data-level="6.5.5" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#dealing-with-missing-data"><i class="fa fa-check"></i><b>6.5.5</b> Dealing with missing data</a></li>
+<li class="chapter" data-level="6.5.6" data-path="grammar-of-variables.html"><a href="grammar-of-variables.html#package-dplyr"><i class="fa fa-check"></i><b>6.5.6</b> Package ‘dplyr’</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>7</b> Exploratory data analysis</a><ul>
+<li class="chapter" data-level="7.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#prepare-folder-and-data-1"><i class="fa fa-check"></i><b>7.1</b> Prepare folder and data</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#set-the-working-directory-1"><i class="fa fa-check"></i><b>7.1.1</b> Set the working directory</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#prepare-folder-and-data-2"><i class="fa fa-check"></i><b>7.2</b> Prepare folder and data</a></li>
+<li class="chapter" data-level="7.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#set-the-working-directory-2"><i class="fa fa-check"></i><b>7.3</b> Set the working directory</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#list-the-files-inside-the-working-directory"><i class="fa fa-check"></i><b>7.3.1</b> List the files inside the working directory</a></li>
+<li class="chapter" data-level="7.3.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#reading-dataset-from-spss-file-.sav"><i class="fa fa-check"></i><b>7.3.2</b> Reading dataset from SPSS file (.sav)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#describing-data"><i class="fa fa-check"></i><b>7.4</b> Describing data</a></li>
+<li class="chapter" data-level="7.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#graphing-or-plotting-data"><i class="fa fa-check"></i><b>7.5</b> Graphing or Plotting data</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#one-variable-a-categorical-or-factor-variable"><i class="fa fa-check"></i><b>7.5.1</b> One variable: A categorical or factor variable</a></li>
+<li class="chapter" data-level="7.5.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#one-variable-a-numerical-variable"><i class="fa fa-check"></i><b>7.5.2</b> One variable: A numerical variable</a></li>
+<li class="chapter" data-level="7.5.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#two-variables-a-numerical-with-another-numerical-variable"><i class="fa fa-check"></i><b>7.5.3</b> Two variables : A numerical with another numerical variable</a></li>
+<li class="chapter" data-level="7.5.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#two-variables-a-categorical-variable-with-a-categorical-variable"><i class="fa fa-check"></i><b>7.5.4</b> Two variables : A categorical variable with a categorical variable</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="preparing-r.html"><a href="preparing-r.html"><i class="fa fa-check"></i><b>8</b> Preparing R</a><ul>
+<li class="chapter" data-level="8.1" data-path="preparing-r.html"><a href="preparing-r.html#objectives"><i class="fa fa-check"></i><b>8.1</b> Objectives</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="preparing-r.html"><a href="preparing-r.html#installation-of-r"><i class="fa fa-check"></i><b>8.1.1</b> Installation of R</a></li>
+<li class="chapter" data-level="8.1.2" data-path="preparing-r.html"><a href="preparing-r.html#installation-of-rstudio"><i class="fa fa-check"></i><b>8.1.2</b> Installation of RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="preparing-r.html"><a href="preparing-r.html#installing-packages"><i class="fa fa-check"></i><b>8.2</b> Installing packages</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="preparing-r.html"><a href="preparing-r.html#package-installation"><i class="fa fa-check"></i><b>8.2.1</b> Package installation</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="preparing-r.html"><a href="preparing-r.html#workflow"><i class="fa fa-check"></i><b>8.3</b> Workflow</a></li>
+<li class="chapter" data-level="8.4" data-path="preparing-r.html"><a href="preparing-r.html#working-directory"><i class="fa fa-check"></i><b>8.4</b> Working directory</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="preparing-r.html"><a href="preparing-r.html#creating-your-working-directory"><i class="fa fa-check"></i><b>8.4.1</b> Creating your working directory</a></li>
+<li class="chapter" data-level="8.4.2" data-path="preparing-r.html"><a href="preparing-r.html#setting-your-working-directory"><i class="fa fa-check"></i><b>8.4.2</b> Setting your working directory</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="reading-statistical-data.html"><a href="reading-statistical-data.html"><i class="fa fa-check"></i><b>9</b> Reading statistical data</a><ul>
+<li class="chapter" data-level="9.1" data-path="reading-statistical-data.html"><a href="reading-statistical-data.html#objectives-1"><i class="fa fa-check"></i><b>9.1</b> Objectives</a></li>
+<li class="chapter" data-level="9.2" data-path="reading-statistical-data.html"><a href="reading-statistical-data.html#data-formats"><i class="fa fa-check"></i><b>9.2</b> Data formats</a></li>
+<li class="chapter" data-level="9.3" data-path="reading-statistical-data.html"><a href="reading-statistical-data.html#reading-data-into-r"><i class="fa fa-check"></i><b>9.3</b> Reading data into R</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="reading-statistical-data.html"><a href="reading-statistical-data.html#reading-csv-file"><i class="fa fa-check"></i><b>9.3.1</b> Reading csv file</a></li>
+<li class="chapter" data-level="9.3.2" data-path="reading-statistical-data.html"><a href="reading-statistical-data.html#reading-dataset-from-ms-excel-file"><i class="fa fa-check"></i><b>9.3.2</b> Reading dataset from MS Excel file</a></li>
+<li class="chapter" data-level="9.3.3" data-path="reading-statistical-data.html"><a href="reading-statistical-data.html#reading-dataset-from-spss-file-.sav-1"><i class="fa fa-check"></i><b>9.3.3</b> Reading dataset from SPSS file (.sav)</a></li>
+<li class="chapter" data-level="9.3.4" data-path="reading-statistical-data.html"><a href="reading-statistical-data.html#reading-dataset-from-stata-.dta"><i class="fa fa-check"></i><b>9.3.4</b> Reading dataset from Stata (.dta)</a></li>
+<li class="chapter" data-level="9.3.5" data-path="reading-statistical-data.html"><a href="reading-statistical-data.html#alternative-methods-or-package"><i class="fa fa-check"></i><b>9.3.5</b> Alternative methods or package</a></li>
+<li class="chapter" data-level="9.3.6" data-path="reading-statistical-data.html"><a href="reading-statistical-data.html#other-data-format"><i class="fa fa-check"></i><b>9.3.6</b> Other data format</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="reading-statistical-data.html"><a href="reading-statistical-data.html#exporting-data-from-r"><i class="fa fa-check"></i><b>9.4</b> Exporting data from R</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="glm.html"><a href="glm.html"><i class="fa fa-check"></i><b>10</b> GLM</a><ul>
+<li class="chapter" data-level="10.0.1" data-path="glm.html"><a href="glm.html#objectives-2"><i class="fa fa-check"></i><b>10.0.1</b> Objectives</a></li>
+<li class="chapter" data-level="10.1" data-path="glm.html"><a href="glm.html#set-working-directory"><i class="fa fa-check"></i><b>10.1</b> Set working directory</a></li>
+<li class="chapter" data-level="10.2" data-path="glm.html"><a href="glm.html#read-data-1"><i class="fa fa-check"></i><b>10.2</b> Read data</a></li>
+<li class="chapter" data-level="10.3" data-path="glm.html"><a href="glm.html#explore-and-clean-data"><i class="fa fa-check"></i><b>10.3</b> Explore and clean data</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="glm.html"><a href="glm.html#descriptive-analysis"><i class="fa fa-check"></i><b>10.3.1</b> Descriptive analysis</a></li>
+<li class="chapter" data-level="10.3.2" data-path="glm.html"><a href="glm.html#visualization"><i class="fa fa-check"></i><b>10.3.2</b> Visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="glm.html"><a href="glm.html#linear-regression"><i class="fa fa-check"></i><b>10.4</b> Linear regression</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="glm.html"><a href="glm.html#estimation"><i class="fa fa-check"></i><b>10.4.1</b> Estimation</a></li>
+<li class="chapter" data-level="10.4.2" data-path="glm.html"><a href="glm.html#inference"><i class="fa fa-check"></i><b>10.4.2</b> Inference</a></li>
+<li class="chapter" data-level="10.4.3" data-path="glm.html"><a href="glm.html#prediction"><i class="fa fa-check"></i><b>10.4.3</b> Prediction</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="glm.html"><a href="glm.html#logistic-regression"><i class="fa fa-check"></i><b>10.5</b> Logistic regression</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="glm.html"><a href="glm.html#estimation-1"><i class="fa fa-check"></i><b>10.5.1</b> Estimation</a></li>
+<li class="chapter" data-level="10.5.2" data-path="glm.html"><a href="glm.html#inference-1"><i class="fa fa-check"></i><b>10.5.2</b> Inference</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="glm.html"><a href="glm.html#cox-proportional-hazard-regression"><i class="fa fa-check"></i><b>10.6</b> Cox proportional hazard regression</a><ul>
+<li class="chapter" data-level="10.6.1" data-path="glm.html"><a href="glm.html#estimation-and-inference"><i class="fa fa-check"></i><b>10.6.1</b> Estimation and inference</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>11</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploring data using R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="glm" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> GLM</h1>
+<div id="objectives-2" class="section level3">
+<h3><span class="header-section-number">10.0.1</span> Objectives</h3>
+<p>At the end of the lecture, participants are</p>
+<ol style="list-style-type: decimal">
+<li>able to perform linear regression</li>
+<li>able to perform logistic regression</li>
+<li>able to perform Cox proportional hazard regression</li>
+</ol>
+</div>
+<div id="set-working-directory" class="section level2">
+<h2><span class="header-section-number">10.1</span> Set working directory</h2>
+<p>Set your working directory.</p>
+<p>This is a folder that contains your dataset and objects created by R.</p>
+</div>
+<div id="read-data-1" class="section level2">
+<h2><span class="header-section-number">10.2</span> Read data</h2>
+<p>We will read a stata data into R. This file will read using <strong>foreign</strong> package.</p>
+<p>We will name the object as <strong>data1</strong> as an object that represent the dataset.</p>
+<p>This object is a <code>data.frame</code> object</p>
+<p>The <strong>data1</strong> object will remain in the memory unless you close your RStudio.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(foreign)
+data1 &lt;-<span class="st"> </span><span class="kw">read.dta</span>(<span class="st">&#39;metab1.dta&#39;</span>, <span class="dt">convert.factors =</span> <span class="ot">TRUE</span>) 
+<span class="kw">head</span>(data1)</code></pre></div>
+<pre><code>##   id2 age sex race marital dm  bmi2 waist hip hba1c  fbs totchol   msbp
+## 1   1  42   2    1       1  0 21.31    72  89   5.0 5.41    4.80 113.25
+## 2   2  63   2    1       3  1 36.00   125  95   7.2 8.39    8.09 209.00
+## 3   3  54   2    1       1  0 37.17   100 118   5.6 5.46    4.32 160.00
+## 4   4  46   1    1       1  0 27.34    89  97   5.3 5.82    5.27 134.25
+## 5   5  40   2    1       1  0 26.94    79  99   4.8 4.67    6.38 100.00
+## 6   6  43   1    1       1  0 28.82   101 112   5.1 4.82    7.48 159.00
+##     mdbp gender crural racecat       whr
+## 1  73.50 female      0       0 0.8089887
+## 2  94.00 female      1       0 1.3157895
+## 3  76.75 female      0       0 0.8474576
+## 4  87.75   male      1       0 0.9175258
+## 5  65.00 female      1       0 0.7979798
+## 6 104.00   male      0       0 0.9017857</code></pre>
+<p>We use <code>head()</code> function to list the first 6 observations in the dataset.</p>
+</div>
+<div id="explore-and-clean-data" class="section level2">
+<h2><span class="header-section-number">10.3</span> Explore and clean data</h2>
+<p>Next we will describe the data and visualize</p>
+<ol style="list-style-type: decimal">
+<li>Descriptive</li>
+<li>Visualization</li>
+</ol>
+<div id="descriptive-analysis" class="section level3">
+<h3><span class="header-section-number">10.3.1</span> Descriptive analysis</h3>
+<p>We will check basic descriptive statistics from our data</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(psych)
+<span class="kw">describe</span>(data1)</code></pre></div>
+<pre><code>##         vars   n   mean     sd median trimmed    mad   min    max  range
+## id2        1 500 250.50 144.48 250.50  250.50 185.32  1.00 500.00 499.00
+## age        2 500  49.04  14.09  48.50   49.06  14.08 18.00  84.00  66.00
+## sex        3 500   1.58   0.49   2.00    1.60   0.00  1.00   2.00   1.00
+## race       4 500   1.46   0.99   1.00    1.21   0.00  1.00   5.00   4.00
+## marital    5 498   1.29   0.65   1.00    1.12   0.00  1.00   3.00   2.00
+## dm         6 500   0.11   0.31   0.00    0.01   0.00  0.00   1.00   1.00
+## bmi2       7 500  26.28   5.33  25.71   25.95   4.81 14.30  56.08  41.78
+## waist      8 500  86.40  12.79  86.00   86.08  11.86 52.00 154.50 102.50
+## hip        9 500  98.54  10.75  98.00   98.31  10.38 62.00 153.50  91.50
+## hba1c     10 496   5.86   1.47   5.40    5.56   0.44  0.20  13.20  13.00
+## fbs       11 486   5.94   2.30   5.39    5.54   1.14  2.59  21.11  18.52
+## totchol   12 496   5.83   1.29   5.80    5.76   1.20  2.47  12.29   9.82
+## msbp      13 500 134.72  22.77 132.00  132.92  21.68 82.50 225.00 142.50
+## mdbp      14 500  80.03  11.51  79.50   79.86  11.49 45.00 120.00  75.00
+## gender*   15 500   1.42   0.49   1.00    1.40   0.00  1.00   2.00   1.00
+## crural    16 500   0.51   0.50   1.00    0.51   0.00  0.00   1.00   1.00
+## racecat   17 500   0.45   0.94   0.00    0.21   0.00  0.00   3.00   3.00
+## whr       18 500   0.88   0.11   0.86    0.87   0.08  0.65   1.42   0.77
+##          skew kurtosis   se
+## id2      0.00    -1.21 6.46
+## age      0.01    -0.46 0.63
+## sex     -0.31    -1.90 0.02
+## race     2.00     2.77 0.04
+## marital  1.98     2.28 0.03
+## dm       2.52     4.35 0.01
+## bmi2     0.97     2.50 0.24
+## waist    0.61     2.03 0.57
+## hip      0.46     2.21 0.48
+## hba1c    2.49     7.80 0.07
+## fbs      2.88    11.33 0.10
+## totchol  0.73     1.74 0.06
+## msbp     0.80     0.68 1.02
+## mdbp     0.18    -0.05 0.51
+## gender*  0.31    -1.90 0.02
+## crural  -0.03    -2.00 0.02
+## racecat  1.85     1.87 0.04
+## whr      1.72     5.09 0.00</code></pre>
+</div>
+<div id="visualization" class="section level3">
+<h3><span class="header-section-number">10.3.2</span> Visualization</h3>
+<p>We do not have time to cover for data vizualition.</p>
+<p>But for here we would do</p>
+<ol style="list-style-type: decimal">
+<li>histogram</li>
+<li>bar charts</li>
+<li>box-plots</li>
+<li>scatterplots</li>
+</ol>
+<p>To examine the distribution of our data.</p>
+<p>Briefly:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(data1<span class="op">$</span>age)</code></pre></div>
+<p><img src="R_book_KIM_and_Arifin_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cts_sex &lt;-<span class="st"> </span><span class="kw">table</span>(data1<span class="op">$</span>sex)
+<span class="kw">barplot</span>(cts_sex, <span class="dt">names.arg =</span> <span class="kw">c</span>(<span class="st">&#39;male&#39;</span>,<span class="st">&#39;female&#39;</span>))</code></pre></div>
+<p><img src="R_book_KIM_and_Arifin_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(data1[,<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">7</span><span class="op">:</span><span class="dv">14</span> )], <span class="dt">use =</span> <span class="st">&#39;complete.obs&#39;</span>)</code></pre></div>
+<pre><code>##                  age       bmi2      waist          hip     hba1c
+## age     1.0000000000 0.01333764 0.20366927 0.0007456519 0.1637614
+## bmi2    0.0133376398 1.00000000 0.76631090 0.8333520043 0.1894581
+## waist   0.2036692689 0.76631090 1.00000000 0.6481527376 0.2607116
+## hip     0.0007456519 0.83335200 0.64815274 1.0000000000 0.1393534
+## hba1c   0.1637613510 0.18945815 0.26071159 0.1393533901 1.0000000
+## fbs     0.0744876967 0.14530370 0.16664931 0.1081298717 0.6201932
+## totchol 0.1680643316 0.03611592 0.07409306 0.0314817073 0.1919677
+## msbp    0.4973145998 0.29310141 0.34845937 0.2088822226 0.1012963
+## mdbp    0.2395562888 0.39672237 0.38554987 0.3421091043 0.1149683
+##               fbs    totchol      msbp       mdbp
+## age     0.0744877 0.16806433 0.4973146 0.23955629
+## bmi2    0.1453037 0.03611592 0.2931014 0.39672237
+## waist   0.1666493 0.07409306 0.3484594 0.38554987
+## hip     0.1081299 0.03148171 0.2088822 0.34210910
+## hba1c   0.6201932 0.19196773 0.1012963 0.11496827
+## fbs     1.0000000 0.23526402 0.0976063 0.11685121
+## totchol 0.2352640 1.00000000 0.1286784 0.09181019
+## msbp    0.0976063 0.12867845 1.0000000 0.69994756
+## mdbp    0.1168512 0.09181019 0.6999476 1.00000000</code></pre>
+</div>
+</div>
+<div id="linear-regression" class="section level2">
+<h2><span class="header-section-number">10.4</span> Linear regression</h2>
+<p>We perform linear regression when we assume that distribution of the outcome variables is normally distributed as a function of certain covariates (independent variables)</p>
+<div id="estimation" class="section level3">
+<h3><span class="header-section-number">10.4.1</span> Estimation</h3>
+<p>To perform the estimation for linear regression, we can use <code>lm()</code> function.</p>
+<p>Let us model body mass index <em>bmi</em> as a function of hip circumference, mean systolic blood pressure <em>msbp</em>, mean diastolic blood pressure <em>mdbp</em> and <em>gender</em></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">modl &lt;-<span class="st"> </span><span class="kw">lm</span>(bmi2 <span class="op">~</span><span class="st"> </span>hip <span class="op">+</span><span class="st"> </span>msbp <span class="op">+</span><span class="st"> </span>mdbp 
+           <span class="op">+</span><span class="st"> </span>gender, <span class="dt">data =</span> data1)
+<span class="kw">summary</span>(modl)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = bmi2 ~ hip + msbp + mdbp + gender, data = data1)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -7.3285 -1.8325 -0.3378  1.6164 15.4678 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -17.065630   1.314528 -12.982  &lt; 2e-16 ***
+## hip           0.388818   0.012708  30.596  &lt; 2e-16 ***
+## msbp          0.018379   0.007898   2.327  0.02036 *  
+## mdbp          0.036431   0.016230   2.245  0.02523 *  
+## gendermale   -0.846502   0.260951  -3.244  0.00126 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.856 on 495 degrees of freedom
+## Multiple R-squared:  0.7149, Adjusted R-squared:  0.7126 
+## F-statistic: 310.4 on 4 and 495 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>From the results, we can see that:</p>
+<ol style="list-style-type: decimal">
+<li>71.5% of variation in the expected <em>bmi</em> is explained by the covariates</li>
+<li>all covariates are siginificantly (p &lt; 0.05) predictive of <em>bmi</em></li>
+</ol>
+</div>
+<div id="inference" class="section level3">
+<h3><span class="header-section-number">10.4.2</span> Inference</h3>
+<p>Now, let us calculate the 95% of the expected mean of bmi</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(modl)</code></pre></div>
+<pre><code>##                     2.5 %       97.5 %
+## (Intercept) -19.648371574 -14.48288755
+## hip           0.363849346   0.41378699
+## msbp          0.002861941   0.03389611
+## mdbp          0.004542767   0.06831958
+## gendermale   -1.359210684  -0.33379268</code></pre>
+</div>
+<div id="prediction" class="section level3">
+<h3><span class="header-section-number">10.4.3</span> Prediction</h3>
+</div>
+</div>
+<div id="logistic-regression" class="section level2">
+<h2><span class="header-section-number">10.5</span> Logistic regression</h2>
+<p>In logistic regression, we model an outcome variables which is assumed to follow binomial distribution as a function of a set of covariates (independent variables).</p>
+<p>In R, we use <code>glm()</code> function to perform <strong>Generalized Linear Regression</strong> analysis.</p>
+<p>But there are other R packages that can do similar analysis. Based on our experience, the <code>glm()</code> in the <strong>base</strong> package is good enough.</p>
+<div id="estimation-1" class="section level3">
+<h3><span class="header-section-number">10.5.1</span> Estimation</h3>
+<p>Let us estimate the expected log odds for having diabetes mellitus <em>dm</em> as a function os these covariates: body mass index <em>bmi2</em> , age , total cholesterol <em>totchol </em>and mean systolic blood pressure <em>msbp</em>.</p>
+<p>We specify the family of <em>binomial</em> and use the <em>logit</em> link.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">modlog &lt;-<span class="st"> </span><span class="kw">glm</span>(dm <span class="op">~</span><span class="st"> </span>bmi2 <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>totchol <span class="op">+</span><span class="st"> </span>msbp, <span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link =</span> logit), <span class="dt">data =</span> data1)
+<span class="kw">summary</span>(modlog)</code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = dm ~ bmi2 + age + totchol + msbp, family = binomial(link = logit), 
+##     data = data1)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.1768  -0.5281  -0.4016  -0.2914   2.5278  
+## 
+## Coefficients:
+##              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -6.285660   1.284589  -4.893 9.92e-07 ***
+## bmi2         0.049137   0.027323   1.798 0.072115 .  
+## age          0.047859   0.013178   3.632 0.000281 ***
+## totchol     -0.041156   0.113628  -0.362 0.717205    
+## msbp         0.004154   0.007351   0.565 0.571993    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 341.40  on 495  degrees of freedom
+## Residual deviance: 315.92  on 491  degrees of freedom
+##   (4 observations deleted due to missingness)
+## AIC: 325.92
+## 
+## Number of Fisher Scoring iterations: 5</code></pre>
+<p>From the results, we estimate that the log odds for diabetes mellitus:</p>
+<ol style="list-style-type: decimal">
+<li>increase by 0.049 for each increase in bmi, adjusted for other covariates (p-value 0.072)</li>
+<li>increase by 0.048 for each increase in age, controlled for other covariates (p-value &lt; 0.001)</li>
+<li>are not significantly predicted by either the total cholesterol and mean systolic blood pressure (p-value 0.717 and 0.572, respectively)</li>
+</ol>
+<p>Odds ratio</p>
+<p>To obtain the odds ratios, we use the <code>exp()</code> function</p>
+<p>We then exponential the coefficients of the model estimated from <code>glm()</code> function</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(modlog<span class="op">$</span>coefficients)</code></pre></div>
+<pre><code>## (Intercept)        bmi2         age     totchol        msbp 
+## 0.001862827 1.050364000 1.049023206 0.959679727 1.004162959</code></pre>
+</div>
+<div id="inference-1" class="section level3">
+<h3><span class="header-section-number">10.5.2</span> Inference</h3>
+<p>To estimate the 95% confidence intervals for the log odds (CI for log odds), we use the <code>confint()</code> function to all the regression parameters or the <span class="math inline">\(\beta_p\)</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(modlog)</code></pre></div>
+<pre><code>## Waiting for profiling to be done...</code></pre>
+<pre><code>##                    2.5 %      97.5 %
+## (Intercept) -8.875644415 -3.82283778
+## bmi2        -0.005510115  0.10254631
+## age          0.022458291  0.07427335
+## totchol     -0.269610946  0.17709212
+## msbp        -0.010565995  0.01836516</code></pre>
+<p>And to estimate the CI for odds ratios, we exponentiate the lower bound and upper bound of the regression parameters <span class="math inline">\(\beta_p\)</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="kw">confint</span>(modlog))</code></pre></div>
+<pre><code>## Waiting for profiling to be done...</code></pre>
+<pre><code>##                    2.5 %     97.5 %
+## (Intercept) 0.0001397515 0.02186566
+## bmi2        0.9945050382 1.10798861
+## age         1.0227123770 1.07710119
+## totchol     0.7636765479 1.19374105
+## msbp        0.9894896289 1.01853484</code></pre>
+</div>
+</div>
+<div id="cox-proportional-hazard-regression" class="section level2">
+<h2><span class="header-section-number">10.6</span> Cox proportional hazard regression</h2>
+<p>In a cohort study, a time-to-event data is common. Such data has a time from the start of study until one point of time.</p>
+<p>This point of time can be either:</p>
+<ol style="list-style-type: decimal">
+<li>participant develop an outcome of interest</li>
+<li>participant do not develop the outcome of interest after the maximum time of follow up</li>
+</ol>
+<p>In R, the most common packacge for typical time-to-event data is <strong>survival</strong> package</p>
+<p>To perform time-to-event data analysis, we need to load the <strong>survival</strong> library.</p>
+<p>We will use a data frame using the built-in lung cancer dataset that ships with the survival package. :</p>
+<ol style="list-style-type: decimal">
+<li>inst: Institution code</li>
+<li>time: Survival time in days</li>
+<li>status: censoring status 1=censored, 2=dead</li>
+<li>age: Age in years</li>
+<li>sex: Male=1 Female=2</li>
+<li>ph.ecog: ECOG performance score (0=good 5=dead)</li>
+<li>ph.karno: Karnofsky performance score as rated by physician</li>
+<li>pat.karno: Karnofsky performance score as rated by patient</li>
+<li>meal.cal: Calories consumed at meals</li>
+<li>wt.loss: Weight loss in last six months</li>
+</ol>
+<p>Load the library</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(survival)</code></pre></div>
+<p>Describe data</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(psych)
+lung &lt;-<span class="st"> </span>lung
+<span class="kw">describe</span>(lung)</code></pre></div>
+<pre><code>##           vars   n   mean     sd median trimmed    mad min  max range
+## inst         1 227  11.09   8.30   11.0   10.36   8.90   1   33    32
+## time         2 228 305.23 210.65  255.5  281.09 160.86   5 1022  1017
+## status       3 228   1.72   0.45    2.0    1.78   0.00   1    2     1
+## age          4 228  62.45   9.07   63.0   62.88   9.64  39   82    43
+## sex          5 228   1.39   0.49    1.0    1.37   0.00   1    2     1
+## ph.ecog      6 227   0.95   0.72    1.0    0.93   1.48   0    3     3
+## ph.karno     7 227  81.94  12.33   80.0   82.73  14.83  50  100    50
+## pat.karno    8 225  79.96  14.62   80.0   80.72  14.83  30  100    70
+## meal.cal     9 181 928.78 402.17  975.0  914.81 296.52  96 2600  2504
+## wt.loss     10 214   9.83  13.14    7.0    8.45  10.38 -24   68    92
+##            skew kurtosis    se
+## inst       0.66    -0.22  0.55
+## time       1.08     0.86 13.95
+## status    -0.99    -1.02  0.03
+## age       -0.37    -0.40  0.60
+## sex        0.43    -1.82  0.03
+## ph.ecog    0.14    -0.85  0.05
+## ph.karno  -0.57    -0.20  0.82
+## pat.karno -0.60     0.13  0.97
+## meal.cal   1.00     3.35 29.89
+## wt.loss    1.17     2.33  0.90</code></pre>
+<p>and declare the time to event</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tte &lt;-<span class="st"> </span><span class="kw">Surv</span>(<span class="dt">time =</span> lung<span class="op">$</span>time, <span class="dt">event =</span> lung<span class="op">$</span>status<span class="op">==</span><span class="dv">2</span>)
+tte</code></pre></div>
+<pre><code>##   [1]  306   455  1010+  210   883  1022+  310   361   218   166   170 
+##  [12]  654   728    71   567   144   613   707    61    88   301    81 
+##  [23]  624   371   394   520   574   118   390    12   473    26   533 
+##  [34]  107    53   122   814   965+   93   731   460   153   433   145 
+##  [45]  583    95   303   519   643   765   735   189    53   246   689 
+##  [56]   65     5   132   687   345   444   223   175    60   163    65 
+##  [67]  208   821+  428   230   840+  305    11   132   226   426   705 
+##  [78]  363    11   176   791    95   196+  167   806+  284   641   147 
+##  [89]  740+  163   655   239    88   245   588+   30   179   310   477 
+## [100]  166   559+  450   364   107   177   156   529+   11   429   351 
+## [111]   15   181   283   201   524    13   212   524   288   363   442 
+## [122]  199   550    54   558   207    92    60   551+  543+  293   202 
+## [133]  353   511+  267   511+  371   387   457   337   201   404+  222 
+## [144]   62   458+  356+  353   163    31   340   229   444+  315+  182 
+## [155]  156   329   364+  291   179   376+  384+  268   292+  142   413+
+## [166]  266+  194   320   181   285   301+  348   197   382+  303+  296+
+## [177]  180   186   145   269+  300+  284+  350   272+  292+  332+  285 
+## [188]  259+  110   286   270    81   131   225+  269   225+  243+  279+
+## [199]  276+  135    79    59   240+  202+  235+  105   224+  239   237+
+## [210]  173+  252+  221+  185+   92+   13   222+  192+  183   211+  175+
+## [221]  197+  203+  116   188+  191+  105+  174+  177+</code></pre>
+<div id="estimation-and-inference" class="section level3">
+<h3><span class="header-section-number">10.6.1</span> Estimation and inference</h3>
+<p>perform Cox PH model to estime the log hazard and the hazard ratios.</p>
+<ol style="list-style-type: decimal">
+<li>constant only model</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cox_mod &lt;-<span class="st"> </span><span class="kw">coxph</span>(tte <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> lung)
+<span class="kw">summary</span>(cox_mod)</code></pre></div>
+<pre><code>## Call:  coxph(formula = tte ~ 1, data = lung)
+## 
+## Null model
+##   log likelihood= -749.9098 
+##   n= 228</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>multivariable model</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cox_mod2 &lt;-<span class="st"> </span><span class="kw">coxph</span>(tte <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span>ph.ecog <span class="op">+</span><span class="st"> </span><span class="kw">factor</span>(sex) <span class="op">+</span><span class="st"> </span>ph.karno, <span class="dt">data =</span> lung)
+<span class="kw">summary</span>(cox_mod2)</code></pre></div>
+<pre><code>## Call:
+## coxph(formula = tte ~ 1 + ph.ecog + factor(sex) + ph.karno, data = lung)
+## 
+##   n= 226, number of events= 163 
+##    (2 observations deleted due to missingness)
+## 
+##                   coef exp(coef)  se(coef)      z Pr(&gt;|z|)    
+## ph.ecog       0.640357  1.897158  0.178127  3.595 0.000324 ***
+## factor(sex)2 -0.568822  0.566192  0.168845 -3.369 0.000755 ***
+## ph.karno      0.011055  1.011116  0.009535  1.159 0.246292    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##              exp(coef) exp(-coef) lower .95 upper .95
+## ph.ecog         1.8972     0.5271    1.3381    2.6898
+## factor(sex)2    0.5662     1.7662    0.4067    0.7883
+## ph.karno        1.0111     0.9890    0.9924    1.0302
+## 
+## Concordance= 0.634  (se = 0.026 )
+## Rsquare= 0.122   (max possible= 0.999 )
+## Likelihood ratio test= 29.37  on 3 df,   p=1.876e-06
+## Wald test            = 29.18  on 3 df,   p=2.056e-06
+## Score (logrank) test = 29.54  on 3 df,   p=1.726e-06</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="reading-statistical-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="final-words.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-glm.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

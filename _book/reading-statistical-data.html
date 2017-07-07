@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="reporting-results.html">
-<link rel="next" href="grammar-of-variables.html">
+<link rel="prev" href="preparing-r.html">
+<link rel="next" href="glm.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -228,16 +228,120 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-and-variable-manipulation" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> Data and variable manipulation</h1>
+<div id="reading-statistical-data" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Reading statistical data</h1>
+<div id="objectives-1" class="section level2">
+<h2><span class="header-section-number">9.1</span> Objectives</h2>
+<p>At the end of the lecture, participants are:</p>
+<ol style="list-style-type: decimal">
+<li>able to read various data formats into R</li>
+<li>able to export data from R into various data format</li>
+<li>able to create R-markdown document</li>
+</ol>
+</div>
+<div id="data-formats" class="section level2">
+<h2><span class="header-section-number">9.2</span> Data formats</h2>
+<p>R can read datasets from different formats.</p>
+<p>The <code>base</code> package enables us to read <code>.txt</code> and <code>.csv</code> files.</p>
+<p>You can also use the point and click method to read data. Go to File -&gt; Import Dataset -&gt; From …</p>
+<p>To read datasets from SPSS (<code>.sav</code>), Stata (<code>.dta</code>), Excel (<code>xlsx</code>) and SAS, we need to load special packages.</p>
+<p>There are more than 1 packages you can use to read and write data from/to different spreadsheet or statistical software.</p>
+<p>The packages include:</p>
+<ol style="list-style-type: decimal">
+<li><code>haven</code></li>
+<li><code>foreign</code></li>
+<li><code>readxl</code></li>
+<li><code>readr</code></li>
+</ol>
+</div>
+<div id="reading-data-into-r" class="section level2">
+<h2><span class="header-section-number">9.3</span> Reading data into R</h2>
+<div id="reading-csv-file" class="section level3">
+<h3><span class="header-section-number">9.3.1</span> Reading csv file</h3>
+<p>Let us read a <code>.csv</code> files names as <code>metab.csv</code>.</p>
+<p>We would like to create an object named as <code>met_data</code> to represent the read <code>metab.csv</code>. We can do this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">met_data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;metab1.csv&#39;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>header = TRUE means that you will read the first row as the variable names.</p>
+<p>After you have done this, you will see a new object named as <code>met_data</code> inside the <em>environment</em> pane.</p>
+</div>
+<div id="reading-dataset-from-ms-excel-file" class="section level3">
+<h3><span class="header-section-number">9.3.2</span> Reading dataset from MS Excel file</h3>
+<p>You can read dataset from Excel using 2 methods</p>
+<ol style="list-style-type: decimal">
+<li>point and click method. File - Import Dataset - from Excel</li>
+<li><code>readxl</code> package</li>
+</ol>
+<p>To read data using specific packages such as <code>readxl</code> package:</p>
+<ol style="list-style-type: decimal">
+<li>you need to install the library first using <code>install.packages()</code></li>
+<li>After that, load the library using <code>library(readxl)</code></li>
+<li>Type <code>read_excel()</code> with relevant arguments to read the data into RStudio</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readxl)
+dataexcel &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&#39;eye.xlsx&#39;</span>, <span class="dt">sheet =</span> <span class="dv">1</span>)</code></pre></div>
+<p>The example above means that we read an MS Excel file named as <code>eye.xlsx</code> and named it as <code>dataexcel</code>.</p>
+</div>
+<div id="reading-dataset-from-spss-file-.sav-1" class="section level3">
+<h3><span class="header-section-number">9.3.3</span> Reading dataset from SPSS file (.sav)</h3>
+<p>Dataset in SPSS format will end with <code>.sav</code>.</p>
+<p>To read SPSS data into R we may use <code>foreign</code> or <code>haven</code> packages.</p>
+<p>After reading the <code>.sav</code> file, an object will be created based on what we named it.</p>
+<p>The example below shows that an object named as <code>dataSPSS</code>represents the SPSS data <code>cholest.sav</code>that we just read into RStudio.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(foreign)
+dataSPSS &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&#39;cholest.sav&#39;</span>, <span class="dt">to.data.frame =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## re-encoding from UTF-8</code></pre>
+</div>
+<div id="reading-dataset-from-stata-.dta" class="section level3">
+<h3><span class="header-section-number">9.3.4</span> Reading dataset from Stata (.dta)</h3>
+<p>Dataset in Stata format will end with <code>.dta</code>.</p>
+<p>To read Stata data into R we may use <code>foreign</code> or <code>haven</code> packages.</p>
+<p>After reading the <code>.dta</code> file, similarly an object will be created - in this case, we named it as <code>dataSTATA</code>.</p>
+<p><code>dataSTATA</code> is an object that represents the Stata data (now in the memory) that we just read <code>metab1.dta</code>into RStudio.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">datastata &lt;-<span class="st"> </span><span class="kw">read.dta</span>(<span class="st">&#39;metab1.dta&#39;</span>, <span class="dt">convert.factors =</span> <span class="ot">TRUE</span>)</code></pre></div>
+</div>
+<div id="alternative-methods-or-package" class="section level3">
+<h3><span class="header-section-number">9.3.5</span> Alternative methods or package</h3>
+<ol style="list-style-type: decimal">
+<li>You can go to File - Read Datasets</li>
+<li>You may use <strong>haven</strong> package to read SAS, SPSS and Stata file.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(haven)
+dataSPSS2 &lt;-<span class="st"> </span><span class="kw">read_sav</span>(<span class="st">&#39;cholest.sav&#39;</span>)
+dataSTATA2 &lt;-<span class="st"> </span><span class="kw">read_dta</span>(<span class="st">&#39;cholest.dta&#39;</span>)</code></pre></div>
+</div>
+<div id="other-data-format" class="section level3">
+<h3><span class="header-section-number">9.3.6</span> Other data format</h3>
+<p>Other important data formats that might be useful in epidemiology and statistics are:</p>
+<ol style="list-style-type: decimal">
+<li>shapefile <code>.shp</code></li>
+<li>text file <code>.txt</code></li>
+<li>text file <code>.dat</code></li>
+<li><code>XML</code> file</li>
+<li>images file <code>DICOM</code></li>
+</ol>
+<p>We will not cover these today.</p>
+</div>
+</div>
+<div id="exporting-data-from-r" class="section level2">
+<h2><span class="header-section-number">9.4</span> Exporting data from R</h2>
+<p>You can also export data into various formats using similar packages.</p>
+<p>For example,</p>
+<ol style="list-style-type: decimal">
+<li>to export data into a <em>comma separated version</em> (.csv) file, we can use <code>write.csv</code> function.</li>
+<li>to export data into stata format, we can use <code>write.dta</code> function</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">export_csv &lt;-<span class="st"> </span><span class="kw">write.csv</span>(dataSPSS, <span class="st">&#39;export_csv.csv&#39;</span>)
+export_stata &lt;-<span class="st"> </span><span class="kw">write.dta</span>(dataexcel, <span class="st">&#39;export_stata.dta&#39;</span>) </code></pre></div>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="reporting-results.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="grammar-of-variables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="preparing-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="glm.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -266,7 +370,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-Grammar_of_Var.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-reading-statistical-data-in-R.Rmd",
 "text": "Edit"
 },
 "download": null,
